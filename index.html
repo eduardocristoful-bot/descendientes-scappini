@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Descendientes de Vincenzo Giuseppe Scappini Ferrari</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,47 +21,157 @@ padding:0;
 box-sizing:border-box;
 }
 
-body{
-background:#f5f1e8;
-font-family:"Source Sans 3",sans-serif;
-color:#2b2b2b;
+html{
+scroll-behavior:smooth;
 }
 
-.hero{
+body{
+font-family:"Source Sans 3",sans-serif;
+background:#f5f2ea;
+color:#333;
+line-height:1.6;
+}
+
+header{
+
 height:100vh;
+
+background:
+linear-gradient(rgba(25,25,25,.45),rgba(25,25,25,.45)),
+url("https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?auto=format&fit=crop&w=1800&q=80");
+
+background-size:cover;
+background-position:center;
+
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 padding:40px;
+
+}
+
+.hero{
+
+max-width:900px;
+
 }
 
 h1{
+
 font-family:"Cormorant Garamond",serif;
-font-size:4rem;
-font-weight:600;
-margin-bottom:20px;
-}
-
-p{
-font-size:1.4rem;
-margin-bottom:50px;
-}
-
-button{
-padding:18px 42px;
-font-size:1.1rem;
-cursor:pointer;
-border:none;
-border-radius:8px;
-background:#2d4d3a;
+font-size:4.8rem;
 color:white;
-transition:.25s;
+margin-bottom:25px;
+
 }
 
-button:hover{
-transform:scale(1.05);
+.subtitle{
+
+font-size:1.5rem;
+color:white;
+margin-bottom:45px;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:18px 42px;
+
+background:#355b43;
+color:white;
+
+text-decoration:none;
+
+border-radius:8px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+background:#24412f;
+
+}
+
+section{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:90px 40px;
+
+}
+
+h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:3rem;
+
+margin-bottom:20px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+
+.card{
+
+background:white;
+
+padding:35px;
+
+border-radius:14px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+font-size:1.5rem;
+
+}
+
+footer{
+
+background:#26382d;
+
+color:white;
+
+text-align:center;
+
+padding:35px;
+
 }
 
 </style>
@@ -66,15 +180,68 @@ transform:scale(1.05);
 
 <body>
 
-<section class="hero">
+<header>
+
+<div class="hero">
 
 <h1>Descendientes de Vincenzo Giuseppe Scappini Ferrari</h1>
 
-<p>Archivo Histórico de la Familia Scappini Bernuzzi</p>
+<p class="subtitle">
 
-<button>Entrar al Archivo</button>
+Archivo histórico de la familia Scappini Bernuzzi.<br>
+
+Un homenaje a quienes cruzaron el océano para construir un nuevo futuro.
+
+</p>
+
+<a class="btn" href="#inicio">Comenzar</a>
+
+</div>
+
+</header>
+
+<section id="inicio">
+
+<h2>Bienvenidos</h2>
+
+<p>
+
+Este sitio reúne la historia de los descendientes de Vincenzo Giuseppe Scappini Ferrari y Elizabetta Bernuzzi, desde sus orígenes en Italia hasta su establecimiento en Sudamérica.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>Árbol Genealógico</h3>
+<p>Explora las generaciones de la familia.</p>
+</div>
+
+<div class="card">
+<h3>Línea de Tiempo</h3>
+<p>Recorre los acontecimientos más importantes.</p>
+</div>
+
+<div class="card">
+<h3>Mapa Migratorio</h3>
+<p>Sigue el recorrido desde Italia hasta Paraguay.</p>
+</div>
+
+<div class="card">
+<h3>Galería Histórica</h3>
+<p>Fotografías restauradas y documentos familiares.</p>
+</div>
+
+</div>
 
 </section>
 
+<footer>
+
+© 2026 · Archivo Histórico de la Familia Scappini Bernuzzi
+
+</footer>
+
 </body>
+
 </html>
