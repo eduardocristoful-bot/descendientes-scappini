@@ -216,14 +216,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
         }
+        
+        /* --- AQUÍ ESTÁ EL CAMBIO QUE SOLUCIONA EL CORTE DE CABEZA --- */
         .modal-content img {
             width: 100%;
-            max-height: 300px;
-            object-fit: cover;
+            max-height: 400px;     /* Altura máxima aumentada para que no quede chica */
+            object-fit: contain;   /* En lugar de "cover", esto muestra la foto COMPLETA sin recortar */
             border-radius: 15px;
             margin-bottom: 20px;
             border: 5px solid white;
+            background-color: #d0d6cf; /* Un fondo gris suave para los bordes sobrantes */
         }
+        /* ---------------------------------------------------------- */
+
         .close-btn {
             position: absolute;
             top: 15px;
@@ -414,11 +419,7 @@
         </div>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- VENTANAS MODALES (POP-UP) PARA CADA FAMILIA -->
-    <!-- ========================================== -->
-
-    <!-- MODAL DE PABLO (No tienes foto, el onerror la ocultará) -->
+    <!-- VENTANAS MODALES -->
     <div id="modal-pablo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-pablo')">&times;</span>
@@ -432,7 +433,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE ROSA (No tienes foto, el onerror la ocultará) -->
     <div id="modal-rosa" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
@@ -444,7 +444,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE JUAN -->
     <div id="modal-juan" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-juan')">&times;</span>
@@ -457,7 +456,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE GENOVEVA -->
     <div id="modal-genoveva" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-genoveva')">&times;</span>
@@ -470,7 +468,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE JOSÉ YELINDO -->
     <div id="modal-jose-yelindo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span>
@@ -482,7 +479,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE MARCELO -->
     <div id="modal-marcelo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
@@ -494,7 +490,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE ALBERTO -->
     <div id="modal-alberto" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span>
@@ -506,7 +501,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE FRANCISCA (TÍA CHECA) -->
     <div id="modal-francisca" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-francisca')">&times;</span>
@@ -518,21 +512,15 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- JAVASCRIPT PARA ABRIR Y CERRAR LOS MODALES  -->
-    <!-- ========================================== -->
     <script>
         function openModal(id) {
             document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden"; // Evita que la página de fondo haga scroll
+            document.body.style.overflow = "hidden"; 
         }
-
         function closeModal(id) {
             document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto"; // Reactiva el scroll de la página
+            document.body.style.overflow = "auto"; 
         }
-
-        // Cerrar el modal si el usuario hace clic fuera del cuadro blanco
         window.onclick = function(event) {
             if (event.target.className === "modal") {
                 event.target.style.display = "none";
