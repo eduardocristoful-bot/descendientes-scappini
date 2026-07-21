@@ -103,6 +103,7 @@
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
             transition: .3s;
+            cursor: pointer; /* Cambia el cursor a mano para indicar que es cliqueable */
         }
         .card:hover {
             transform: translateY(-8px);
@@ -191,9 +192,56 @@
             margin-top: 2px;
             line-height: 1.5;
         }
+
+        /* ESTILOS PARA LAS VENTANAS MODALES (POP-UP) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            overflow: auto; /* Permitir scroll si el contenido es muy largo */
+        }
+        .modal-content {
+            background-color: #f5f2ea;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #333;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover {
+            color: #355b43;
+        }
+
         @media (max-width: 600px) {
             .timeline { padding-left: 10px; }
             .timeline-item { padding-left: 35px; }
+            .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
         }
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
@@ -227,60 +275,51 @@
 
         <!-- Línea de Tiempo Familiar -->
         <div class="timeline">
-            
             <div class="timeline-item">
                 <div class="date">25 de enero de 1842</div>
                 <div class="event">Nacimiento de <strong>Vincenzo Giuseppe Scappini</strong> en San Martino Del Lago, Italia.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">5 de marzo de 1853</div>
                 <div class="event">Nacimiento de <strong>Elizabetta Bernuzzi</strong> en Scandolara Rabara, Italia.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">25 de enero de 1875</div>
                 <div class="event">Matrimonio de Vincenzo Giuseppe (33 años) y Elizabetta (22 años).</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">1879</div>
                 <div class="event">Nacimiento del primogénito <strong>Pablo</strong> (el único hijo que nació en Italia).</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">Fines del Siglo XIX</div>
                 <div class="event">La familia emigra a Sudamérica. Arriban a <strong>Río Grande do Sul (Brasil)</strong> en las barcazas del Imperio.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">Inicios del Siglo XX</div>
                 <div class="event">La familia se desplaza y se establece definitivamente en <strong>Yegros, Paraguay</strong>.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">9 de octubre de 1923</div>
                 <div class="event">Fallecimiento de <strong>Elizabetta Bernuzzi</strong> a los 70 años.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">3 de septiembre de 1926</div>
                 <div class="event">Fallecimiento de <strong>Vincenzo Giuseppe Scappini</strong> a los 84 años.</div>
             </div>
-
             <div class="timeline-item">
                 <div class="date">1962</div>
                 <div class="event">Fallecimiento del hijo mayor, <strong>Pablo</strong>.</div>
             </div>
-
         </div>
-        <!-- Fin Línea de Tiempo -->
 
         <h3>Los 8 Hijos del Matrimonio</h3>
-        <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>. A continuación, la descendencia de sus hijos:</p>
+        <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>. <br> 
+        <em>Haz clic en cada tarjeta para ver la foto y la historia completa de esa rama familiar.</em></p>
         
         <div class="cards">
-            <div class="card">
+            <!-- TARJETA DE PABLO -->
+            <div class="card" onclick="openModal('modal-pablo')">
                 <h3>Pablo (1879 - 1962)</h3>
                 <p><strong>Scappini González</strong></p>
                 <ul>
@@ -289,7 +328,8 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <!-- TARJETA DE ROSA -->
+            <div class="card" onclick="openModal('modal-rosa')">
                 <h3>Rosa</h3>
                 <p><strong>Cortessi Scappini</strong></p>
                 <ul>
@@ -298,13 +338,13 @@
                 </ul>
             </div>
 
+            <!-- LAS OTRAS TARJETAS AÚN NO TIENEN MODAL CONFIGURADO -->
             <div class="card">
                 <h3>Juan</h3>
                 <p><strong>Scappini Valdez</strong></p>
                 <ul>
-                    <li>Casado con Anselma Valdez.</li>
-                    <li>Se radicaron en <strong>Foz de Iguazú (Brasil)</strong>.</li>
-                    <li>Particularidad: Todos sus descendientes firman con el apellido Scappini, tanto hombres como mujeres.</li>
+                    <li>Casado con Anselma Valdez. Foz de Iguazú (Brasil).</li>
+                    <li>Todos sus descendientes firman Scappini.</li>
                 </ul>
             </div>
 
@@ -312,9 +352,8 @@
                 <h3>Genoveva</h3>
                 <p><strong>Rienzzi Scappini</strong></p>
                 <ul>
-                    <li>Casada con Alfonso Rienzzi Grande (Ypacaraí, Paraguay).</li>
-                    <li>Tuvieron <strong>5 hijos</strong>.</li>
-                    <li>Fallece muy joven. El viudo tuvo otros 5 hijos con la niñera (<em>Rienzzi Colmán</em>).</li>
+                    <li>Casada con Alfonso Rienzzi Grande.</li>
+                    <li>Tuvieron <strong>5 hijos</strong>. Fallece muy joven.</li>
                 </ul>
             </div>
 
@@ -322,8 +361,8 @@
                 <h3>José Yelindo</h3>
                 <p><strong>Scappini Scurra &amp; Scappini Larrosa</strong></p>
                 <ul>
-                    <li>1er matrimonio con Justina Scurra: <strong>6 hijos</strong>.</li>
-                    <li>2do matrimonio con Albertina Larrosa: <strong>10 hijos</strong>.</li>
+                    <li>1er mat. con Justina Scurra: <strong>6 hijos</strong>.</li>
+                    <li>2do mat. con Albertina Larrosa: <strong>10 hijos</strong>.</li>
                 </ul>
             </div>
 
@@ -350,8 +389,7 @@
                 <p><strong>Núñez Scappini</strong></p>
                 <ul>
                     <li>Casada con Basilicio Núñez.</li>
-                    <li>Tuvo <strong>1 hijo</strong>, Alicio Núñez, quien falleció joven sin descendencia.</li>
-                    <li>Vivió muchos años ayudando a su cuñado Alfonso Rienzzi a criar a sus 10 hijos.</li>
+                    <li>Tuvo <strong>1 hijo</strong>, Alicio Núñez (falleció joven).</li>
                 </ul>
             </div>
         </div>
@@ -360,10 +398,7 @@
     <section id="arbol">
         <h2>Árbol Genealógico Familiar</h2>
         <p>Esta es la representación visual de nuestras raíces extraída de los archivos históricos.</p>
-        
-        <!-- Como subiste la imagen con espacio, usamos %20 para que la web la detecte -->
         <img src="images/arbol-genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img">
-        
     </section>
 
     <footer>
@@ -374,6 +409,64 @@
         </div>
     </footer>
 
-</body>
+    <!-- ========================================== -->
+    <!-- VENTANAS MODALES (POP-UP) PARA CADA FAMILIA -->
+    <!-- ========================================== -->
 
+    <!-- MODAL DE PABLO (YA CONFIGURADO) -->
+    <div id="modal-pablo" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-pablo')">&times;</span>
+            
+            <!-- Aquí debes subir una foto de Pablo. Ej: images/pablo-scappini.jpg -->
+            <img src="images/pablo-scappini.jpg" alt="Familia Scappini González" onerror="this.style.display='none'">
+            
+            <h3>Pablo Scappini</h3>
+            <p><strong>Nacimiento:</strong> 1879 (Italia)</p>
+            <p><strong>Fallecimiento:</strong> 1962</p>
+            <p><strong>Cónyuge:</strong> Escolástica González</p>
+            <p><strong>Hijos:</strong> Tuvieron 12 hijos vivos. Son la rama de los <em>Scappini González</em>.</p>
+            <p style="text-align: justify; margin-top: 15px;">[Aquí puedes escribir la historia o anécdotas de Pablo y su familia. Puedes poner varias líneas de texto.]</p>
+        </div>
+    </div>
+
+    <!-- MODAL DE ROSA (YA CONFIGURADO) -->
+    <div id="modal-rosa" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
+            
+            <!-- Aquí debes subir una foto de Rosa. Ej: images/rosa-scappini.jpg -->
+            <img src="images/rosa-scappini.jpg" alt="Familia Cortessi Scappini" onerror="this.style.display='none'">
+            
+            <h3>Rosa Scappini</h3>
+            <p><strong>Cónyuge:</strong> José Cortessi</p>
+            <p><strong>Hijos:</strong> Tuvieron 7 hijos vivos. Son la rama de los <em>Cortessi Scappini</em>.</p>
+            <p style="text-align: justify; margin-top: 15px;">[Aquí puedes escribir la historia o anécdotas de Rosa y su familia.]</p>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT PARA ABRIR Y CERRAR LOS MODALES  -->
+    <!-- ========================================== -->
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; // Evita que la página de fondo haga scroll
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto"; // Reactiva el scroll de la página
+        }
+
+        // Cerrar el modal si el usuario hace clic fuera del cuadro blanco
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+
+</body>
 </html>
