@@ -9,56 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* Estilos para el Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 60px auto 40px auto;
-            padding-left: 30px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #355b43;
-        }
-        .timeline-item {
-            position: relative;
-            padding-left: 45px;
-            margin-bottom: 35px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 5px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #fff;
-            border: 4px solid #355b43;
-            z-index: 1;
-        }
-        .timeline-item .date {
-            font-family: "Cormorant Garamond", serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #355b43;
-        }
-        .timeline-item .event {
-            font-size: 1rem;
-            color: #333;
-            margin-top: 2px;
-            line-height: 1.5;
-        }
-        @media (max-width: 600px) {
-            .timeline { padding-left: 10px; }
-            .timeline-item { padding-left: 35px; }
-        }
-
     <style>
         * {
             margin: 0;
@@ -75,17 +25,17 @@
             line-height: 1.6;
         }
         header {
-    height: 100vh;
-    background: linear-gradient(rgba(25,25,25,.45),rgba(25,25,25,.45)),
+            height: 100vh;
+            background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)),
                 url("images/bernuzzi-scappini.png");
-    background-size: cover;
-    background-position: center top; /* <--- CAMBIA ESTO */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-}
+            background-size: cover;
+            background-position: center top;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
         .hero {
             max-width: 900px;
         }
@@ -195,6 +145,56 @@
             opacity: 0.8;
             font-style: italic;
         }
+
+        /* Estilos para el Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto 40px auto;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #355b43;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 35px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #355b43;
+            z-index: 1;
+        }
+        .timeline-item .date {
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #355b43;
+        }
+        .timeline-item .event {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+        @media (max-width: 600px) {
+            .timeline { padding-left: 10px; }
+            .timeline-item { padding-left: 35px; }
+        }
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
             .subtitle { font-size: 1.2rem; }
@@ -224,7 +224,7 @@
             <br>
             <p>Desembarcaron en <strong>Río Grande do Sul (Brasil)</strong>. Fue allí donde sus apellidos fueron registrados tal como los oía el oficial, ya que los campesinos solo hablaban dialectos italianos. Por descontento con las condiciones, muchos italianos se desplazaron hacia distintos territorios. Nuestros antepasados siguieron caminos hasta llegar a Encarnación, cruzaron el caudaloso río Paraná y, siguiendo las vías del tren, se establecieron finalmente en <strong>Yegros, Paraguay</strong>.</p>
         </div>
-        
+
         <!-- Línea de Tiempo Familiar -->
         <div class="timeline">
             
@@ -359,20 +359,17 @@
 
     <section id="arbol">
         <h2>Árbol Genealógico Familiar</h2>
-        <p>Esta es la representación visual de nuestras raíces extraída de los archivos históricos. (Si ya subiste la imagen del PDF a la carpeta <strong>images</strong> con el nombre <code>arbol-genealogico.jpg</code>, aparecerá aquí).</p>
+        <p>Esta es la representación visual de nuestras raíces extraída de los archivos históricos.</p>
         
-        <!-- Si subes el árbol genealógico, descomenta esta línea y asegúrate de que se llame arbol-genealogico.png -->
-        <!-- <img src="images/arbol-genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img"> -->
+        <!-- Como subiste la imagen con espacio, usamos %20 para que la web la detecte -->
+        <img src="images/arbol%20genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img">
         
-        <div style="background: #fff; padding: 30px; border-radius: 14px; text-align: center; margin-top: 20px; border: 2px dashed #ccc;">
-            <p style="color: #777;">🖼️ Para ver el árbol genealógico aquí, sube la imagen del PDF a la carpeta <strong>images</strong> con el nombre <code>arbol-genealogico.jpg</code> y descomenta la etiqueta <code>&lt;img&gt;</code> en el código HTML.</p>
-        </div>
     </section>
 
     <footer>
         <p>© 2026 · Archivo Histórico de la Familia Scappini Bernuzzi</p>
         <div class="footer-credit">
-            Datos colectados por Amalia Scappini en colaboración con Samir Paravicini Abou Saleh. Digitalización: Christian Cristóful Scappini<br>
+            Datos colectados por Amalia Scappini en colaboración con Samir Paravicini Abou Saleh.<br>
             Julio de 2026.
         </div>
     </footer>
