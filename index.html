@@ -147,7 +147,6 @@
             font-style: italic;
         }
 
-        /* Estilos para el Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -193,9 +192,8 @@
             line-height: 1.5;
         }
 
-        /* ESTILOS PARA LAS VENTANAS MODALES (POP-UP) */
         .modal {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -216,18 +214,15 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
         }
-        
-        /* Foto completa sin recortar */
         .modal-content img {
             width: 100%;
-            max-height: 400px;     
-            object-fit: contain;   
+            max-height: 400px;
+            object-fit: contain;
             border-radius: 15px;
             margin-bottom: 20px;
             border: 5px solid white;
-            background-color: #d0d6cf; 
+            background-color: #d0d6cf;
         }
-
         .close-btn {
             position: absolute;
             top: 15px;
@@ -240,6 +235,42 @@
         }
         .close-btn:hover {
             color: #355b43;
+        }
+
+        /* Estilos para los botones internos del modal de Marcelo */
+        .child-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .child-btn {
+            background: #e8e4dc;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            color: #26382d;
+        }
+        .child-btn:hover {
+            background: #355b43;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #26382d;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #355b43;
         }
 
         @media (max-width: 600px) {
@@ -277,7 +308,7 @@
             <p>Desembarcaron en <strong>Río Grande do Sul (Brasil)</strong>. Fue allí donde sus apellidos fueron registrados tal como los oía el oficial, ya que los campesinos solo hablaban dialectos italianos. Por descontento con las condiciones, muchos italianos se desplazaron hacia distintos territorios. Nuestros antepasados siguieron caminos hasta llegar a Encarnación, cruzaron el caudaloso río Paraná y, siguiendo las vías del tren, se establecieron finalmente en <strong>Yegros, Paraguay</strong>.</p>
         </div>
 
-        <!-- Línea de Tiempo Familiar -->
+        <!-- Línea de Tiempo -->
         <div class="timeline">
             <div class="timeline-item">
                 <div class="date">25 de enero de 1842</div>
@@ -297,19 +328,15 @@
             </div>
             <div class="timeline-item">
                 <div class="date">Fines del Siglo XIX</div>
-                <div class="event">La familia emigra a Sudamérica. Arriban a <strong>Río Grande do Sul (Brasil)</strong> en las barcazas del Imperio.</div>
+                <div class="event">La familia emigra a Sudamérica.</div>
             </div>
             <div class="timeline-item">
                 <div class="date">Inicios del Siglo XX</div>
-                <div class="event">La familia se desplaza y se establece definitivamente en <strong>Yegros, Paraguay</strong>.</div>
+                <div class="event">Se establecen definitivamente en <strong>Yegros, Paraguay</strong>.</div>
             </div>
             <div class="timeline-item">
-                <div class="date">9 de octubre de 1923</div>
-                <div class="event">Fallecimiento de <strong>Elizabetta Bernuzzi</strong> a los 70 años.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="date">3 de septiembre de 1926</div>
-                <div class="event">Fallecimiento de <strong>Vincenzo Giuseppe Scappini</strong> a los 84 años.</div>
+                <div class="date">1923 &amp; 1926</div>
+                <div class="event">Fallecimiento de Elizabetta y Vincenzo.</div>
             </div>
             <div class="timeline-item">
                 <div class="date">1962</div>
@@ -317,96 +344,58 @@
             </div>
         </div>
 
+        <!-- Los 8 Hijos -->
         <h3>Los 8 Hijos del Matrimonio</h3>
         <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>. <br> 
-        <em>Haz clic en cada tarjeta para ver la foto y la historia completa de esa rama familiar.</em></p>
+        <em>Haz clic en cada tarjeta para ver su información.</em></p>
         
         <div class="cards">
-            <!-- PABLO -->
             <div class="card" onclick="openModal('modal-pablo')">
                 <h3>Pablo (1879 - 1962)</h3>
                 <p><strong>Scappini González</strong></p>
-                <ul>
-                    <li>Casado con Escolástica González.</li>
-                    <li>Tuvieron <strong>12 hijos</strong> vivos.</li>
-                </ul>
+                <ul><li>Casado con Escolástica González.</li><li>Tuvieron <strong>12 hijos</strong>.</li></ul>
             </div>
-
-            <!-- ROSA -->
             <div class="card" onclick="openModal('modal-rosa')">
                 <h3>Rosa</h3>
                 <p><strong>Cortessi Scappini</strong></p>
-                <ul>
-                    <li>Casada con José Cortessi.</li>
-                    <li>Tuvieron <strong>7 hijos</strong> vivos.</li>
-                </ul>
+                <ul><li>Casada con José Cortessi.</li><li>Tuvieron <strong>7 hijos</strong>.</li></ul>
             </div>
-
-            <!-- JUAN -->
             <div class="card" onclick="openModal('modal-juan')">
                 <h3>Juan</h3>
                 <p><strong>Scappini Valdez</strong></p>
-                <ul>
-                    <li>Casado con Anselma Valdez. Foz de Iguazú (Brasil).</li>
-                    <li>Todos sus descendientes firman Scappini.</li>
-                </ul>
+                <ul><li>Casado con Anselma Valdez.</li><li>Se radicaron en Foz de Iguazú.</li></ul>
             </div>
-
-            <!-- GENOVEVA -->
             <div class="card" onclick="openModal('modal-genoveva')">
                 <h3>Genoveva</h3>
                 <p><strong>Rienzzi Scappini</strong></p>
-                <ul>
-                    <li>Casada con Alfonso Rienzzi Grande.</li>
-                    <li>Tuvieron <strong>5 hijos</strong>. Fallece muy joven.</li>
-                </ul>
+                <ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul>
             </div>
-
-            <!-- JOSÉ YELINDO -->
             <div class="card" onclick="openModal('modal-jose-yelindo')">
                 <h3>José Yelindo</h3>
-                <p><strong>Scappini Scurra &amp; Scappini Larrosa</strong></p>
-                <ul>
-                    <li>1er mat. con Justina Scurra: <strong>6 hijos</strong>.</li>
-                    <li>2do mat. con Albertina Larrosa: <strong>10 hijos</strong>.</li>
-                </ul>
+                <p><strong>Scappini Scurra &amp; Larrosa</strong></p>
+                <ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul>
             </div>
-
-            <!-- MARCELO -->
             <div class="card" onclick="openModal('modal-marcelo')">
                 <h3>Marcelo</h3>
                 <p><strong>Scappini Sarubbi</strong></p>
-                <ul>
-                    <li>Casado con Teresa Sarubbi Spaltra.</li>
-                    <li>Tuvieron <strong>6 hijos</strong> vivos.</li>
-                </ul>
+                <ul><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>6 hijos</strong> vivos.</li></ul>
             </div>
-
-            <!-- ALBERTO -->
             <div class="card" onclick="openModal('modal-alberto')">
                 <h3>Alberto</h3>
                 <p><strong>Scappini Rodríguez</strong></p>
-                <ul>
-                    <li>Casado con Ernesta Rodríguez Sosa.</li>
-                    <li>Tuvieron <strong>9 hijos</strong> vivos.</li>
-                </ul>
+                <ul><li>Casado con Ernesta Rodríguez Sosa.</li><li>Tuvieron <strong>9 hijos</strong>.</li></ul>
             </div>
-
-            <!-- FRANCISCA -->
             <div class="card" onclick="openModal('modal-francisca')">
                 <h3>Francisca (Tía Checa)</h3>
                 <p><strong>Núñez Scappini</strong></p>
-                <ul>
-                    <li>Casada con Basilicio Núñez.</li>
-                    <li>Tuvo <strong>1 hijo</strong>, Alicio Núñez (falleció joven).</li>
-                </ul>
+                <ul><li>Casada con Basilicio Núñez.</li><li>Tuvo <strong>1 hijo</strong> (falleció joven).</li></ul>
             </div>
         </div>
     </section>
 
     <section id="arbol">
         <h2>Árbol Genealógico Familiar</h2>
-        <p>Esta es la representación visual de nuestras raíces extraída de los archivos históricos.</p>
+        <p>Representación visual de nuestras raíces extraída de los archivos históricos.</p>
         <img src="images/arbol-genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img">
     </section>
 
@@ -418,112 +407,204 @@
         </div>
     </footer>
 
-    <!-- VENTANAS MODALES ACTUALIZADAS CON EL APELLIDO BERNuzzi -->
+    <!-- ================================================== -->
+    <!-- MODALES DE LOS 8 HERMANOS ORIGINALES               -->
+    <!-- ================================================== -->
     <div id="modal-pablo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-pablo')">&times;</span>
-            <img src="images/pablo-scappini.png" alt="Familia Scappini González" onerror="this.style.display='none'">
+            <img src="images/pablo-scappini.png" onerror="this.style.display='none'">
             <h3>Pablo Scappini Bernuzzi</h3>
-            <p><strong>Nacimiento:</strong> 1879 (Italia)</p>
-            <p><strong>Fallecimiento:</strong> 1962</p>
+            <p><strong>Nacimiento:</strong> 1879 (Italia) | <strong>Fallecimiento:</strong> 1962</p>
             <p><strong>Cónyuge:</strong> Escolástica González</p>
-            <p><strong>Hijos:</strong> Tuvieron 12 hijos vivos. Son la rama de los <em>Scappini González</em>.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia o anécdotas de Pablo y su familia]</p>
+            <p><strong>Hijos:</strong> 12 hijos vivos (Rama Scappini González).</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Pablo]</p>
         </div>
     </div>
 
     <div id="modal-rosa" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
-            <img src="images/rosa-scappini.png" alt="Familia Cortessi Scappini" onerror="this.style.display='none'">
+            <img src="images/rosa-scappini.png" onerror="this.style.display='none'">
             <h3>Rosa Scappini Bernuzzi</h3>
             <p><strong>Cónyuge:</strong> José Cortessi</p>
-            <p><strong>Hijos:</strong> Tuvieron 7 hijos vivos. Son la rama de los <em>Cortessi Scappini</em>.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia o anécdotas de Rosa y su familia]</p>
+            <p><strong>Hijos:</strong> 7 hijos vivos (Rama Cortessi Scappini).</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Rosa]</p>
         </div>
     </div>
 
     <div id="modal-juan" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-juan')">&times;</span>
-            <img src="images/juan-scappini.png" alt="Familia Scappini Valdez" onerror="this.style.display='none'">
+            <img src="images/juan-scappini.png" onerror="this.style.display='none'">
             <h3>Juan Scappini Bernuzzi</h3>
             <p><strong>Cónyuge:</strong> Anselma Valdez</p>
             <p><strong>Lugar:</strong> Foz de Iguazú (Brasil)</p>
             <p><strong>Descendencia:</strong> Todos sus descendientes llevan el apellido Scappini.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de Juan]</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Juan]</p>
         </div>
     </div>
 
     <div id="modal-genoveva" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-genoveva')">&times;</span>
-            <img src="images/genoveva-scappini.png" alt="Familia Rienzzi Scappini" onerror="this.style.display='none'">
+            <img src="images/genoveva-scappini.png" onerror="this.style.display='none'">
             <h3>Genoveva Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Alfonso Rienzzi Grande</p>
-            <p><strong>Lugar:</strong> Ypacaraí, Paraguay</p>
-            <p><strong>Hijos:</strong> Tuvieron 5 hijos. Falleció muy joven.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de Genoveva]</p>
+            <p><strong>Cónyuge:</strong> Alfonso Rienzzi Grande (Ypacaraí, Paraguay)</p>
+            <p><strong>Hijos:</strong> 5 hijos. Falleció muy joven.</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Genoveva]</p>
         </div>
     </div>
 
     <div id="modal-jose-yelindo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span>
-            <img src="images/jose-yelindo-scappini.png" alt="Familia Scappini Scurra y Larrosa" onerror="this.style.display='none'">
+            <img src="images/jose-yelindo-scappini.png" onerror="this.style.display='none'">
             <h3>José Yelindo Scappini Bernuzzi</h3>
             <p><strong>1er Cónyuge:</strong> Justina Scurra (6 hijos)</p>
             <p><strong>2do Cónyuge:</strong> Albertina Larrosa (10 hijos)</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de José Yelindo]</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de José Yelindo]</p>
         </div>
     </div>
 
+    <!-- MODAL DE MARCELO (AHORA CON SUB-VISTAS PARA SUS HIJOS) -->
     <div id="modal-marcelo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
-            <img src="images/marcelo-scappini.jpeg" alt="Familia Scappini Sarubbi" onerror="this.style.display='none'">
-            <h3>Marcelo Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra</p>
-            <p><strong>Hijos:</strong> Tuvieron 6 hijos vivos.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de Marcelo]</p>
+            
+            <!-- VISTA DE MARCELO (PADRE) -->
+            <div id="marcelo-parent-view">
+                <img src="images/marcelo-scappini.jpeg" onerror="this.style.display='none'">
+                <h3>Marcelo Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra</p>
+                <p><strong>Hijos:</strong> Tuvieron 6 hijos vivos.</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Marcelo como padre de familia]</p>
+                
+                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a sus 6 hijos:</h4>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showChild(1)">Hijo 1</div>
+                    <div class="child-btn" onclick="showChild(2)">Hijo 2</div>
+                    <div class="child-btn" onclick="showChild(3)">Hijo 3</div>
+                    <div class="child-btn" onclick="showChild(4)">Hijo 4</div>
+                    <div class="child-btn" onclick="showChild(5)">Hijo 5</div>
+                    <div class="child-btn" onclick="showChild(6)">Hijo 6</div>
+                </div>
+            </div>
+
+            <!-- VISTAS DE CADA HIJO (OCULTAS POR DEFECTO) -->
+            <div id="marcelo-child-1-view" style="display:none;">
+                <img src="images/marcelo-hijo1-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 1] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 1 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-2-view" style="display:none;">
+                <img src="images/marcelo-hijo2-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 2] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 2 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-3-view" style="display:none;">
+                <img src="images/marcelo-hijo3-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 3] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 3 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-4-view" style="display:none;">
+                <img src="images/marcelo-hijo4-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 4] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 4 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-5-view" style="display:none;">
+                <img src="images/marcelo-hijo5-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 5] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 5 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-6-view" style="display:none;">
+                <img src="images/marcelo-hijo6-scappini.png" onerror="this.style.display='none'">
+                <h3>[Nombre del Hijo 6] Scappini Bernuzzi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 6 de Marcelo]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
         </div>
     </div>
 
     <div id="modal-alberto" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span>
-            <img src="images/alberto-scappini.png" alt="Familia Scappini Rodríguez" onerror="this.style.display='none'">
+            <img src="images/alberto-scappini.png" onerror="this.style.display='none'">
             <h3>Alberto Scappini Bernuzzi</h3>
             <p><strong>Cónyuge:</strong> Ernesta Rodríguez Sosa</p>
-            <p><strong>Hijos:</strong> Tuvieron 9 hijos vivos.</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de Alberto]</p>
+            <p><strong>Hijos:</strong> 9 hijos vivos.</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Alberto]</p>
         </div>
     </div>
 
     <div id="modal-francisca" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-francisca')">&times;</span>
-            <img src="images/francisca-scappini.png" alt="Familia Núñez Scappini" onerror="this.style.display='none'">
+            <img src="images/francisca-scappini.png" onerror="this.style.display='none'">
             <h3>Francisca "Tía Checa" Scappini Bernuzzi</h3>
             <p><strong>Cónyuge:</strong> Basilicio Núñez</p>
-            <p><strong>Hijos:</strong> Tuvo 1 hijo (Alicio Núñez, falleció joven sin descendencia).</p>
-            <p style="text-align: justify; margin-top: 15px;">[Escribe aquí la historia de Francisca. Recuerda que ayudó a criar a los 10 hijos de su cuñado Alfonso.]</p>
+            <p><strong>Hijos:</strong> 1 hijo (Alicio Núñez, falleció joven).</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Francisca]</p>
         </div>
     </div>
 
+    <!-- ================================================== -->
+    <!-- JAVASCRIPT                                         -->
+    <!-- ================================================== -->
     <script>
+        // Función para abrir y cerrar modales principales
         function openModal(id) {
             document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden"; 
+            document.body.style.overflow = "hidden";
         }
         function closeModal(id) {
             document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto"; 
+            document.body.style.overflow = "auto";
         }
         window.onclick = function(event) {
             if (event.target.className === "modal") {
                 event.target.style.display = "none";
                 document.body.style.overflow = "auto";
+            }
+        }
+
+        // Función para navegar entre las vistas dentro del modal de Marcelo
+        function showChild(num) {
+            // Ocultar todas las vistas
+            document.getElementById('marcelo-parent-view').style.display = 'none';
+            for(let i=1; i<=6; i++) {
+                document.getElementById('marcelo-child-' + i + '-view').style.display = 'none';
+            }
+            
+            if(num === 0) {
+                // Mostrar la vista del padre (Marcelo)
+                document.getElementById('marcelo-parent-view').style.display = 'block';
+            } else {
+                // Mostrar la vista del hijo específico
+                document.getElementById('marcelo-child-' + num + '-view').style.display = 'block';
             }
         }
     </script>
