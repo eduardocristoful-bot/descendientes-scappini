@@ -240,7 +240,7 @@
         /* Estilos para los botones internos del modal de Marcelo */
         .child-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 15px;
             margin-top: 25px;
         }
@@ -378,7 +378,7 @@
             <div class="card" onclick="openModal('modal-marcelo')">
                 <h3>Marcelo</h3>
                 <p><strong>Scappini Sarubbi</strong></p>
-                <ul><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>6 hijos</strong> vivos.</li></ul>
+                <ul><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>7 hijos</strong> vivos.</li></ul>
             </div>
             <div class="card" onclick="openModal('modal-alberto')">
                 <h3>Alberto</h3>
@@ -467,7 +467,7 @@
         </div>
     </div>
 
-    <!-- MODAL DE MARCELO (CON SUB-VISTAS PARA SUS HIJOS) -->
+    <!-- MODAL DE MARCELO (CON SUB-VISTAS PARA SUS 7 HIJOS) -->
     <div id="modal-marcelo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
@@ -477,73 +477,82 @@
                 <img src="images/marcelo-scappini.jpeg" onerror="this.style.display='none'">
                 <h3>Marcelo Scappini Bernuzzi</h3>
                 <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra</p>
-                <p><strong>Hijos:</strong> Tuvieron 6 hijos vivos.</p>
+                <p><strong>Hijos:</strong> Tuvieron 7 hijos vivos.</p>
                 <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Marcelo como padre de familia]</p>
                 
-                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a sus 6 hijos:</h4>
+                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a sus 7 hijos:</h4>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showChild(1)">Hijo 1</div>
-                    <div class="child-btn" onclick="showChild(2)">Hijo 2</div>
-                    <div class="child-btn" onclick="showChild(3)">Hijo 3</div>
-                    <div class="child-btn" onclick="showChild(4)">Hijo 4</div>
-                    <div class="child-btn" onclick="showChild(5)">Hijo 5</div>
-                    <div class="child-btn" onclick="showChild(6)">Hijo 6</div>
+                    <div class="child-btn" onclick="showChild(1)">Asunción</div>
+                    <div class="child-btn" onclick="showChild(2)">Eladio</div>
+                    <div class="child-btn" onclick="showChild(3)">Silvio</div>
+                    <div class="child-btn" onclick="showChild(4)">Agustín</div>
+                    <div class="child-btn" onclick="showChild(5)">Ovidio Ignacio</div>
+                    <div class="child-btn" onclick="showChild(6)">Lidia</div>
+                    <div class="child-btn" onclick="showChild(7)">Selva</div>
                 </div>
             </div>
 
             <!-- VISTAS DE CADA HIJO (OCULTAS POR DEFECTO) -->
             <div id="marcelo-child-1-view" style="display:none;">
                 <img src="images/marcelo-hijo1.jpg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 1] Scappini Bernuzzi</h3>
+                <h3>Asunción Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 1 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Asunción]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
             <div id="marcelo-child-2-view" style="display:none;">
                 <img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 2] Scappini Bernuzzi</h3>
+                <h3>Eladio Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 2 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Eladio]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
             <div id="marcelo-child-3-view" style="display:none;">
                 <img src="images/marcelo-hijo3.jpeg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 3] Scappini Bernuzzi</h3>
+                <h3>Silvio Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 3 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Silvio]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
             <div id="marcelo-child-4-view" style="display:none;">
                 <img src="images/marcelo-hijo4.jpeg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 4] Scappini Bernuzzi</h3>
+                <h3>Agustín Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 4 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Agustín]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
             <div id="marcelo-child-5-view" style="display:none;">
                 <img src="images/marcelo-hijo5.jpeg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 5] Scappini Bernuzzi</h3>
+                <h3>Ovidio Ignacio Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 5 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Ovidio Ignacio]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
             <div id="marcelo-child-6-view" style="display:none;">
-                <!-- El onerror ocultará el cuadro si no tienes la foto del hijo 6 -->
                 <img src="images/marcelo-hijo6.jpeg" onerror="this.style.display='none'">
-                <h3>[Nombre del Hijo 6] Scappini Bernuzzi</h3>
+                <h3>Lidia Scappini Sarubbi</h3>
                 <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
                 <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa del hijo 6 de Marcelo]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Lidia]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
+            </div>
+
+            <div id="marcelo-child-7-view" style="display:none;">
+                <img src="images/marcelo-hijo7.jpg" onerror="this.style.display='none'">
+                <h3>Selva Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
+                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
+                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Selva]</p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
@@ -596,7 +605,7 @@
         function showChild(num) {
             // Ocultar todas las vistas
             document.getElementById('marcelo-parent-view').style.display = 'none';
-            for(let i=1; i<=6; i++) {
+            for(let i=1; i<=7; i++) {
                 document.getElementById('marcelo-child-' + i + '-view').style.display = 'none';
             }
             
