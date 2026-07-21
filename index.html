@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descendientes de Vincenzo Giuseppe Scappini Ferrari y Elizabetta Bernuzzi</title>
+    <title>Descendientes de Vincenzo Giuseppe Scappini Ferrari</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
@@ -492,7 +492,7 @@
                 </div>
             </div>
 
-            <!-- VISTAS DE CADA HIJO (OCULTAS POR DEFECTO) -->
+            <!-- VISTAS DE CADA HIJO -->
             <div id="marcelo-child-1-view" style="display:none;">
                 <img src="images/marcelo-hijo1.jpg" onerror="this.style.display='none'">
                 <h3>Asunción Scappini Sarubbi</h3>
@@ -529,12 +529,21 @@
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
+            <!-- VISTA DE OVIDIO IGNACIO (TU ABUELO) -->
             <div id="marcelo-child-5-view" style="display:none;">
                 <img src="images/marcelo-hijo5.jpeg" onerror="this.style.display='none'">
                 <h3>Ovidio Ignacio Scappini Sarubbi</h3>
-                <p><strong>Cónyuge:</strong> [Nombre del cónyuge]</p>
-                <p><strong>Hijos/Nietos:</strong> [Cantidad]</p>
-                <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia completa de Ovidio Ignacio]</p>
+                <p><strong>Cónyuge:</strong> Ana Matilde Baez Villagra</p>
+                <p style="text-align: justify; margin-top:15px; padding-bottom: 15px;">
+                    <strong>Hijos (5):</strong>
+                    <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top: 10px;">
+                        <li><strong>Lidia Antonia</strong> (09/01/1955 - 11/05/1975) - Casada con Gustavo Vernazza. Sin descendencia.</li>
+                        <li><strong>Ovidio Rafael</strong> (10/09/1957 - 11/08/1995) - Casado con Nancy Perla Elli Jiménez. Tuvieron 2 hijos: Sandra Patricia y Marcos Alejandro Scappini Elli.</li>
+                        <li><strong>Daily Teresa Josefina</strong> (01/08/1940 - 04/09/2021) - Casada con Jaime Cristóful Solé (13/07/1936 - 03/11/2020). Tuvieron 3 hijos: Ana Teresa, Juan Jaime y Christian Eduardo Cristóful Scappini.</li>
+                        <li><strong>Ana Bettina</strong> (30/10/1942) - Casada con Victor Vallejos Perez Garay (07/12/1942 - 12/01/2022). Tuvieron 4 hijos: Victor Ruben, Mirtha Beatriz, Luis Carlos y Karen Bettina Vallejos Scappini.</li>
+                        <li><strong>Rubén</strong> (31/12/1944) - Casado con María Elena Cáceres. Tuvieron 3 hijos: Hector Ruben, Horacio Rafael y Rodrigo Scappini Cáceres. Además, Rubén tuvo a Liliana Scappini y Fernando Scappini con otras señoras.</li>
+                    </ul>
+                </p>
                 <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
 
@@ -601,7 +610,7 @@
             }
         }
 
-        // Función para navegar entre las vistas dentro del modal de Marcelo
+        // Función para navegar entre las 7 vistas dentro del modal de Marcelo
         function showChild(num) {
             // Ocultar todas las vistas
             document.getElementById('marcelo-parent-view').style.display = 'none';
