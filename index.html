@@ -39,6 +39,7 @@
             align-items: center;
             text-align: center;
             padding: 40px;
+            transition: background 0.5s ease;
         }
         .hero {
             max-width: 900px;
@@ -364,7 +365,7 @@
 
 <body>
 
-    <header>
+    <header id="main-header">
         <div class="hero">
             <h1 id="main-title">Archivo Histórico Familiar</h1>
             <p class="subtitle" id="main-subtitle">
@@ -435,17 +436,15 @@
     </div>
 
     <!-- ================================================ -->
-    <!-- FAMILIA CRISTÓFUL SOLÉ (LADO PATERNO COMPLETO)    -->
+    <!-- FAMILIA CRISTÓFUL SOLÉ (LADO PATERNO CORREGIDO)   -->
     <!-- ================================================ -->
     <div id="family-cristoful" class="family-container">
         <section id="inicio-cristoful">
             <div class="map-section">
                 <div id="family-map-cristoful"></div>
                 <div class="map-legend">
-                    <span>San Martino Del Lago, Italia 🇮🇹</span>
-                    <span>Scandolara Rabara, Italia 🇮🇹</span>
-                    <span>Garibaldi, Brasil 🇧🇷</span>
-                    <span>Foz de Iguazú, Brasil 🇧🇷</span>
+                    <span>Lérida, España (María Teresa) 🇪🇸</span>
+                    <span>Gironella, España (Juan Cristóful) 🇪🇸</span>
                     <span>Yegros, Paraguay 🇵🇾</span>
                     <span>Caazapá, Paraguay 🇵🇾</span>
                 </div>
@@ -453,15 +452,14 @@
 
             <h2>Descendientes de Vicente Solé Cases y Josefa Almenara Molló</h2>
             <div class="story-text">
-                <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> y <strong>Josefa Almenara i Molló</strong>. De esta unión nacieron tres hijos: <strong>María Teresa Solé</strong> (tu abuela), <strong>Francisco Solé i Almenara</strong>, y <strong>Ramona Solé i Almenara</strong>.</p>
+                <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> y <strong>Josefa Almenara i Molló</strong>. De su unión nacieron 3 hijos: <strong>María Teresa Solé Almenara</strong>, <strong>Francisco Solé Almenara</strong> y <strong>Ramona Solé Almenara</strong>.</p>
                 <br>
-                <p>María Teresa contrajo matrimonio con <strong>Juan Cristóful Ricart</strong> (tu abuelo). De este matrimonio nacieron 5 hijos: <strong>Josefa, Mercedes, María, Juanita y Jaime</strong> (tu padre).</p>
+                <p>María Teresa (tu abuela) era de Lérida, mientras que su esposo, <strong>Juan Cristóful Ricart</strong>, era de Gironella. Ambos hablaban catalán. Tuvieron 5 hijos: Josefa, Mercedes, María, Juanita y Jaime (tu padre).</p>
                 <br>
-                <p>Jaime se casó con <strong>Daily Teresa Josefina Scappini Sarubbi</strong> (tu mamá), y juntos tuvieron 3 hijos: Ana Teresa, Juan Jaime y Christian Eduardo.</p>
+                <p>Jaime se casó con <strong>Daily Teresa Josefina Scappini Sarubbi</strong> (tu mamá), y juntos continuaron el legado con 3 hijos: Ana Teresa, Juan Jaime y Christian Eduardo.</p>
             </div>
 
             <div class="timeline">
-                <div class="timeline-item"><div class="date">[Fecha por confirmar]</div><div class="event">Nacimiento de <strong>Vicente Solé Cases</strong> y su esposa <strong>Josefa Almenara i Molló</strong>.</div></div>
                 <div class="timeline-item"><div class="date">18 de enero de 1919</div><div class="event">Fallecimiento de <strong>Josefa Almenara i Molló</strong> en Bellvís (Cal Vega).</div></div>
                 <div class="timeline-item"><div class="date">13 de julio de 1936</div><div class="event">Nacimiento de <strong>Jaime Cristóful Solé</strong> (tu padre).</div></div>
                 <div class="timeline-item"><div class="date">01 de agosto de 1940</div><div class="event">Nacimiento de su esposa, <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</div></div>
@@ -469,74 +467,41 @@
                 <div class="timeline-item"><div class="date">04 de septiembre de 2021</div><div class="event">Fallecimiento de <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</div></div>
             </div>
 
-            <h3>Los Hijos de María Teresa Solé y Juan Cristóful Ricart</h3>
+            <h3>Los 3 Hijos de Vicente Solé y Josefa Almenara</h3>
+            <p>Haz clic en cada ficha para conocer a cada uno de los hijos del matrimonio y su descendencia.</p>
             <div class="cards">
-                <div class="card" onclick="openModal('modal-josefa')">
-                    <h3>Josefa (Josefina) Cristóful Solé</h3>
-                    <p><strong>Cristóful Solé</strong></p>
-                    <ul>
-                        <li>Casada con <strong>Antonio Cano</strong>.</li>
-                        <li>Tuvieron 4 hijos: Antonio, Julio, Nury y José.</li>
-                    </ul>
-                </div>
                 
-                <div class="card" onclick="openModal('modal-mercedes')">
-                    <h3>Mercedes Cristóful Solé</h3>
-                    <p><strong>Cristóful Solé</strong></p>
+                <!-- TARJETA DE MARÍA TERESA -->
+                <div class="card" onclick="openModal('modal-maria-teresa')">
+                    <h3>María Teresa Solé Almenara</h3>
+                    <p><strong>Primera hija (tu abuela)</strong></p>
                     <ul>
-                        <li>Casada con <strong>Sebastián Galeano</strong>.</li>
-                        <li>No tuvieron hijos.</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3>María Cristóful Solé</h3>
-                    <p><strong>Cristóful Solé</strong></p>
-                    <ul>
-                        <li>[Datos por confirmar - Esposo e hijos]</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3>Juanita Cristóful Solé</h3>
-                    <p><strong>Cristóful Solé</strong></p>
-                    <ul>
-                        <li>[Datos por confirmar - Esposo e hijos]</li>
+                        <li>Nació en Lérida, España.</li>
+                        <li>Casada con <strong>Juan Cristóful Ricart</strong> (Gironella).</li>
+                        <li>Tuvieron <strong>5 hijos</strong>.</li>
                     </ul>
                 </div>
 
-                <div class="card" onclick="openModal('modal-jaime')">
-                    <h3>Jaime Cristóful Solé</h3>
-                    <p><strong>(1936 - 2020)</strong></p>
-                    <ul>
-                        <li>Casado con <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</li>
-                        <li>Tuvieron 3 hijos: Ana Teresa, Juan Jaime y Christian Eduardo.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <br>
-            <h3>Otras Ramas de los Descendientes de Vicente Solé Cases</h3>
-            <div class="cards">
+                <!-- TARJETA DE FRANCISCO -->
                 <div class="card" onclick="openModal('modal-francisco-sole')">
-                    <h3>Rama de Francisco Solé i Almenara</h3>
-                    <p><strong>(Segundo hijo de Vicente y Josefa)</strong></p>
+                    <h3>Francisco Solé Almenara</h3>
+                    <p><strong>Segundo hijo</strong></p>
                     <ul>
-                        <li>Viudo de [Nombre de primera esposa - Madre de Pepa].</li>
-                        <li>Casado en segundas nupcias con <strong>Josefa Falcón</strong>.</li>
+                        <li>Viudo de su primera esposa y casado luego con <strong>Josefa Falcón</strong>.</li>
+                        <li>Tuvo hijos de ambos matrimonios.</li>
                     </ul>
                 </div>
 
+                <!-- TARJETA DE RAMONA -->
                 <div class="card" onclick="openModal('modal-ramona-sole')">
-                    <h3>Rama de Ramona Solé i Almenara</h3>
-                    <p><strong>(Tercera hija de Vicente y Josefa)</strong></p>
+                    <h3>Ramona Solé Almenara</h3>
+                    <p><strong>Tercera hija</strong></p>
                     <ul>
                         <li>Casada con <strong>Baldomero Camarasa i Solé</strong>.</li>
-                        <li>Su hija: Paquita Solé Camarasa.</li>
+                        <li>Su hija fue Paquita Solé Camarasa.</li>
                     </ul>
                 </div>
             </div>
-
         </section>
     </div>
 
@@ -558,7 +523,7 @@
     <!-- MODALES PARA AMBAS FAMILIAS                        -->
     <!-- ================================================== -->
     
-    <!-- MODALES SCAPPINI -->
+    <!-- MODALES SCAPPINI (LADO MATERNO) -->
     <div id="modal-pablo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-pablo')">&times;</span>
@@ -689,57 +654,30 @@
     </div>
 
     <!-- MODALES CRISTÓFUL (LADO PATERNO) -->
-    <div id="modal-josefa" class="modal">
+    <div id="modal-maria-teresa" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-josefa')">&times;</span>
-            <img src="images/josefa-cristoful.png" onerror="this.style.display='none'">
-            <h3>Josefa (Josefina) Cristóful Solé</h3>
-            <p><strong>Esposo:</strong> Antonio Cano</p>
-            <p><strong>Hijos (4):</strong></p>
+            <span class="close-btn" onclick="closeModal('modal-maria-teresa')">&times;</span>
+            <img src="images/maria-teresa-sole.png" onerror="this.style.display='none'">
+            <h3>María Teresa Solé Almenara</h3>
+            <p><strong>Origen:</strong> Lérida, España.</p>
+            <p><strong>Esposo:</strong> Juan Cristóful Ricart (Gironella, España).</p>
+            <p><strong>Hijos (5):</strong></p>
             <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
-                <li><strong>Antonio Cano Cristóful</strong> - Casado con Lourdes Cameroni. Tuvieron 4 hijos: Aldo, Armando, Alana y Ariana.</li>
-                <li><strong>Julio Cano Cristóful</strong> - Casado con Nancy Duarte. No tuvieron hijos.</li>
-                <li><strong>Nury Cano Cristóful</strong> - Casada con José Miracca. Tuvieron 4 hijos: Fiorella, Bianca, Fabrizio (casado con Ale Espinoza) y Lorena Miracca Cano.</li>
-                <li><strong>José Cano Cristóful</strong> - [Sin información registrada].</li>
+                <li><strong>Josefa (Josefina) Cristóful Solé</strong> - Casada con Antonio Cano.</li>
+                <li><strong>Mercedes Cristóful Solé</strong> - Casada con Sebastián Galeano. Sin hijos.</li>
+                <li><strong>María Cristóful Solé</strong> - [Datos por confirmar].</li>
+                <li><strong>Juanita Cristóful Solé</strong> - [Datos por confirmar].</li>
+                <li><strong>Jaime Cristóful Solé (1936-2020)</strong> - Casado con Daily Scappini. Tuvieron 3 hijos.</li>
             </ul>
-            <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Josefa]</p>
-            <div class="back-btn" onclick="closeModal('modal-josefa')">Cerrar</div>
-        </div>
-    </div>
-
-    <div id="modal-mercedes" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-mercedes')">&times;</span>
-            <img src="images/mercedes-cristoful.png" onerror="this.style.display='none'">
-            <h3>Mercedes Cristóful Solé</h3>
-            <p><strong>Esposo:</strong> Sebastián Galeano</p>
-            <p><strong>Hijos:</strong> No tuvieron hijos.</p>
-            <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Mercedes]</p>
-            <div class="back-btn" onclick="closeModal('modal-mercedes')">Cerrar</div>
-        </div>
-    </div>
-
-    <div id="modal-jaime" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-jaime')">&times;</span>
-            <img src="images/jaime-cristoful.png" onerror="this.style.display='none'">
-            <h3>Jaime Cristóful Solé (1936 - 2020)</h3>
-            <p><strong>Esposa:</strong> Daily Teresa Josefina Scappini Sarubbi (1940 - 2021)</p>
-            <p><strong>Hijos (3):</strong></p>
-            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
-                <li><strong>Ana Teresa Cristóful Scappini</strong> - Hijos: Carlos Ignacio Cristóful Scappini.</li>
-                <li><strong>Juan Jaime Cristóful Scappini</strong> - Casado con Estela Sosa. Hijos: Jaime Rubén, Paula Stefy y Jazmin Isabela.</li>
-                <li><strong>Christian Eduardo Cristóful Scappini</strong> - Casado con Blanca Catalina Cantero Silgueira. Hijos: Clara Sofía y Max Alexander.</li>
-            </ul>
-            <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Jaime]</p>
-            <div class="back-btn" onclick="closeModal('modal-jaime')">Cerrar</div>
+            <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de María Teresa]</p>
+            <div class="back-btn" onclick="closeModal('modal-maria-teresa')">Cerrar</div>
         </div>
     </div>
 
     <div id="modal-francisco-sole" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-francisco-sole')">&times;</span>
-            <h3>Familia de Francisco Solé i Almenara</h3>
+            <h3>Familia de Francisco Solé Almenara</h3>
             <p><strong>Segundo hijo de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
             <p><strong>Primer matrimonio:</strong> Viudo de [Nombre de la primera esposa].</p>
             <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
@@ -764,7 +702,7 @@
     <div id="modal-ramona-sole" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-ramona-sole')">&times;</span>
-            <h3>Familia de Ramona Solé i Almenara</h3>
+            <h3>Familia de Ramona Solé Almenara</h3>
             <p><strong>Tercera hija de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
             <p><strong>Esposo:</strong> Baldomero Camarasa i Solé.</p>
             <p><strong>Hija:</strong> Paquita Solé Camarasa (casada con Pepe Callizo Ibárz).</p>
@@ -775,6 +713,23 @@
             </ul>
             <p style="text-align: justify; margin-top:15px;">[Esta rama del árbol está completa con los datos proporcionados].</p>
             <div class="back-btn" onclick="closeModal('modal-ramona-sole')">Cerrar</div>
+        </div>
+    </div>
+
+    <div id="modal-jaime" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-jaime')">&times;</span>
+            <img src="images/jaime-cristoful.png" onerror="this.style.display='none'">
+            <h3>Jaime Cristóful Solé (1936 - 2020)</h3>
+            <p><strong>Esposa:</strong> Daily Teresa Josefina Scappini Sarubbi (1940 - 2021)</p>
+            <p><strong>Hijos (3):</strong></p>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li><strong>Ana Teresa Cristóful Scappini</strong> - Hijos: Carlos Ignacio Cristóful Scappini.</li>
+                <li><strong>Juan Jaime Cristóful Scappini</strong> - Casado con Estela Sosa. Hijos: Jaime Rubén, Paula Stefy y Jazmin Isabela.</li>
+                <li><strong>Christian Eduardo Cristóful Scappini</strong> - Casado con Blanca Catalina Cantero Silgueira. Hijos: Clara Sofía y Max Alexander.</li>
+            </ul>
+            <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Jaime]</p>
+            <div class="back-btn" onclick="closeModal('modal-jaime')">Cerrar</div>
         </div>
     </div>
 
@@ -807,19 +762,29 @@
             document.getElementById('family-' + family).classList.add('active-family');
             document.querySelector(`.family-btn[onclick="switchFamily('${family}')"]`).classList.add('active');
             
-            // Cambiar el título del header según la familia
+            // Cambiar el título y la imagen del header según la familia
+            var header = document.getElementById('main-header');
+            var mainTitle = document.getElementById('main-title');
+            var mainSubtitle = document.getElementById('main-subtitle');
+
             if(family === 'scappini') {
-                document.getElementById('main-title').innerText = 'Familia Scappini Bernuzzi';
-                document.getElementById('main-subtitle').innerHTML = 'Archivo histórico de la familia Scappini Bernuzzi.<br>Un homenaje a quienes cruzaron el océano.';
+                header.style.backgroundImage = 'linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url("images/bernuzzi-scappini.png")';
+                header.style.backgroundSize = 'cover';
+                header.style.backgroundPosition = 'center top';
+                mainTitle.innerText = 'Familia Scappini Bernuzzi';
+                mainSubtitle.innerHTML = 'Archivo histórico de la familia Scappini Bernuzzi.<br>Un homenaje a quienes cruzaron el océano.';
             } else {
-                document.getElementById('main-title').innerText = 'Descendientes de Vicente Solé Cases y Josefa Almenara Molló';
-                document.getElementById('main-subtitle').innerHTML = 'Archivo histórico de la familia Cristóful Solé.<br>Un homenaje a las raíces de Jaime y Daily.';
+                header.style.backgroundImage = 'linear-gradient(rgba(38, 56, 45, 0.95), rgba(25, 25, 25, 0.9))'; // Fondo verde oscuro elegante, sin foto
+                header.style.backgroundSize = 'cover';
+                header.style.backgroundPosition = 'center top';
+                mainTitle.innerText = 'Descendientes de Vicente Solé Cases y Josefa Almenara Molló';
+                mainSubtitle.innerHTML = 'Un homenaje a nuestras raíces catalanas y paraguayas.';
             }
             
             // Re-inicializar mapas si no están cargados
             setTimeout(() => {
-                if(family === 'scappini' && !window.mapScappini) initMap('family-map-scappini', 'mapScappini');
-                if(family === 'cristoful' && !window.mapCristoful) initMap('family-map-cristoful', 'mapCristoful');
+                if(family === 'scappini' && !window.mapScappini) initMap('family-map-scappini', 'mapScappini', 'scappini');
+                if(family === 'cristoful' && !window.mapCristoful) initMap('family-map-cristoful', 'mapCristoful', 'cristoful');
             }, 100);
         }
 
@@ -840,20 +805,31 @@
         }
 
         // --- INICIALIZACIÓN DE MAPAS ---
-        function initMap(containerId, varName) {
-            var map = L.map(containerId, { center: [-25.0, -20.0], zoom: 3, maxBounds: [[-90, -180], [90, 180]] });
+        function initMap(containerId, varName, familyType) {
+            var map = L.map(containerId, { center: [40.0, -5.0], zoom: 4, maxBounds: [[-90, -180], [90, 180]] });
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
             
-            var markers = [
-                { lat: 45.0458, lng: 10.3100, name: 'San Martino Del Lago, Italia' },
-                { lat: 45.0558, lng: 10.3200, name: 'Scandolara Rabara, Italia' },
-                { lat: -29.2556, lng: -51.5305, name: 'Garibaldi, Brasil' },
-                { lat: -25.5167, lng: -54.5833, name: 'Foz de Iguazú, Brasil' },
-                { lat: -26.4667, lng: -56.2, name: 'Yegros, Paraguay' },
-                { lat: -26.1833, lng: -56.3667, name: 'Caazapá, Paraguay' }
-            ];
-            
+            var markers;
             var bounds = L.latLngBounds();
+
+            if(familyType === 'cristoful') {
+                markers = [
+                    { lat: 41.6167, lng: 0.6222, name: 'Lérida, España (Origen de María Teresa)' },
+                    { lat: 42.0333, lng: 1.8833, name: 'Gironella, España (Origen de Juan Cristóful)' },
+                    { lat: -26.4667, lng: -56.2, name: 'Yegros, Paraguay' },
+                    { lat: -26.1833, lng: -56.3667, name: 'Caazapá, Paraguay' }
+                ];
+            } else {
+                markers = [
+                    { lat: 45.0458, lng: 10.3100, name: 'San Martino Del Lago, Italia' },
+                    { lat: 45.0558, lng: 10.3200, name: 'Scandolara Rabara, Italia' },
+                    { lat: -29.2556, lng: -51.5305, name: 'Garibaldi, Brasil' },
+                    { lat: -25.5167, lng: -54.5833, name: 'Foz de Iguazú, Brasil' },
+                    { lat: -26.4667, lng: -56.2, name: 'Yegros, Paraguay' },
+                    { lat: -26.1833, lng: -56.3667, name: 'Caazapá, Paraguay' }
+                ];
+            }
+
             markers.forEach(function(marker) {
                 L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(marker.name);
                 bounds.extend([marker.lat, marker.lng]);
@@ -862,9 +838,9 @@
             window[varName] = map;
         }
 
-        // Cargar mapa inicial (Scappini)
+        // Cargar mapa inicial (Scappini) por defecto
         document.addEventListener('DOMContentLoaded', function() {
-            initMap('family-map-scappini', 'mapScappini');
+            initMap('family-map-scappini', 'mapScappini', 'scappini');
         });
     </script>
 
