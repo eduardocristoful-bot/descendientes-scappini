@@ -527,7 +527,7 @@
         </div>
     </div>
 
-    <!-- MODAL DE MARCELO COMPLETAMENTE ACTUALIZADO CON LOS DATOS DE FAMILYSEARCH -->
+    <!-- MODAL DE MARCELO -->
     <div id="modal-marcelo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
@@ -636,13 +636,16 @@
                     <div class="back-btn" onclick="showGrandChild(0)">← Volver a Ovidio Ignacio</div>
                 </div>
 
+                <!-- ACTUALIZACIÓN: HISTORIA DE DAILY (TU MAMÁ) -->
                 <div id="ovidio-child-3-view" style="display:none;">
                     <img src="images/daily-scappini.png" onerror="this.style.display='none'">
                     <h3>Daily Teresa Josefina Scappini Sarubbi</h3>
                     <p><strong>Nacimiento:</strong> 01/08/1940 - <strong>Fallecimiento:</strong> 04/09/2021</p>
                     <p><strong>Cónyuge:</strong> Jaime Cristóful Solé (13/07/1936 - 03/11/2020)</p>
                     <p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo Cristóful Scappini.</p>
-                    <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Daily Teresa]</p>
+                    <p style="text-align: justify; margin-top:15px;">
+                        <strong>Su historia:</strong> Nació en Sapucaí, Paraguay. Asistió a la escuela en Paraguarí y se formó como Maestra Normal. Era una persona extremadamente amorosa. Su hijo menor (quien recopila esta historia) la recuerda con mucho cariño. Amaba las orquídeas y disfrutaba regar sus plantas. Le encantaba escuchar al grupo musical "Los Cumbreños" y era excelente en gramática española.
+                    </p>
                     <div class="back-btn" onclick="showGrandChild(0)">← Volver a Ovidio Ignacio</div>
                 </div>
 
@@ -656,12 +659,13 @@
                     <div class="back-btn" onclick="showGrandChild(0)">← Volver a Ovidio Ignacio</div>
                 </div>
 
+                <!-- ACTUALIZACIÓN: DATOS DE RUBÉN (Nombre completo y lista de hijos) -->
                 <div id="ovidio-child-5-view" style="display:none;">
                     <img src="images/ruben-scappini.png" onerror="this.style.display='none'">
-                    <h3>Rubén Scappini Sarubbi</h3>
+                    <h3>Rubén Eugenio Scappini Baez</h3>
                     <p><strong>Nacimiento:</strong> 31/12/1944</p>
                     <p><strong>Cónyuge:</strong> María Elena Cáceres</p>
-                    <p><strong>Hijos:</strong> Hector Ruben, Horacio Rafael y Rodrigo Scappini Cáceres. Además, Rubén tuvo a Liliana Scappini y Fernando Scappini.</p>
+                    <p><strong>Hijos:</strong> Hector Ruben, Horacio Rafael, Rodrigo , Liliana Mariel y Fernando.</p>
                     <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Rubén]</p>
                     <div class="back-btn" onclick="showGrandChild(0)">← Volver a Ovidio Ignacio</div>
                 </div>
@@ -762,7 +766,7 @@
             }
         }
 
-        // --- INICIALIZACIÓN DEL MAPA INTERACTIVO CON LOS NUEVOS LUGARES ---
+        // --- INICIALIZACIÓN DEL MAPA INTERACTIVO ---
         document.addEventListener('DOMContentLoaded', function() {
             var map = L.map('family-map', {
                 center: [-25.0, -20.0],
@@ -774,7 +778,6 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            // Coordenadas de los 6 lugares clave de la familia
             var markers = [
                 { lat: 45.0458, lng: 10.3100, name: 'San Martino Del Lago, Italia' },
                 { lat: 45.0480, lng: 10.3140, name: 'Scandolara Rabara, Italia' },
@@ -792,7 +795,6 @@
                 bounds.extend([marker.lat, marker.lng]);
             });
             
-            // Ajustar el zoom para que se vean todos los marcadores con un borde
             map.fitBounds(bounds, {padding: [50, 50]});
         });
     </script>
