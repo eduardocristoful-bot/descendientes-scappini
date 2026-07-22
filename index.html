@@ -1,3 +1,10 @@
+¡Entendido! He aplicado todas las correcciones una por una. Además, he añadido la foto de **Vicente y Josefa** como portada de la rama Solé Almenara, tal como pediste. 
+
+Sobre el problema de las fotos: te explico. El navegador guarda en caché las imágenes, y a veces no carga las nuevas. **Lo más probable es que al cambiar `index.html`, necesites un `Ctrl + F5` (recarga forzada) para verlas**. Además, el nombre de la carpeta `sole images` (con espacio) puede dar problemas en GitHub Pages. **Para evitar que las fotos se sigan rompiendo, te recomiendo encarecidamente que renombres la carpeta `sole images` a `sole-images` (con un guion en lugar del espacio)** en el panel izquierdo de VS Code, y actualices el código (ya lo he dejado preparado en el HTML como `sole images/` por ahora, por si quieres hacer el cambio tú mismo).
+
+Aquí tienes el **`index.html` completo con todas las correcciones**. Reemplaza tu archivo, guarda (`Ctrl+S`), haz **Commit** y **Sync Changes**.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -403,7 +410,7 @@
     <!-- WRAPPER DE FAMILIAS                              -->
     <!-- ================================================ -->
     <div id="wrapper-scappini" class="family-wrapper">
-        <header id="header-scappini">
+        <header id="header-scappini" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/bernuzzi-scappini.png'); background-size: cover; background-position: center top;">
             <div class="hero">
                 <h1>Familia Scappini Bernuzzi</h1>
                 <p class="subtitle">Archivo histórico de la familia Scappini Bernuzzi.<br>Un homenaje a quienes cruzaron el océano.</p>
@@ -449,7 +456,7 @@
     <!-- WRAPPER SOLE ALMENARA                             -->
     <!-- ================================================ -->
     <div id="wrapper-sole" class="family-wrapper">
-        <header id="header-sole">
+        <header id="header-sole" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/vicente-josefa.png'); background-size: cover; background-position: center top;">
             <div class="hero">
                 <h1>Descendientes de Vicente Solé Cases y Josefa Almenara Molló</h1>
                 <p class="subtitle">Un homenaje a nuestras raíces catalanas y paraguayas.</p>
@@ -474,9 +481,9 @@
             <div class="story-text">
                 <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> (natural de Bellvís, Lérida) y <strong>Josefa Almenara i Molló</strong>. De su unión nacieron 3 hijos: <strong>Francisco Solé y Almenara</strong>, <strong>Teresa Solé y Almenara</strong>, y <strong>Ramona Solé y Almenara</strong>.</p>
                 <br>
-                <p>Los hijos de este matrimonio se dispersaron. Francisco se radicó en Lambaré (Paraguay) donde fue un reconocido apicultor; Teresa se estableció en Paraguay tras casarse con <strong>Juan Cristóful Ricart</strong> (natural de Gironella, España); y Ramona residió en Bellvís, España, junto a su esposo <strong>Baldomero Camarasa i Solé</strong>.</p>
+                <p>Los hijos de este matrimonio se dispersaron. Francisco se radicó en Lambaré (Paraguay) donde fue un reconocido apicultor; Teresa se estableció en <strong>Asunción</strong> tras casarse con <strong>Juan Cristóful Ricart</strong> (natural de Gironella, España); y Ramona residió en Bellvís, España, junto a su esposo <strong>Baldomero Camarasa i Solé</strong>.</p>
                 <br>
-                <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan que viajó en varias ocasiones de ida y vuelta entre España y Paraguay en el vapor <strong>"Santa Isabel de Borbón"</strong>, para visitar a sus hijos Francisco y Teresa.</p>
+                <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan uno de sus viajes en el vapor <strong>"Santa Isabel de Borbón"</strong>, aunque realizó múltiples travesías entre España y Paraguay para visitar a sus hijos Francisco y Teresa.</p>
             </div>
 
             <h3>Los 3 Hijos de Vicente Solé y Josefa Almenara</h3>
@@ -666,8 +673,8 @@
             <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
                 <li><strong>Josefa (Josefina) Cristóful Solé</strong> (Falleció el 04/12/2004) - Casada con Antonio Cano.</li>
                 <li><strong>Mercedes Cristóful Solé</strong> (Nacida el 25/02/1928, Asunción) - Casada con Sebastián Galeano. Sin hijos.</li>
-                <li><strong>María Cristóful Solé</strong> (Nacida el 24/09/1931, Asunción) - [Datos por confirmar].</li>
-                <li><strong>Juanita Cristóful Solé</strong> - [Datos por confirmar].</li>
+                <li><strong>María Cristóful Solé</strong> (Nacida el 24/09/1931, Asunción) - Nunca se casó ni tuvo hijos.</li>
+                <li><strong>Juanita Cristóful Solé</strong> - Nunca se casó ni tuvo hijos.</li>
                 <li><strong>Jaime Cristóful Solé (1936-2020)</strong> - Casado con Daily Scappini (1940-2012).</li>
             </ul>
             <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Teresa]</p>
@@ -758,6 +765,7 @@
             <img src="sole images/maria-cristoful-sole.jpg" onerror="this.style.display='none'">
             <h3>María Cristóful Solé</h3>
             <p><strong>Nacimiento:</strong> 24 de septiembre de 1931, Asunción, Paraguay</p>
+            <p><strong>Estado civil:</strong> Nunca se casó ni tuvo hijos.</p>
             <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de María]</p>
             <div class="back-btn" onclick="closeModal('modal-maria')">Cerrar</div>
         </div>
@@ -768,6 +776,7 @@
             <span class="close-btn" onclick="closeModal('modal-juanita')">&times;</span>
             <img src="sole images/juanita-cristoful-sole.jpg" onerror="this.style.display='none'">
             <h3>Juanita Cristóful Solé</h3>
+            <p><strong>Estado civil:</strong> Nunca se casó ni tuvo hijos.</p>
             <p style="text-align: justify; margin-top:15px;">[Escribe aquí la historia de Juanita]</p>
             <div class="back-btn" onclick="closeModal('modal-juanita')">Cerrar</div>
         </div>
@@ -886,3 +895,4 @@
 
 </body>
 </html>
+```
