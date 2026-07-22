@@ -1,3 +1,10 @@
+¡Perfecto! Con `vicente-josefa.png` ya en la carpeta `images` y `fondo-inmigrantes.jpg` subido, estoy listo para escribir **el script final y completo**. 
+
+He integrado absolutamente **todos los datos** que me has ido pasando a lo largo de la conversación: el nuevo fondo de pantalla, la foto de los bisabuelos Solé, el orden correcto de los 3 hijos de Vicente y Josefa, los datos de las cédulas, las fechas de fallecimiento (Daily 2012, Josefina 2004), el mapa con Bellvís, Gironella, Huesca, Barcelona, Asunción y Lambaré, y la lista completa de los 11 hijos de Rosa (con la corrección de Juan).
+
+Aquí tienes el **`index.html` final**. Reemplaza tu archivo con este código, guarda (`Ctrl+S`), haz **Commit** y **Sync Changes**.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +40,7 @@
         #main-screen {
             height: 100vh;
             background: linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)),
-                url('images/fondo-inmigrantes.jpg'); /* AHORA BUSCA EN TU CARPETA LOCAL */
+                url('images/fondo-inmigrantes.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -430,11 +437,25 @@
                 <p>Huyendo de la gran hambruna que azotaba Europa, el matrimonio, junto a parientes y vecinos, abordó las grandes barcazas enviadas por el Imperio Brasileño. Desembarcaron en <strong>Río Grande do Sul (Brasil)</strong>. Fue allí donde sus apellidos fueron registrados tal como los oía el oficial. Por descontento con las condiciones, muchos italianos se desplazaron hacia distintos territorios. Siguiendo las vías del tren, se establecieron finalmente en <strong>Yegros, Paraguay</strong>.</p>
             </div>
             
+            <div class="timeline">
+                <div class="timeline-item"><div class="date">25 de enero de 1842</div><div class="event">Nacimiento de <strong>Vincenzo Giuseppe Scappini Ferrari</strong> en San Martino Del Lago.</div></div>
+                <div class="timeline-item"><div class="date">5 de marzo de 1853</div><div class="event">Nacimiento de <strong>Elizabetta Bernuzzi Bottini</strong> en Scandolara Rabara.</div></div>
+                <div class="timeline-item"><div class="date">25 de enero de 1875</div><div class="event">Matrimonio de Vincenzo Giuseppe y Elizabetta.</div></div>
+                <div class="timeline-item"><div class="date">1879</div><div class="event">Nacimiento del primogénito <strong>Pablo</strong> en Italia.</div></div>
+                <div class="timeline-item"><div class="date">1880</div><div class="event">Nacimiento de <strong>Rosa</strong> en Garibaldi, Río Grande do Sul, Brasil.</div></div>
+                <div class="timeline-item"><div class="date">1889</div><div class="event">Nacimiento de <strong>Marcelo</strong> en Garibaldi, Río Grande do Sul, Brasil.</div></div>
+                <div class="timeline-item"><div class="date">Fines del Siglo XIX</div><div class="event">La familia emigra completamente a Sudamérica.</div></div>
+                <div class="timeline-item"><div class="date">Inicios del Siglo XX</div><div class="event">Se establecen definitivamente en <strong>Yegros, Paraguay</strong>.</div></div>
+                <div class="timeline-item"><div class="date">1923 &amp; 1926</div><div class="event">Fallecimiento de Elizabetta y Vincenzo.</div></div>
+                <div class="timeline-item"><div class="date">1938</div><div class="event">Fallecimiento de <strong>Marcelo</strong> en Caazapá, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">1962</div><div class="event">Fallecimiento del hijo mayor, <strong>Pablo</strong>.</div></div>
+            </div>
+
             <h3>Los 8 Hijos del Matrimonio</h3>
             <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>.</p>
             <div class="cards">
                 <div class="card" onclick="openModal('modal-pablo')"><h3>Pablo (1879 - 1962)</h3><p><strong>Scappini González</strong></p><ul><li>Casado con Escolástica González.</li><li>Tuvieron <strong>12 hijos</strong>.</li></ul></div>
-                <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Casada con José Cortessi.</li><li>Tuvieron <strong>7 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con Giuseppe Giovanni Cortesi Giondini.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Casado con Anselma Valdez.</li><li>Se radicaron en Foz de Iguazú.</li></ul></div>
                 <div class="card" onclick="openModal('modal-genoveva')"><h3>Genoveva</h3><p><strong>Rienzzi Scappini</strong></p><ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
@@ -538,8 +559,22 @@
             <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
             <img src="images/rosa-scappini.png" onerror="this.style.display='none'">
             <h3>Rosa Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> José Cortessi</p>
-            <p><strong>Hijos:</strong> 7 hijos vivos (Rama Cortessi Scappini).</p>
+            <p><strong>Nacimiento:</strong> 1880, Garibaldi, Río Grande do Sul, Brasil</p>
+            <p><strong>Cónyuge:</strong> "José" Giuseppe Giovanni Cortesi Giondini</p>
+            <p><strong>Hijos (11):</strong></p>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li>Teresa Cortesi Scappini</li>
+                <li>Angel Cortesi Scappini</li>
+                <li>Benito Cortesi Scappini</li>
+                <li>Carlos Cortesi Scappini</li>
+                <li>Juan Antonio Cortesi Scappini</li>
+                <li>Ricardo Cortesi Scappini</li>
+                <li>Juan Cortesi Scappini</li>
+                <li>Luis Cortesi Scappini</li>
+                <li>Vicente Cortesi Scappini</li>
+                <li>Matilde Clara Cortesi Scappini</li>
+                <li>Agustin Cortesi Scappini</li>
+            </ul>
             <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Rosa]</p>
         </div>
     </div>
@@ -888,3 +923,4 @@
 
 </body>
 </html>
+```
