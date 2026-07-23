@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes de los Inmigrantes: Las historias de mi familia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS para el mapa interactivo -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Source Sans 3", sans-serif;
+            background: #f5f2ea;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* PANTALLA DE INICIO */
+        #main-screen {
+            height: 100vh;
+            background: linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)),
+                url('images/fondo-inmigrantes.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        #main-screen h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 4.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        #main-screen p {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+        .main-buttons {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .main-btn {
+            padding: 20px 40px;
+            background: white;
+            color: #26382d;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .main-btn:hover {
+            transform: translateY(-5px);
+            background: #355b43;
+            color: white;
+        }
+
+        /* PANTALLAS DE FAMILIA */
+        .family-wrapper {
+            display: none;
+        }
+        .family-wrapper.active-family {
+            display: block;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            transition: background 0.5s ease;
+        }
+        .hero {
+            max-width: 900px;
+        }
+        h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 4.8rem;
+            color: white;
+            margin-bottom: 25px;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 45px;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #26382d;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-back:hover {
+            background: #355b43;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 40px;
+        }
+        h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #26382d;
+        }
+        h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem;
+            color: #26382d;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid #d0d6cf;
+            padding-bottom: 5px;
+        }
+        .story-text {
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+        .story-text strong {
+            color: #355b43;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            transition: .3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border: none;
+            padding: 0;
+        }
+        .card ul {
+            padding-left: 20px;
+            list-style-type: circle;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        .card ul li {
+            margin-bottom: 8px;
+        }
+        .genealogy-img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 10px;
+        }
+        footer {
+            background: #26382d;
+            color: white;
+            text-align: center;
+            padding: 35px;
+            margin-top: 40px;
+        }
+        .footer-credit {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto 40px auto;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #355b43;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 35px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #355b43;
+            z-index: 1;
+        }
+        .timeline-item .date {
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #355b43;
+        }
+        .timeline-item .event {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #f5f2ea;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid white;
+            background-color: #d0d6cf;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #333;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover {
+            color: #355b43;
+        }
+
+        .child-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .child-btn {
+            background: #e8e4dc;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            color: #26382d;
+        }
+        .child-btn:hover {
+            background: #355b43;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #26382d;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #355b43;
+        }
+
+        /* MAPAS */
+        .map-section {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        #family-map-scappini, #family-map-sole {
+            height: 400px;
+            width: 100%;
+            min-height: 300px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            z-index: 1;
+        }
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #26382d;
+        }
+        .map-legend span {
+            background: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+        .map-legend span::before {
+            content: "📍 ";
+        }
+
+        @media (max-width: 600px) {
+            #main-screen h1 { font-size: 3rem; }
+            .main-buttons { flex-direction: column; gap: 15px; width: 100%; }
+            .main-btn { width: 100%; }
+            .timeline { padding-left: 10px; }
+            .timeline-item { padding-left: 35px; }
+            .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
+            #family-map-scappini, #family-map-sole { height: 300px; min-height: 250px; }
+            .map-legend span { font-size: 0.8rem; padding: 6px 12px; }
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 3rem; }
+            header .subtitle { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================================ -->
+    <!-- PANTALLA DE INICIO / MAIN SCREEN                 -->
+    <!-- ================================================ -->
+    <div id="main-screen">
+        <h1>Viajes de los Inmigrantes:<br>Las historias de mi familia</h1>
+        <p>Explora las raíces de las dos ramas de nuestra historia familiar.</p>
+        <div class="main-buttons">
+            <button class="main-btn" onclick="loadFamily('scappini')">Familia Scappini Bernuzzi</button>
+            <button class="main-btn" onclick="loadFamily('sole')">Familia Solé Almenara</button>
+        </div>
+    </div>
+
+    <!-- ================================================ -->
+    <!-- WRAPPER SCAPPINI BERNuzzi (LADO MATERNO)         -->
+    <!-- ================================================ -->
+    <div id="wrapper-scappini" class="family-wrapper">
+        <header id="header-scappini" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/bernuzzi-scappini.png'); background-size: cover; background-position: center top;">
+            <div class="hero">
+                <h1>Familia Scappini Bernuzzi</h1>
+                <p class="subtitle">Archivo histórico de la familia Scappini Bernuzzi.<br>Un homenaje a quienes cruzaron el océano.</p>
+                <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
+            </div>
+        </header>
+        
+        <section id="inicio-scappini">
+            <div class="map-section">
+                <div id="family-map-scappini"></div>
+                <div class="map-legend">
+                    <span>San Martino Del Lago, Italia 🇮🇹</span>
+                    <span>Scandolara Rabara, Italia 🇮🇹</span>
+                    <span>Garibaldi, Brasil 🇧🇷</span>
+                    <span>Foz de Iguazú, Brasil 🇧🇷</span>
+                    <span>Yegros, Paraguay 🇵🇾</span>
+                    <span>Caazapá, Paraguay 🇵🇾</span>
+                </div>
+            </div>
+
+            <h2>Nuestras Raíces: El Viaje</h2>
+            <div class="story-text">
+                <p>Nuestra historia comienza con <strong>Vincenzo Giuseppe Scappini Ferrari</strong> (nacido el 25 de enero de 1842) y <strong>Elizabetta Bernuzzi Bottini</strong> (nacida el 5 de marzo de 1853). Se casaron el 25 de enero de 1875. Vincenzo era oriundo de <strong>San Martino Del Lago</strong> (era uno de 7 hermanos) y Elizabetta de <strong>Scandolara Rabara</strong> (una de 5 hermanos).</p>
+                <br>
+                <p>Huyendo de la gran hambruna que azotaba Europa, el matrimonio, junto a parientes y vecinos, abordó las grandes barcazas enviadas por el Imperio Brasileño. Desembarcaron en <strong>Río Grande do Sul (Brasil)</strong>. Fue allí donde sus apellidos fueron registrados tal como los oía el oficial. Por descontento con las condiciones, muchos italianos se desplazaron hacia distintos territorios. Siguiendo las vías del tren, se establecieron finalmente en <strong>Yegros, Paraguay</strong>.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item"><div class="date">25 de enero de 1842</div><div class="event">Nacimiento de <strong>Vincenzo Giuseppe Scappini Ferrari</strong> en San Martino Del Lago.</div></div>
+                <div class="timeline-item"><div class="date">5 de marzo de 1853</div><div class="event">Nacimiento de <strong>Elizabetta Bernuzzi Bottini</strong> en Scandolara Rabara.</div></div>
+                <div class="timeline-item"><div class="date">25 de enero de 1875</div><div class="event">Matrimonio de Vincenzo Giuseppe y Elizabetta.</div></div>
+                <div class="timeline-item"><div class="date">1879</div><div class="event">Nacimiento del primogénito <strong>Pablo</strong> en Italia.</div></div>
+                <div class="timeline-item"><div class="date">1880</div><div class="event">Nacimiento de <strong>Rosa</strong> en Garibaldi, Río Grande do Sul, Brasil.</div></div>
+                <div class="timeline-item"><div class="date">1889</div><div class="event">Nacimiento de <strong>Marcelo</strong> en Garibaldi, Río Grande do Sul, Brasil.</div></div>
+                <div class="timeline-item"><div class="date">Fines del Siglo XIX</div><div class="event">La familia emigra completamente a Sudamérica.</div></div>
+                <div class="timeline-item"><div class="date">Inicios del Siglo XX</div><div class="event">Se establecen definitivamente en <strong>Yegros, Paraguay</strong>.</div></div>
+                <div class="timeline-item"><div class="date">1923 &amp; 1926</div><div class="event">Fallecimiento de Elizabetta y Vincenzo.</div></div>
+                <div class="timeline-item"><div class="date">1938</div><div class="event">Fallecimiento de <strong>Marcelo</strong> en Caazapá, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">1962</div><div class="event">Fallecimiento del hijo mayor, <strong>Pablo</strong>.</div></div>
+            </div>
+
+            <h3>Los 8 Hijos del Matrimonio</h3>
+            <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>.</p>
+            <div class="cards">
+                <div class="card" onclick="openModal('modal-pablo')"><h3>Pablo (1879 - 1962)</h3><p><strong>Scappini González</strong></p><ul><li>Casado con Escolástica González.</li><li>Tuvieron <strong>12 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con Giuseppe Giovanni Cortesi Giondini.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Nació en el barco rumbo a América, registrado en Garibaldi, Brasil.</li><li>Se estableció en Yegros, Paraguay, con su esposa Anselma.</li></ul></div>
+                <div class="card" onclick="openModal('modal-genoveva')"><h3>Genoveva</h3><p><strong>Rienzzi Scappini</strong></p><ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
+                <div class="card" onclick="openModal('modal-marcelo')"><h3>Marcelo (1889 - 1938)</h3><p><strong>Scappini Sarubbi</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>7 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-alberto')"><h3>Alberto</h3><p><strong>Scappini Rodríguez</strong></p><ul><li>Casado con Ernesta Rodríguez Sosa.</li><li>Tuvieron <strong>9 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-francisca')"><h3>Francisca (Tía Checa)</h3><p><strong>Núñez Scappini</strong></p><ul><li>Casada con Basilicio Núñez.</li><li>Tuvo <strong>1 hijo</strong>.</li></ul></div>
+            </div>
+        </section>
+
+        <!-- ÁRBOL DE LOS SCAPPINI -->
+        <section id="arbol-scappini" class="arbol-section">
+            <h2>Árbol Genealógico Scappini Bernuzzi</h2>
+            <p>La representación visual del legado de la familia Scappini Bernuzzi.</p>
+            <img src="images/arbol-genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img">
+        </section>
+    </div>
+
+    <!-- ================================================ -->
+    <!-- WRAPPER SOLE ALMENARA (LADO PATERNO)              -->
+    <!-- ================================================ -->
+    <div id="wrapper-sole" class="family-wrapper">
+        <header id="header-sole" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/vicente-josefa.png'); background-size: cover; background-position: center top;">
+            <div class="hero">
+                <h1>Descendientes de Vicente Solé Cases y Josefa Almenara Molló</h1>
+                <p class="subtitle">Un homenaje a nuestras raíces catalanas y paraguayas.</p>
+                <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
+            </div>
+        </header>
+        
+        <section id="inicio-sole">
+            <div class="map-section">
+                <div id="family-map-sole"></div>
+                <div class="map-legend">
+                    <span>Bellvís (Lérida), España 🇪🇸</span>
+                    <span>Lérida, España 🇪🇸</span>
+                    <span>Gironella, España 🇪🇸</span>
+                    <span>Huesca, España 🇪🇸</span>
+                    <span>Barcelona, España 🇪🇸</span>
+                    <span>Asunción, Paraguay 🇵🇾</span>
+                    <span>Lambaré, Paraguay 🇵🇾</span>
+                </div>
+            </div>
+
+            <h2>Descendientes de Vicente Solé Cases y Josefa Almenara i Molló</h2>
+            <div class="story-text">
+                <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> (natural de Bellvís, Lérida) y <strong>Josefa Almenara i Molló</strong>. De su unión nacieron 3 hijos: <strong>Teresa Solé y Almenara</strong> (la hermana mayor), <strong>Francisco Solé y Almenara</strong> y <strong>Ramona Solé y Almenara</strong>.</p>
+                <br>
+                <p>En un viaje documentado, el 20 de julio de 1922, Vicente Solé Cases compareció ante el juzgado de Bellvís para obtener el permiso necesario para que sus hijos mayores, Teresa (de 20 años) y Francisco (de 19 años), pudieran trasladarse a Sudamérica. Teresa, la hermana mayor, y Francisco se radicaron en Paraguay, mientras que Ramona residió en Bellvís.</p>
+                <br>
+                <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan sus travesías en el vapor <strong>"Santa Isabel de Borbón"</strong>, viajando de ida y vuelta entre España y Paraguay para visitar a sus hijos.</p>
+            </div>
+
+            <!-- TIMELINE SOLÉ ACTUALIZADO -->
+            <div class="timeline">
+                <div class="timeline-item"><div class="date">Circa 1902</div><div class="event">Nacimiento de <strong>Teresa Solé y Almenara</strong> en Bellvís, Lérida.</div></div>
+                <div class="timeline-item"><div class="date">18 de enero de 1919</div><div class="event">Fallecimiento de <strong>Josefa Almenara i Molló</strong> en Bellvís (Cal Vega), España.</div></div>
+                <div class="timeline-item"><div class="date">20 de julio de 1922</div><div class="event">Vicente Solé obtiene permiso judicial en Bellvís para que sus hijos Teresa (20 años) y Francisco (19 años) emigren a Sudamérica.</div></div>
+                <div class="timeline-item"><div class="date">03 de agosto de 1922</div><div class="event">Teresa y Francisco embarcan en el vapor <strong>"Santa Isabel de Borbón"</strong> con destino a Buenos Aires.</div></div>
+                <div class="timeline-item"><div class="date">14 de marzo de 1925</div><div class="event">Matrimonio de <strong>Teresa Solé y Almenara</strong> y <strong>Juan Cristóful Ricart</strong> en Asunción, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">13 de julio de 1936</div><div class="event">Nacimiento de <strong>Jaime Cristóful Solé</strong>.</div></div>
+                <div class="timeline-item"><div class="date">01 de agosto de 1940</div><div class="event">Nacimiento de <strong>Daily Teresa Josefina Scappini Sarubbi</strong> en Escobar, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">04 de septiembre de 2012</div><div class="event">Fallecimiento de <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</div></div>
+                <div class="timeline-item"><div class="date">03 de noviembre de 2020</div><div class="event">Fallecimiento de <strong>Jaime Cristóful Solé</strong>.</div></div>
+            </div>
+
+            <h3>Los 3 Hijos de Vicente Solé y Josefa Almenara</h3>
+            <div class="cards">
+                <div class="card" onclick="openModal('modal-teresa-sole')">
+                    <h3>Teresa Solé y Almenara</h3>
+                    <p><strong>Primera hija (hermana mayor)</strong></p>
+                    <ul>
+                        <li>Nació en Bellvís, Lérida.</li>
+                        <li>Casada con <strong>Juan Cristóful Ricart</strong>.</li>
+                        <li>Tuvieron <strong>5 hijos</strong>.</li>
+                    </ul>
+                </div>
+                <div class="card" onclick="openModal('modal-francisco-sole')">
+                    <h3>Francisco Solé y Almenara</h3>
+                    <p><strong>Segundo hijo</strong></p>
+                    <ul>
+                        <li>Apicultor en Lambaré (Paraguay).</li>
+                        <li>Dueño de la marca "El Colmenar".</li>
+                    </ul>
+                </div>
+                <div class="card" onclick="openModal('modal-ramona-sole')">
+                    <h3>Ramona Solé y Almenara</h3>
+                    <p><strong>Tercera hija</strong></p>
+                    <ul>
+                        <li>Residió en Bellvís, España.</li>
+                        <li>Casada con <strong>Baldomero Camarasa</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÁRBOL DE LOS SOLÉ -->
+        <section id="arbol-sole" class="arbol-section">
+            <h2>Árbol Genealógico Solé Almenara</h2>
+            <p>La representación visual del legado de la familia Solé Almenara.</p>
+            <img src="images/arbol-sole.png" alt="Árbol Genealógico de los Solé" class="genealogy-img">
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 · Archivo Histórico de la Familia Scappini Bernuzzi y Solé Almenara</p>
+        <div class="footer-credit">
+            <strong>Familia Scappini Bernuzzi:</strong> Datos recolectados por Amalia Scappini en colaboración con Samir Paravicini Abou Saleh.<br>
+            <strong>Familia Solé Almenara:</strong> Datos recolectados por Christian Cristóful Scappini.<br>
+            Julio de 2026.
+        </div>
+    </footer>
+
+    <!-- ================================================== -->
+    <!-- MODALES SCAPPINI (LADO MATERNO)                    -->
+    <!-- ================================================== -->
+    <div id="modal-pablo" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-pablo')">&times;</span>
+            <img src="images/pablo-scappini.png" onerror="this.style.display='none'">
+            <h3>Pablo Scappini Bernuzzi</h3>
+            <p><strong>Nacimiento:</strong> 1879 (Italia) | <strong>Fallecimiento:</strong> 1962</p>
+            <p><strong>Cónyuge:</strong> Escolástica González</p>
+            <p><strong>Hijos:</strong> 12 hijos vivos (Rama Scappini González).</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Pablo]</p>
+        </div>
+    </div>
+    
+    <div id="modal-rosa" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
+            <img src="images/rosa-scappini.png" onerror="this.style.display='none'">
+            <h3>Rosa Scappini Bernuzzi</h3>
+            <p><strong>Nacimiento:</strong> 1880, Garibaldi, Río Grande do Sul, Brasil</p>
+            <p><strong>Cónyuge:</strong> "José" Giuseppe Giovanni Cortesi Giondini</p>
+            <p><strong>Hijos (11):</strong></p>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li>Teresa Cortesi Scappini</li>
+                <li>Angel Cortesi Scappini</li>
+                <li>Benito Cortesi Scappini</li>
+                <li>Carlos Cortesi Scappini</li>
+                <li>Juan Antonio Cortesi Scappini</li>
+                <li>Ricardo Cortesi Scappini</li>
+                <li>Juan Cortesi Scappini</li>
+                <li>Luis Cortesi Scappini</li>
+                <li>Vicente Cortesi Scappini</li>
+                <li>Matilde Clara Cortesi Scappini</li>
+                <li>Agustin Cortesi Scappini</li>
+            </ul>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Rosa]</p>
+        </div>
+    </div>
+    
+    <!-- MODAL DE JUAN -->
+    <div id="modal-juan" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-juan')">&times;</span>
+            <div id="juan-parent-view">
+                <img src="images/juan-scappini.png" onerror="this.style.display='none'">
+                <h3>Juan Scappini Bernuzzi</h3>
+                <p><strong>Nacimiento:</strong> Nació en el barco durante la travesía desde Italia. Fue registrado en Garibaldi, Río Grande do Sul, Brasil.</p>
+                <p><strong>Cónyuge:</strong> Anselma Valdez</p>
+                <p><strong>Historia:</strong> Su familia continuó el viaje hasta establecerse en Yegros, Paraguay. Su esposa, Anselma Valdez, falleció cuando su hijo Eligio tenía 15 años.</p>
+                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a su hijo:</h4>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showJuanChild(1)">Eligio Sabás Scappini</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-juan')">Cerrar</div>
+            </div>
+            <div id="juan-child-1-view" style="display:none;">
+                <h3>Eligio Sabás Scappini</h3>
+                <p><strong>Lugar de nacimiento:</strong> Yegros, Paraguay.</p>
+                <p><strong>Cónyuge:</strong> Inez Ortega Scappini</p>
+                <p><strong>Historia:</strong> Eligio viajó a Argentina para trabajar, donde conoció a Inez. Se casaron y tuvieron 5 hijos.</p>
+                <h4 style="margin-top: 20px; font-size: 1.2rem;">Sus 5 hijos (Nietos de Juan y Anselma):</h4>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Plinio Ricardo Scappini</strong> (1945 - 2024) - Casado con Débora Esculapio. Hijos: Plinio Ricardo, Claudio, Rafael.</li>
+                    <li><strong>Aníbal Roberto Scappini</strong> (1947 - 2020) - Casado con Miriam Oliveira. Hijos: Vanessa, Alexandre, Carolina.</li>
+                    <li><strong>Anselma Beatriz Scappini Fagundes</strong> (77 años) - Casada con Edvar Fagundes. Hijos: Ticiana, Isabela, Marco Antônio.</li>
+                    <li><strong>Heitor Raul Scappini</strong> (75 años) - Hijos: Kellen, Daniela, Raul.</li>
+                    <li><strong>Elena Isabel Scappini Nicoletti</strong> (74 años) - Casada con Helton Nicoletti. Hijos: Alessandra, Daelton.</li>
+                </ul>
+                <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-genoveva" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-genoveva')">&times;</span>
+            <img src="images/genoveva-scappini.png" onerror="this.style.display='none'">
+            <h3>Genoveva Scappini Bernuzzi</h3>
+            <p><strong>Cónyuge:</strong> Alfonso Rienzzi Grande (Ypacaraí, Paraguay)</p>
+            <p><strong>Hijos:</strong> 5 hijos. Falleció muy joven.</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Genoveva]</p>
+        </div>
+    </div>
+
+    <div id="modal-jose-yelindo" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span>
+            <img src="images/jose-yelindo-scappini.png" onerror="this.style.display='none'">
+            <h3>José Yelindo Scappini Bernuzzi</h3>
+            <p><strong>1er Cónyuge:</strong> Justina Scurra (6 hijos)</p>
+            <p><strong>2do Cónyuge:</strong> Albertina Larrosa (10 hijos)</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de José Yelindo]</p>
+        </div>
+    </div>
+
+    <!-- MODAL DE MARCELO CON NUEVAS RAMAS ACTUALIZADAS -->
+    <div id="modal-marcelo" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
+            <div id="marcelo-parent-view">
+                <img src="images/marcelo-scappini.jpeg" onerror="this.style.display='none'">
+                <h3>Marcelo Scappini Bernuzzi</h3>
+                <p><strong>Nacimiento:</strong> 1889, Garibaldi, Brasil</p>
+                <p><strong>Fallecimiento:</strong> 1938, Caazapá, Paraguay</p>
+                <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra (fallecida el 17 de julio de 1977 en Asunción)</p>
+                <p><strong>Hijos:</strong> 7 hijos (Asunción, Eladio, Silvio, Agustín, Ovidio Ignacio, Lidia, Selva).</p>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showChild(1)">Asunción (Chona)</div>
+                    <div class="child-btn" onclick="showChild(2)">Eladio</div>
+                    <div class="child-btn" onclick="showChild(3)">Silvio</div>
+                    <div class="child-btn" onclick="showChild(4)">Agustín</div>
+                    <div class="child-btn" onclick="showChild(5)">Ovidio Ignacio</div>
+                    <div class="child-btn" onclick="showChild(6)">Lidia</div>
+                    <div class="child-btn" onclick="showChild(7)">Selva</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-marcelo')">Cerrar</div>
+            </div>
+
+            <!-- HIJO 1: ASUNCIÓN -->
+            <div id="marcelo-child-1-view" style="display:none;">
+                <h3>Asunción (Chona) Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> Sr. Maidana</p>
+                <p><strong>Hijos (4):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Otilia Maidana Scappini</strong> - Casada con Riquelme. Hija: Erika Riquelme Maidana.</li>
+                    <li><strong>Marcelino (Chelo) Maidana Scappini</strong> - Hijos: Javier (23/09/1971), Kelia y una hermana más.</li>
+                    <li><strong>Saúl Maidana Scappini</strong> - [Sin información adicional].</li>
+                    <li><strong>Saturnino Maidana Scappini</strong> - [Sin información adicional].</li>
+                </ul>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
+            <div id="marcelo-child-2-view" style="display:none;"><img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'"><h3>Eladio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+            <div id="marcelo-child-3-view" style="display:none;"><img src="images/marcelo-hijo3.jpeg" onerror="this.style.display='none'"><h3>Silvio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+            
+            <!-- HIJO 4: AGUSTÍN -->
+            <div id="marcelo-child-4-view" style="display:none;">
+                <h3>Agustín Scappini Sarubbi</h3>
+                <p><strong>Ocupación:</strong> Empleado público.</p>
+                <p><strong>Contrajo matrimonio el 1 de octubre de 1954 en Sosa (F. Yegros) con Dora Juana Flores.</strong></p>
+                <p><strong>Hijos:</strong> [Sin información adicional de descendencia].</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
+            <!-- HIJO 5: OVIDIO IGNACIO -->
+            <div id="marcelo-child-5-view" style="display:none;">
+                <div id="ovidio-parent-view">
+                    <img src="images/marcelo-hijo5.jpeg" onerror="this.style.display='none'">
+                    <img src="images/carnet-ovidio.jpeg" onerror="this.style.display='none'" style="max-height:250px; display:inline-block; width:auto; margin-top:10px; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                    <h3>Ovidio Ignacio Scappini Sarubbi</h3>
+                    <p><strong>Profesión:</strong> Telegrafista.</p>
+                    <p><strong>Cónyuge:</strong> Ana Matilde Baez Villagra (casados el 7 de mayo de 1940 en Escobar).</p>
+                    <p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació el 31 de julio de 1915 en la estación Sosa, Caazapá, Paraguay. Fue hijo de Marcelo Scappini Bernuzzi y Teresa Sarubbi Spaltra. Veterano de la Guerra del Chaco, donde se desempeñó como Radio Operador de 1ra. clase. Se casó con Ana Matilde Baez Villagra, y juntos tuvieron 5 hijos: Lidia Antonia, Ovidio Rafael, Daily Teresa Josefina, Ana Bettina y Rubén Eugenio. Falleció el 6 de noviembre de 2000 en Asunción a causa de un Infarto Agudo de Miocardio, Cardiopatía Isquémica e Hipertensión. Su legado como veterano, telegrafista y padre de familia perdura en sus descendientes.</p>
+                    <div class="child-grid">
+                        <div class="child-btn" onclick="showGrandChild(1)">Lidia Antonia</div>
+                        <div class="child-btn" onclick="showGrandChild(2)">Ovidio Rafael</div>
+                        <div class="child-btn" onclick="showGrandChild(3)">Daily Teresa</div>
+                        <div class="child-btn" onclick="showGrandChild(4)">Ana Bettina</div>
+                        <div class="child-btn" onclick="showGrandChild(5)">Rubén</div>
+                    </div>
+                    <div class="back-btn" onclick="showChild(0)">← Volver</div>
+                </div>
+                <div id="ovidio-child-1-view" style="display:none;">
+                    <!-- CORREGIDO: AHORA BUSCA lidia-scappini-baez.png -->
+                    <img src="images/lidia-scappini-baez.png" onerror="this.style.display='none'">
+                    <h3>Lidia Antonia Scappini Sarubbi</h3>
+                    <p><strong>Nacimiento:</strong> 09/01/1955, Sapucaí - <strong>Fallecimiento:</strong> 11/05/1975, Asunción</p>
+                    <p><strong>Cónyuge:</strong> Gustavo Vernazza</p>
+                    <p><strong>Hijos:</strong> Sin descendencia.</p>
+                    <p style="text-align:justify; margin-top:15px;">[Historia]</p>
+                    <div class="back-btn" onclick="showGrandChild(0)">← Volver</div>
+                </div>
+                <div id="ovidio-child-2-view" style="display:none;"><img src="images/rafael-scappini.png" onerror="this.style.display='none'"><h3>Ovidio Rafael Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 10/09/1957, Sapucaí - <strong>Fallecimiento:</strong> 11/08/1995, Asunción</p><p><strong>Cónyuge:</strong> Nancy Perla Elli Jiménez</p><p><strong>Hijos:</strong> Sandra Patricia y Marcos Alejandro.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-3-view" style="display:none;"><img src="images/daily-scappini.png" onerror="this.style.display='none'"><h3>Daily Teresa Josefina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 01/08/1940, Escobar - <strong>Fallecimiento:</strong> 04/09/2012</p><p><strong>Título:</strong> Maestra Normal Superior, recibido el 6 de noviembre de 1958.</p><p><strong>Cónyuge:</strong> Jaime Cristóful Solé (13/07/1936 - 03/11/2020)</p><p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo.</p><p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació en Escobar, en la estación del tren, ya que su padre era agente ferroviario. Vivió en el barrio inglés de Sapucaí. Se destacó académicamente en la Escuela Normal de Profesores N°2, donde obtuvo excelentes calificaciones. Amaba las orquídeas, escuchar a "Los Cumbreños" y era excelente en gramática.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-4-view" style="display:none;"><img src="images/bettina-scappini.png" onerror="this.style.display='none'"><h3>Ana Bettina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 30/10/1942, Escobar</p><p><strong>Cónyuge:</strong> Victor Vallejos Perez Garay (07/12/1942 - 12/01/2022)</p><p><strong>Hijos:</strong> Victor Ruben, Mirtha Beatriz, Luis Carlos y Karen Bettina.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-5-view" style="display:none;"><img src="images/ruben-scappini.png" onerror="this.style.display='none'"><h3>Rubén Eugenio Scappini Baez</h3><p><strong>Nacimiento:</strong> 01/01/1946, Asunción</p><p><strong>Cónyuge:</strong> María Elena Cáceres</p><p><strong>Hijos:</strong> Hector Ruben, Horacio Rafael, Rodrigo , Liliana Mariel y Fernando.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+            </div>
+
+            <!-- HIJO 6: LIDIA -->
+            <div id="marcelo-child-6-view" style="display:none;">
+                <h3>Lidia Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> Astolfo Dávalos.</p>
+                <p><strong>Hijas (3):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Daily Dávalos Scappini</strong> - Hija: Erika Caffiero Dávalos.</li>
+                    <li><strong>Monona Dávalos Scappini</strong> - Soltera, sin hijos.</li>
+                    <li><strong>Asunción (Chuncho) Dávalos Scappini</strong> - Nacida el 15 de agosto de 1956. Hijo: Marcelo Ferrer Dávalos (nacido el 24 de marzo). Casado con Valentina Canese Caballero, y tienen un hijo: Martín.</li>
+                </ul>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
+            <div id="marcelo-child-7-view" style="display:none;"><img src="images/marcelo-hijo7.jpg" onerror="this.style.display='none'"><h3>Selva Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+        </div>
+    </div>
+
+    <div id="modal-alberto" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span>
+            <img src="images/alberto-scappini.png" onerror="this.style.display='none'">
+            <h3>Alberto Scappini Bernuzzi</h3>
+            <p><strong>Cónyuge:</strong> Ernesta Rodríguez Sosa</p>
+            <p><strong>Hijos:</strong> 9 hijos vivos.</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Alberto]</p>
+        </div>
+    </div>
+
+    <div id="modal-francisca" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-francisca')">&times;</span>
+            <img src="images/francisca-scappini.png" onerror="this.style.display='none'">
+            <h3>Francisca "Tía Checa" Scappini Bernuzzi</h3>
+            <p><strong>Cónyuge:</strong> Basilicio Núñez</p>
+            <p><strong>Hijos:</strong> 1 hijo (Alicio Núñez, falleció joven).</p>
+            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Francisca]</p>
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- MODALES SOLE ALMENARA (OPCIÓN B IMPLEMENTADA)      -->
+    <!-- ================================================== -->
+    
+    <!-- MODAL DE TERESA SOLÉ -->
+    <div id="modal-teresa-sole" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-teresa-sole')">&times;</span>
+            
+            <div id="teresa-parent-view">
+                <img src="images/teresa-sole.jpg" onerror="this.style.display='none'">
+                <img src="images/juan-cristoful.jpg" onerror="this.style.display='none'" style="max-height:200px; display:inline-block; width:auto; margin-right:10px;">
+                <h3>Teresa Solé y Almenara</h3>
+                <p><strong>Origen:</strong> Bellvís, Lérida, España.</p>
+                <p><strong>Esposo:</strong> Juan Cristóful Ricart (Gironella, España). Contrajo matrimonio el 14 de marzo de 1925 en Asunción.</p>
+                <p><strong>Hijos (5):</strong></p>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showTeresaChild(1)">Josefa (Josefina)</div>
+                    <div class="child-btn" onclick="showTeresaChild(2)">Mercedes</div>
+                    <div class="child-btn" onclick="showTeresaChild(3)">María</div>
+                    <div class="child-btn" onclick="showTeresaChild(4)">Juanita</div>
+                    <div class="child-btn" onclick="showTeresaChild(5)">Jaime</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-teresa-sole')">Cerrar</div>
+            </div>
+
+            <div id="teresa-child-1-view" style="display:none;">
+                <img src="images/josefina-antonio-cano.png" onerror="this.style.display='none'">
+                <h3>Josefa (Josefina) Cristóful Solé</h3>
+                <p><strong>Fallecimiento:</strong> 04 de diciembre de 2004</p>
+                <p><strong>Esposo:</strong> Antonio Cano</p>
+                <!-- CORREGIDO: cambiado "con" por "casado con" / "casada con" -->
+                <p><strong>Hijos (4):</strong> Antonio (casado con Lourdes Cameroni), Julio (casado con Nancy Duarte), Nury (casada con José Miracca) y José (casado con Mami Santacruz).</p>
+                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
+            </div>
+
+            <div id="teresa-child-2-view" style="display:none;">
+                <img src="images/mercedes-cristoful-sole.jpg" onerror="this.style.display='none'">
+                <h3>Mercedes Cristóful Solé</h3>
+                <p><strong>Nacimiento:</strong> 25 de febrero de 1928, Asunción, Paraguay</p>
+                <p><strong>Esposo:</strong> Sebastián Galeano</p>
+                <p><strong>Hijos:</strong> No tuvieron hijos.</p>
+                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
+            </div>
+
+            <div id="teresa-child-3-view" style="display:none;">
+                <img src="images/maria-cristoful-sole.jpg" onerror="this.style.display='none'">
+                <h3>María Cristóful Solé</h3>
+                <p><strong>Nacimiento:</strong> 24 de septiembre de 1931, Asunción, Paraguay</p>
+                <p><strong>Estado civil:</strong> Soltera sin hijos.</p>
+                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
+            </div>
+
+            <div id="teresa-child-4-view" style="display:none;">
+                <img src="images/juanita-cristoful-sole.jpg" onerror="this.style.display='none'">
+                <h3>Juanita Cristóful Solé</h3>
+                <p><strong>Estado civil:</strong> Soltera sin hijos.</p>
+                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
+            </div>
+
+            <div id="teresa-child-5-view" style="display:none;">
+                <img src="images/jaime-cristoful.png" onerror="this.style.display='none'">
+                <h3>Jaime Cristóful Solé (1936 - 2020)</h3>
+                <p><strong>Esposa:</strong> Daily Teresa Josefina Scappini Sarubbi (1940 - 2012)</p>
+                <p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo.</p>
+                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE FRANCISCO SOLÉ -->
+    <div id="modal-francisco-sole" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-francisco-sole')">&times;</span>
+
+            <div id="francisco-parent-view">
+                <img src="images/francisco-sole.png" onerror="this.style.display='none'">
+                <h3>Francisco Solé y Almenara</h3>
+                <p><strong>Segundo hijo de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
+                <p><strong>Su oficio:</strong> Apicultor. Fue dueño de la empresa <strong>"EL COLMENAR"</strong> en Lambaré, Paraguay.</p>
+                <p><strong>Primer matrimonio:</strong> Viudo de su primera esposa.</p>
+                <p><strong>Segundo matrimonio:</strong> Casado con <strong>Josefa Falcón</strong>.</p>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showFranciscoChild(1)">Hijos de primer matrimonio</div>
+                    <div class="child-btn" onclick="showFranciscoChild(2)">Hijos de segundo matrimonio</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-francisco-sole')">Cerrar</div>
+            </div>
+
+            <div id="francisco-child-1-view" style="display:none;">
+                <h4>Hijos del primer matrimonio (con su primera esposa)</h4>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Josefa (Pepa) Solé Mencía</strong> - [Sin información].</li>
+                    <li><strong>Antonio Solé</strong> - [Sin información].</li>
+                    <li><strong>Manuel Francisco (Manolo) Solé</strong> - [Sin información].</li>
+                    <li><strong>Teresa Manuela Solé</strong> - [Sin información].</li>
+                    <li><strong>Pabla Lucía Solé</strong> - [Sin información].</li>
+                </ul>
+                <div class="back-btn" onclick="showFranciscoChild(0)">← Volver a Francisco</div>
+            </div>
+
+            <div id="francisco-child-2-view" style="display:none;">
+                <h4>Hijos del segundo matrimonio (con Josefa Falcón)</h4>
+                <!-- CORREGIDO: cambiado "con" por "casada con" en Graciela -->
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Agustina Mercedes Solé Falcón</strong> - Casada con Manuel Aveiro Chamorro. Hijos: Graciela (casada con Jorge Pineda), Victor Manuel, y Ada Azucena.</li>
+                    <li><strong>Josefa (Tula) Solé Falcón</strong> - [Sin información].</li>
+                    <li><strong>Francisco Ramón (Paco) Solé Falcón</strong> - [Sin información].</li>
+                    <li><strong>Blanca Rosa Solé Falcón</strong> - [Sin información].</li>
+                </ul>
+                <div class="back-btn" onclick="showFranciscoChild(0)">← Volver a Francisco</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE RAMONA SOLÉ (CORREGIDO Y CON NUEVAS FOTOS) -->
+    <div id="modal-ramona-sole" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-ramona-sole')">&times;</span>
+
+            <div id="ramona-parent-view">
+                <img src="images/ramona-sole.png" onerror="this.style.display='none'">
+                <h3>Ramona Solé y Almenara</h3>
+                <p><strong>Tercera hija de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
+                <p><strong>Lugar de residencia:</strong> Bellvís, Lérida, España.</p>
+                <p><strong>Esposo:</strong> Baldomero Camarasa.</p>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showRamonaChild(1)">Conoce a su hija Paquita</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-ramona-sole')">Cerrar</div>
+            </div>
+
+            <div id="ramona-child-1-view" style="display:none;">
+                <img src="images/paquita.png" onerror="this.style.display='none'">
+                <h3>Paquita Solé Camarasa</h3>
+                <p><strong>Casada con:</strong> Pepe Callizo Ibárz.</p>
+                <p><strong>Nietos de Ramona (2):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Lidia Callizo Camarasa</strong> - Casada con Miguel Cervera Moral. Hijo: Marc Cervera Callizo.</li>
+                    <li><strong>Ma Angels Callizo Camarasa</strong> - Casada con Bernat Mur Quibus. Hijos: David Mur Callizo y Alba Mur Callizo.</li>
+                </ul>
+                <div class="back-btn" onclick="showRamonaChild(0)">← Volver a Ramona</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- JAVASCRIPT                                         -->
+    <!-- ================================================== -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // --- CAMBIO DE PANTALLAS ---
+        function loadFamily(family) {
+            document.getElementById('main-screen').style.display = 'none';
+            document.getElementById('wrapper-scappini').classList.remove('active-family');
+            document.getElementById('wrapper-sole').classList.remove('active-family');
+            
+            if(family === 'scappini') {
+                document.getElementById('wrapper-scappini').classList.add('active-family');
+                if(!window.mapScappini) {
+                    initMap('family-map-scappini', 'mapScappini', 'scappini');
+                } else {
+                    setTimeout(() => window.mapScappini.invalidateSize(), 500);
+                }
+            } else if(family === 'sole') {
+                document.getElementById('wrapper-sole').classList.add('active-family');
+                if(!window.mapSole) {
+                    initMap('family-map-sole', 'mapSole', 'sole');
+                } else {
+                    setTimeout(() => window.mapSole.invalidateSize(), 500);
+                }
+            }
+        }
+
+        function goHome() {
+            document.getElementById('wrapper-scappini').classList.remove('active-family');
+            document.getElementById('wrapper-sole').classList.remove('active-family');
+            document.getElementById('main-screen').style.display = 'flex';
+        }
+
+        // --- MODALES ---
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        // --- SUB-NAVEGACIÓN MARCELO ---
+        function showChild(num) {
+            document.getElementById('marcelo-parent-view').style.display = 'none';
+            for(let i=1; i<=7; i++) document.getElementById('marcelo-child-' + i + '-view').style.display = 'none';
+            if(num === 0) document.getElementById('marcelo-parent-view').style.display = 'block';
+            else document.getElementById('marcelo-child-' + num + '-view').style.display = 'block';
+        }
+        function showGrandChild(num) {
+            for(let i=1; i<=5; i++) document.getElementById('ovidio-child-' + i + '-view').style.display = 'none';
+            document.getElementById('ovidio-parent-view').style.display = 'none';
+            if(num === 0) document.getElementById('ovidio-parent-view').style.display = 'block';
+            else document.getElementById('ovidio-child-' + num + '-view').style.display = 'block';
+        }
+
+        // --- SUB-NAVEGACIÓN JUAN ---
+        function showJuanChild(num) {
+            document.getElementById('juan-parent-view').style.display = 'none';
+            document.getElementById('juan-child-1-view').style.display = 'none';
+            if(num === 0) document.getElementById('juan-parent-view').style.display = 'block';
+            else document.getElementById('juan-child-' + num + '-view').style.display = 'block';
+        }
+
+        // --- SUB-NAVEGACIÓN SOLÉ OPCIÓN B ---
+        function showTeresaChild(num) {
+            document.getElementById('teresa-parent-view').style.display = 'none';
+            for(let i=1; i<=5; i++) document.getElementById('teresa-child-' + i + '-view').style.display = 'none';
+            if(num === 0) document.getElementById('teresa-parent-view').style.display = 'block';
+            else document.getElementById('teresa-child-' + num + '-view').style.display = 'block';
+        }
+        function showFranciscoChild(num) {
+            document.getElementById('francisco-parent-view').style.display = 'none';
+            document.getElementById('francisco-child-1-view').style.display = 'none';
+            document.getElementById('francisco-child-2-view').style.display = 'none';
+            if(num === 0) document.getElementById('francisco-parent-view').style.display = 'block';
+            else document.getElementById('francisco-child-' + num + '-view').style.display = 'block';
+        }
+        function showRamonaChild(num) {
+            document.getElementById('ramona-parent-view').style.display = 'none';
+            document.getElementById('ramona-child-1-view').style.display = 'none';
+            if(num === 0) document.getElementById('ramona-parent-view').style.display = 'block';
+            else document.getElementById('ramona-child-' + num + '-view').style.display = 'block';
+        }
+
+        // --- MAPAS ---
+        function initMap(containerId, varName, familyType) {
+            var map = L.map(containerId, { center: [40.0, -5.0], zoom: 4, maxBounds: [[-90, -180], [90, 180]] });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+            
+            var markers;
+            var bounds = L.latLngBounds();
+
+            if(familyType === 'scappini') {
+                markers = [
+                    { lat: 45.0458, lng: 10.3100, name: 'San Martino Del Lago, Italia' },
+                    { lat: 45.0558, lng: 10.3200, name: 'Scandolara Rabara, Italia' },
+                    { lat: -29.2556, lng: -51.5305, name: 'Garibaldi, Brasil' },
+                    { lat: -25.5167, lng: -54.5833, name: 'Foz de Iguazú, Brasil' },
+                    { lat: -26.4667, lng: -56.2, name: 'Yegros, Paraguay' },
+                    { lat: -26.1833, lng: -56.3667, name: 'Caazapá, Paraguay' }
+                ];
+            } else {
+                markers = [
+                    { lat: 41.6833, lng: 0.8167, name: 'Bellvís, Lérida, España' },
+                    { lat: 41.6167, lng: 0.6222, name: 'Lérida, España' },
+                    { lat: 42.0333, lng: 1.8833, name: 'Gironella, España' },
+                    { lat: 42.1333, lng: -0.4167, name: 'Huesca, España' },
+                    { lat: 41.3851, lng: 2.1734, name: 'Barcelona, España' },
+                    { lat: -25.2637, lng: -57.5759, name: 'Asunción, Paraguay' },
+                    { lat: -25.3464, lng: -57.6096, name: 'Lambaré, Paraguay' }
+                ];
+            }
+
+            markers.forEach(function(marker) {
+                L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(marker.name);
+                bounds.extend([marker.lat, marker.lng]);
+            });
+            
+            map.fitBounds(bounds, {padding: [50, 50]});
+            window[varName] = map;
+            
+            setTimeout(() => map.invalidateSize(), 500);
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.mapScappini) {
+                setTimeout(() => window.mapScappini.invalidateSize(), 300);
+            }
+            if (window.mapSole) {
+                setTimeout(() => window.mapSole.invalidateSize(), 300);
+            }
+        });
+    </script>
+
+</body>
+</html>
