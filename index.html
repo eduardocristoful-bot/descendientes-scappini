@@ -493,6 +493,14 @@
                 <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan uno de sus viajes en el vapor <strong>"Santa Isabel de Borbón"</strong>, aunque realizó múltiples travesías entre España y Paraguay para visitar a sus hijos Francisco y Teresa.</p>
             </div>
 
+            <div class="timeline">
+                <div class="timeline-item"><div class="date">18 de enero de 1919</div><div class="event">Fallecimiento de <strong>Josefa Almenara i Molló</strong> en Bellvís (Cal Vega), España.</div></div>
+                <div class="timeline-item"><div class="date">13 de julio de 1936</div><div class="event">Nacimiento de <strong>Jaime Cristóful Solé</strong>.</div></div>
+                <div class="timeline-item"><div class="date">01 de agosto de 1940</div><div class="event">Nacimiento de su esposa, <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</div></div>
+                <div class="timeline-item"><div class="date">03 de noviembre de 2020</div><div class="event">Fallecimiento de <strong>Jaime Cristóful Solé</strong>.</div></div>
+                <div class="timeline-item"><div class="date">04 de septiembre de 2012</div><div class="event">Fallecimiento de <strong>Daily Teresa Josefina Scappini Sarubbi</strong>.</div></div>
+            </div>
+
             <h3>Los 3 Hijos de Vicente Solé y Josefa Almenara</h3>
             <div class="cards">
                 <div class="card" onclick="openModal('modal-francisco-sole')">
@@ -834,9 +842,11 @@
             if(family === 'scappini') {
                 document.getElementById('wrapper-scappini').classList.add('active-family');
                 if(!window.mapScappini) initMap('family-map-scappini', 'mapScappini', 'scappini');
+                else setTimeout(() => window.mapScappini.invalidateSize(), 200);
             } else if(family === 'sole') {
                 document.getElementById('wrapper-sole').classList.add('active-family');
                 if(!window.mapSole) initMap('family-map-sole', 'mapSole', 'sole');
+                else setTimeout(() => window.mapSole.invalidateSize(), 200);
             }
         }
 
@@ -911,9 +921,11 @@
             });
             map.fitBounds(bounds, {padding: [50, 50]});
             window[varName] = map;
+            
+            // Asegurar que el mapa se dibuje correctamente al mostrarse
+            setTimeout(() => map.invalidateSize(), 300);
         }
     </script>
 
 </body>
 </html>
-```
