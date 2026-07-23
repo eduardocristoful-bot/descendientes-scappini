@@ -1,20 +1,3 @@
-¡Qué alivio que las fotos ya estén todas funcionando! Eso fue un gran logro.
-
-Ahora vamos a por el mapa. Tienes toda la razón: es un fastidio que no aparezca ni en escritorio ni en el teléfono. 
-
-### ¿Por qué no salen los mapas?
-El culpable es **Leaflet**. Esta librería de mapas *necesita* que el contenedor (el `<div>` donde va el mapa) tenga un **alto (height) y ancho (width) visibles en el momento exacto en que se ejecuta el código**. Como las páginas de las familias arrancan ocultas (`display: none`), Leaflet calcula que la altura es `0px` y dibuja un mapa invisible (de 0 píxeles). 
-
-Lo que he hecho para solucionarlo de forma definitiva:
-1. **Añadí `min-height` en el CSS:** Por si acaso el mapa se queda en 0, ahora tiene un mínimo de 300px forzado desde el estilo.
-2. **Aumenté el tiempo de espera en el JavaScript:** El `invalidateSize()` (el comando que recalcula el tamaño) ahora se ejecuta con un retraso un poco mayor (`500ms`), para dar tiempo a que el navegador termine de mostrar la pestaña antes de dibujar el mapa.
-3. **Añadí un evento para cuando gires el teléfono:** Ahora, si cambias la orientación de tu celular (vertical a horizontal), el mapa se ajustará automáticamente al nuevo tamaño de la pantalla.
-
-Aquí tienes el **`index.html` COMPLETO** con el mapa corregido. Reemplaza tu archivo, guarda (`Ctrl+S`), haz **Commit** y **Sync Changes**.
-
-**Recuerda presionar `Ctrl + F5` cuando abras la página por primera vez para que el navegador olvide la versión rota del mapa.**
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -1024,4 +1007,3 @@ Aquí tienes el **`index.html` COMPLETO** con el mapa corregido. Reemplaza tu ar
 
 </body>
 </html>
-```
