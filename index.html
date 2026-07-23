@@ -344,7 +344,7 @@
         #family-map-scappini, #family-map-sole {
             height: 400px;
             width: 100%;
-            min-height: 300px; /* Garantiza que el mapa tenga altura incluso si el JS falla */
+            min-height: 300px;
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
             z-index: 1;
@@ -367,6 +367,19 @@
         }
         .map-legend span::before {
             content: "📍 ";
+        }
+
+        /* SECCIÓN DE ÁRBOLES (AHORA SEPARADOS) */
+        .arbol-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 40px;
+        }
+        .arbol-section h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #26382d;
         }
 
         @media (max-width: 600px) {
@@ -401,7 +414,7 @@
     </div>
 
     <!-- ================================================ -->
-    <!-- WRAPPER DE FAMILIAS                              -->
+    <!-- WRAPPER SCAPPINI BERNuzzi (LADO MATERNO)         -->
     <!-- ================================================ -->
     <div id="wrapper-scappini" class="family-wrapper">
         <header id="header-scappini" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/bernuzzi-scappini.png'); background-size: cover; background-position: center top;">
@@ -411,6 +424,7 @@
                 <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
             </div>
         </header>
+        
         <section id="inicio-scappini">
             <div class="map-section">
                 <div id="family-map-scappini"></div>
@@ -458,10 +472,17 @@
                 <div class="card" onclick="openModal('modal-francisca')"><h3>Francisca (Tía Checa)</h3><p><strong>Núñez Scappini</strong></p><ul><li>Casada con Basilicio Núñez.</li><li>Tuvo <strong>1 hijo</strong>.</li></ul></div>
             </div>
         </section>
+
+        <!-- ÁRBOL DE LOS SCAPPINI -->
+        <section id="arbol-scappini" class="arbol-section">
+            <h2>Árbol Genealógico Scappini Bernuzzi</h2>
+            <p>La representación visual del legado de la familia Scappini Bernuzzi.</p>
+            <img src="images/arbol-genealogico.png" alt="Árbol Genealógico de los Scappini" class="genealogy-img">
+        </section>
     </div>
 
     <!-- ================================================ -->
-    <!-- WRAPPER SOLE ALMENARA                             -->
+    <!-- WRAPPER SOLE ALMENARA (LADO PATERNO)              -->
     <!-- ================================================ -->
     <div id="wrapper-sole" class="family-wrapper">
         <header id="header-sole" style="background: linear-gradient(rgba(25, 25, 25, .45), rgba(25, 25, 25, .45)), url('images/vicente-josefa.png'); background-size: cover; background-position: center top;">
@@ -471,6 +492,7 @@
                 <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
             </div>
         </header>
+        
         <section id="inicio-sole">
             <div class="map-section">
                 <div id="family-map-sole"></div>
@@ -487,17 +509,19 @@
 
             <h2>Descendientes de Vicente Solé Cases y Josefa Almenara i Molló</h2>
             <div class="story-text">
-                <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> (natural de Bellvís, Lérida) y <strong>Josefa Almenara i Molló</strong>. De su unión nacieron 3 hijos: <strong>Francisco Solé y Almenara</strong>, <strong>Teresa Solé y Almenara</strong>, y <strong>Ramona Solé y Almenara</strong>.</p>
+                <p>Esta rama de la familia tiene sus raíces en el matrimonio de <strong>Vicente Solé Cases</strong> (natural de Bellvís, Lérida) y <strong>Josefa Almenara i Molló</strong>. De su unión nacieron 3 hijos: <strong>Francisco Solé y Almenara</strong>, <strong>Teresa Solé y Almenara</strong> (tu abuela), y <strong>Ramona Solé y Almenara</strong>.</p>
                 <br>
-                <p>Los hijos de este matrimonio se dispersaron. Francisco se radicó en Lambaré (Paraguay) donde fue un reconocido apicultor; Teresa se estableció en <strong>Asunción</strong> tras casarse con <strong>Juan Cristóful Ricart</strong> (natural de Gironella, España); y Ramona residió en Bellvís, España, junto a su esposo <strong>Baldomero Camarasa i Solé</strong>.</p>
+                <p>En un viaje documentado, el 20 de julio de 1922, Vicente Solé Cases compareció ante el juzgado de Bellvís para obtener el permiso necesario para que sus hijos mayores, Teresa (de 20 años) y Francisco (de 19 años), pudieran trasladarse a Sudamérica. Teresa, la hermana mayor, y Francisco se radicaron en Paraguay, mientras que Ramona residió en Bellvís.</p>
                 <br>
-                <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan uno de sus viajes en el vapor <strong>"Santa Isabel de Borbón"</strong>, aunque realizó múltiples travesías entre España y Paraguay para visitar a sus hijos Francisco y Teresa.</p>
+                <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan sus travesías en el vapor <strong>"Santa Isabel de Borbón"</strong>, viajando de ida y vuelta entre España y Paraguay para visitar a sus hijos.</p>
             </div>
 
-            <!-- NUEVO TIMELINE SOLÉ CON FECHAS DE NACIMIENTO, CASAMIENTO Y DEFUNCIÓN -->
+            <!-- TIMELINE SOLÉ CON EL NUEVO DATO DE 1922 -->
             <div class="timeline">
                 <div class="timeline-item"><div class="date">Circa 1902</div><div class="event">Nacimiento de <strong>Teresa Solé y Almenara</strong> en Bellvís, Lérida.</div></div>
                 <div class="timeline-item"><div class="date">18 de enero de 1919</div><div class="event">Fallecimiento de <strong>Josefa Almenara i Molló</strong> en Bellvís (Cal Vega), España.</div></div>
+                <div class="timeline-item"><div class="date">20 de julio de 1922</div><div class="event">Vicente Solé obtiene permiso judicial en Bellvís para que sus hijos Teresa (20 años) y Francisco (19 años) emigren a Sudamérica.</div></div>
+                <div class="timeline-item"><div class="date">03 de agosto de 1922</div><div class="event">Teresa y Francisco embarcan en el vapor <strong>"Santa Isabel de Borbón"</strong> con destino a Buenos Aires.</div></div>
                 <div class="timeline-item"><div class="date">14 de marzo de 1925</div><div class="event">Matrimonio de <strong>Teresa Solé y Almenara</strong> y <strong>Juan Cristóful Ricart</strong> en Asunción, Paraguay.</div></div>
                 <div class="timeline-item"><div class="date">13 de julio de 1936</div><div class="event">Nacimiento de <strong>Jaime Cristóful Solé</strong>.</div></div>
                 <div class="timeline-item"><div class="date">01 de agosto de 1940</div><div class="event">Nacimiento de <strong>Daily Teresa Josefina Scappini Sarubbi</strong> en Escobar, Paraguay.</div></div>
@@ -517,7 +541,7 @@
                 </div>
                 <div class="card" onclick="openModal('modal-teresa-sole')">
                     <h3>Teresa Solé y Almenara</h3>
-                    <p><strong>Segunda hija</strong></p>
+                    <p><strong>Segunda hija (hermana mayor)</strong></p>
                     <ul>
                         <li>Nació en Bellvís, Lérida.</li>
                         <li>Casada con <strong>Juan Cristóful Ricart</strong>.</li>
@@ -529,10 +553,17 @@
                     <p><strong>Tercera hija</strong></p>
                     <ul>
                         <li>Residió en Bellvís, España.</li>
-                        <li>Casada con <strong>Baldomero Camarasa i Solé</strong>.</li>
+                        <li>Casada con <strong>Baldomero Camarasa</strong>.</li>
                     </ul>
                 </div>
             </div>
+        </section>
+
+        <!-- ÁRBOL DE LOS SOLÉ -->
+        <section id="arbol-sole" class="arbol-section">
+            <h2>Árbol Genealógico Solé Almenara</h2>
+            <p>La representación visual del legado de la familia Solé Almenara.</p>
+            <img src="images/arbol-sole.png" alt="Árbol Genealógico de los Solé" class="genealogy-img">
         </section>
     </div>
 
@@ -784,12 +815,13 @@
         </div>
     </div>
 
-    <!-- MODAL DE FRANCISCO SOLÉ -->
+    <!-- MODAL DE FRANCISCO SOLÉ (CON SU NUEVA FOTO) -->
     <div id="modal-francisco-sole" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-francisco-sole')">&times;</span>
 
             <div id="francisco-parent-view">
+                <img src="images/francisco-sole.png" onerror="this.style.display='none'">
                 <h3>Francisco Solé y Almenara</h3>
                 <p><strong>Primer hijo de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
                 <p><strong>Su oficio:</strong> Apicultor. Fue dueño de la empresa <strong>"EL COLMENAR"</strong> en Lambaré, Paraguay.</p>
@@ -827,16 +859,17 @@
         </div>
     </div>
 
-    <!-- MODAL DE RAMONA SOLÉ -->
+    <!-- MODAL DE RAMONA SOLÉ (CORREGIDO Y CON NUEVAS FOTOS) -->
     <div id="modal-ramona-sole" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-ramona-sole')">&times;</span>
 
             <div id="ramona-parent-view">
+                <img src="images/ramona-sole.png" onerror="this.style.display='none'">
                 <h3>Ramona Solé y Almenara</h3>
                 <p><strong>Tercera hija de Vicente Solé Cases y Josefa Almenara Molló.</strong></p>
                 <p><strong>Lugar de residencia:</strong> Bellvís, Lérida, España.</p>
-                <p><strong>Esposo:</strong> Baldomero Camarasa i Solé.</p>
+                <p><strong>Esposo:</strong> Baldomero Camarasa.</p>
                 <div class="child-grid">
                     <div class="child-btn" onclick="showRamonaChild(1)">Conoce a su hija Paquita</div>
                 </div>
@@ -844,6 +877,7 @@
             </div>
 
             <div id="ramona-child-1-view" style="display:none;">
+                <img src="images/paquita.png" onerror="this.style.display='none'">
                 <h3>Paquita Solé Camarasa</h3>
                 <p><strong>Casada con:</strong> Pepe Callizo Ibárz.</p>
                 <p><strong>Nietos de Ramona (2):</strong></p>
