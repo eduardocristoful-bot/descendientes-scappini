@@ -1,3 +1,20 @@
+¡Qué alivio que las fotos ya estén todas funcionando! Eso fue un gran logro.
+
+Ahora vamos a por el mapa. Tienes toda la razón: es un fastidio que no aparezca ni en escritorio ni en el teléfono. 
+
+### ¿Por qué no salen los mapas?
+El culpable es **Leaflet**. Esta librería de mapas *necesita* que el contenedor (el `<div>` donde va el mapa) tenga un **alto (height) y ancho (width) visibles en el momento exacto en que se ejecuta el código**. Como las páginas de las familias arrancan ocultas (`display: none`), Leaflet calcula que la altura es `0px` y dibuja un mapa invisible (de 0 píxeles). 
+
+Lo que he hecho para solucionarlo de forma definitiva:
+1. **Añadí `min-height` en el CSS:** Por si acaso el mapa se queda en 0, ahora tiene un mínimo de 300px forzado desde el estilo.
+2. **Aumenté el tiempo de espera en el JavaScript:** El `invalidateSize()` (el comando que recalcula el tamaño) ahora se ejecuta con un retraso un poco mayor (`500ms`), para dar tiempo a que el navegador termine de mostrar la pestaña antes de dibujar el mapa.
+3. **Añadí un evento para cuando gires el teléfono:** Ahora, si cambias la orientación de tu celular (vertical a horizontal), el mapa se ajustará automáticamente al nuevo tamaño de la pantalla.
+
+Aquí tienes el **`index.html` COMPLETO** con el mapa corregido. Reemplaza tu archivo, guarda (`Ctrl+S`), haz **Commit** y **Sync Changes**.
+
+**Recuerda presionar `Ctrl + F5` cuando abras la página por primera vez para que el navegador olvide la versión rota del mapa.**
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -341,9 +358,10 @@
             margin-top: 40px;
             margin-bottom: 40px;
         }
-        #family-map {
+        #family-map-scappini, #family-map-sole {
             height: 400px;
             width: 100%;
+            min-height: 300px; /* Garantiza que el mapa tenga altura incluso si el JS falla */
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
             z-index: 1;
@@ -375,7 +393,7 @@
             .timeline { padding-left: 10px; }
             .timeline-item { padding-left: 35px; }
             .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
-            #family-map { height: 300px; }
+            #family-map-scappini, #family-map-sole { height: 300px; min-height: 250px; }
             .map-legend span { font-size: 0.8rem; padding: 6px 12px; }
         }
         @media (max-width: 768px) {
@@ -868,12 +886,19 @@
             
             if(family === 'scappini') {
                 document.getElementById('wrapper-scappini').classList.add('active-family');
-                if(!window.mapScappini) initMap('family-map-scappini', 'mapScappini', 'scappini');
-                else setTimeout(() => window.mapScappini.invalidateSize(), 200);
+                if(!window.mapScappini) {
+                    initMap('family-map-scappini', 'mapScappini', 'scappini');
+                } else {
+                    // Dar tiempo al navegador para que renderice el bloque antes de invalidar
+                    setTimeout(() => window.mapScappini.invalidateSize(), 500);
+                }
             } else if(family === 'sole') {
                 document.getElementById('wrapper-sole').classList.add('active-family');
-                if(!window.mapSole) initMap('family-map-sole', 'mapSole', 'sole');
-                else setTimeout(() => window.mapSole.invalidateSize(), 200);
+                if(!window.mapSole) {
+                    initMap('family-map-sole', 'mapSole', 'sole');
+                } else {
+                    setTimeout(() => window.mapSole.invalidateSize(), 500);
+                }
             }
         }
 
@@ -978,12 +1003,25 @@
                 L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(marker.name);
                 bounds.extend([marker.lat, marker.lng]);
             });
+            
             map.fitBounds(bounds, {padding: [50, 50]});
             window[varName] = map;
             
-            setTimeout(() => map.invalidateSize(), 300);
+            // Asegurarse de que el mapa se dibuje con el tamaño correcto
+            setTimeout(() => map.invalidateSize(), 500);
         }
+
+        // Evento para ajustar el mapa al cambiar el tamaño de la ventana o rotar el móvil
+        window.addEventListener('resize', function() {
+            if (window.mapScappini) {
+                setTimeout(() => window.mapScappini.invalidateSize(), 300);
+            }
+            if (window.mapSole) {
+                setTimeout(() => window.mapSole.invalidateSize(), 300);
+            }
+        });
     </script>
 
 </body>
 </html>
+```
