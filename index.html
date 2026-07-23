@@ -369,19 +369,6 @@
             content: "📍 ";
         }
 
-        /* SECCIÓN DE ÁRBOLES (AHORA SEPARADOS) */
-        .arbol-section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 90px 40px;
-        }
-        .arbol-section h2 {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #26382d;
-        }
-
         @media (max-width: 600px) {
             #main-screen h1 { font-size: 3rem; }
             .main-buttons { flex-direction: column; gap: 15px; width: 100%; }
@@ -456,6 +443,17 @@
                 <div class="timeline-item"><div class="date">Inicios del Siglo XX</div><div class="event">Se establecen definitivamente en <strong>Yegros, Paraguay</strong>.</div></div>
                 <div class="timeline-item"><div class="date">1923 &amp; 1926</div><div class="event">Fallecimiento de Elizabetta y Vincenzo.</div></div>
                 <div class="timeline-item"><div class="date">1938</div><div class="event">Fallecimiento de <strong>Marcelo</strong> en Caazapá, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">1940</div><div class="event">El 7 de mayo, <strong>Ovidio Ignacio</strong> se casa con <strong>Ana Matilde Baez</strong> en Escobar.</div></div>
+                <div class="timeline-item"><div class="date">1 de agosto de 1940</div><div class="event">Nacimiento de <strong>Daily Teresa Josefina</strong> en Escobar.</div></div>
+                <div class="timeline-item"><div class="date">30 de octubre de 1942</div><div class="event">Nacimiento de <strong>Ana Bettina</strong> en Escobar.</div></div>
+                <div class="timeline-item"><div class="date">1 de enero de 1946</div><div class="event">Nacimiento de <strong>Rubén Eugenio</strong> en Asunción.</div></div>
+                <div class="timeline-item"><div class="date">1 de octubre de 1954</div><div class="event">Matrimonio de <strong>Agustín Scappini</strong> y <strong>Dora Juana Flores</strong> en Sosa.</div></div>
+                <div class="timeline-item"><div class="date">9 de enero de 1955</div><div class="event">Nacimiento de <strong>Lidia Antonia</strong> en Sapucaí.</div></div>
+                <div class="timeline-item"><div class="date">10 de septiembre de 1957</div><div class="event">Nacimiento de <strong>Ovidio Rafael</strong> en Sapucaí.</div></div>
+                <div class="timeline-item"><div class="date">11 de mayo de 1975</div><div class="event">Fallecimiento de <strong>Lidia Antonia</strong> en Asunción.</div></div>
+                <div class="timeline-item"><div class="date">17 de julio de 1977</div><div class="event">Fallecimiento de <strong>Teresa Sarubbi</strong> (madre de Ovidio) en Asunción.</div></div>
+                <div class="timeline-item"><div class="date">11 de agosto de 1995</div><div class="event">Fallecimiento de <strong>Ovidio Rafael</strong> en Asunción.</div></div>
+                <div class="timeline-item"><div class="date">6 de noviembre de 2000</div><div class="event">Fallecimiento de <strong>Ovidio Ignacio</strong> en Asunción.</div></div>
                 <div class="timeline-item"><div class="date">1962</div><div class="event">Fallecimiento del hijo mayor, <strong>Pablo</strong>.</div></div>
             </div>
 
@@ -516,7 +514,7 @@
                 <p>El padre Vicente Solé era un viajero incansable. Testimonios documentan sus travesías en el vapor <strong>"Santa Isabel de Borbón"</strong>, viajando de ida y vuelta entre España y Paraguay para visitar a sus hijos.</p>
             </div>
 
-            <!-- TIMELINE SOLÉ CON EL NUEVO DATO DE 1922 -->
+            <!-- TIMELINE SOLÉ ACTUALIZADO -->
             <div class="timeline">
                 <div class="timeline-item"><div class="date">Circa 1902</div><div class="event">Nacimiento de <strong>Teresa Solé y Almenara</strong> en Bellvís, Lérida.</div></div>
                 <div class="timeline-item"><div class="date">18 de enero de 1919</div><div class="event">Fallecimiento de <strong>Josefa Almenara i Molló</strong> en Bellvís (Cal Vega), España.</div></div>
@@ -671,6 +669,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE MARCELO CON NUEVAS RAMAS ACTUALIZADAS -->
     <div id="modal-marcelo" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
@@ -679,10 +678,10 @@
                 <h3>Marcelo Scappini Bernuzzi</h3>
                 <p><strong>Nacimiento:</strong> 1889, Garibaldi, Brasil</p>
                 <p><strong>Fallecimiento:</strong> 1938, Caazapá, Paraguay</p>
-                <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra</p>
+                <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra (fallecida el 17 de julio de 1977 en Asunción)</p>
                 <p><strong>Hijos:</strong> 7 hijos (Asunción, Eladio, Silvio, Agustín, Ovidio Ignacio, Lidia, Selva).</p>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showChild(1)">Asunción</div>
+                    <div class="child-btn" onclick="showChild(1)">Asunción (Chona)</div>
                     <div class="child-btn" onclick="showChild(2)">Eladio</div>
                     <div class="child-btn" onclick="showChild(3)">Silvio</div>
                     <div class="child-btn" onclick="showChild(4)">Agustín</div>
@@ -692,18 +691,42 @@
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-marcelo')">Cerrar</div>
             </div>
-            <div id="marcelo-child-1-view" style="display:none;"><img src="images/marcelo-hijo1.jpg" onerror="this.style.display='none'"><h3>Asunción Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+
+            <!-- HIJO 1: ASUNCIÓN (ACTUALIZADA CON RAMA MAIDANA) -->
+            <div id="marcelo-child-1-view" style="display:none;">
+                <h3>Asunción (Chona) Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> Sr. Maidana</p>
+                <p><strong>Hijos (4):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Otilia Maidana Scappini</strong> - Casada con Riquelme. Hija: Erika Riquelme Maidana.</li>
+                    <li><strong>Marcelino (Chelo) Maidana Scappini</strong> - Hijos: Javier (23/09/1971), Kelia y una hermana más.</li>
+                    <li><strong>Saúl Maidana Scappini</strong> - [Sin información adicional].</li>
+                    <li><strong>Saturnino Maidana Scappini</strong> - [Sin información adicional].</li>
+                </ul>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
             <div id="marcelo-child-2-view" style="display:none;"><img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'"><h3>Eladio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
             <div id="marcelo-child-3-view" style="display:none;"><img src="images/marcelo-hijo3.jpeg" onerror="this.style.display='none'"><h3>Silvio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
-            <div id="marcelo-child-4-view" style="display:none;"><img src="images/marcelo-hijo4.jpeg" onerror="this.style.display='none'"><h3>Agustín Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+            
+            <!-- HIJO 4: AGUSTÍN (ACTUALIZADO CON ACTA DE MATRIMONIO) -->
+            <div id="marcelo-child-4-view" style="display:none;">
+                <h3>Agustín Scappini Sarubbi</h3>
+                <p><strong>Ocupación:</strong> Empleado público.</p>
+                <p><strong>Contrajo matrimonio el 1 de octubre de 1954 en Sosa (F. Yegros) con Dora Juana Flores.</strong></p>
+                <p><strong>Hijos:</strong> [Sin información adicional de descendencia].</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
+            <!-- HIJO 5: OVIDIO IGNACIO -->
             <div id="marcelo-child-5-view" style="display:none;">
                 <div id="ovidio-parent-view">
                     <img src="images/marcelo-hijo5.jpeg" onerror="this.style.display='none'">
-                    <!-- Carné de Ovidio como segunda imagen histórica -->
                     <img src="images/carnet-ovidio.jpeg" onerror="this.style.display='none'" style="max-height:250px; display:inline-block; width:auto; margin-top:10px; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
                     <h3>Ovidio Ignacio Scappini Sarubbi</h3>
-                    <p><strong>Cónyuge:</strong> Ana Matilde Baez Villagra</p>
-                    <p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació el 31 de julio de 1915 en Villa Rica. Fue hijo de Marcelo Scappini Bernuzzi y Teresa Sarubbi Spaltra. Veterano de la Guerra del Chaco, donde se desempeñó como Radio Operador de 1ra. clase. Se casó con Ana Matilde Baez Villagra, y juntos tuvieron 5 hijos: Lidia Antonia, Ovidio Rafael, Daily Teresa Josefina, Ana Bettina y Rubén Eugenio. Su legado como veterano y padre de familia perdura en sus descendientes.</p>
+                    <p><strong>Profesión:</strong> Telegrafista.</p>
+                    <p><strong>Cónyuge:</strong> Ana Matilde Baez Villagra (casados el 7 de mayo de 1940 en Escobar).</p>
+                    <p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació el 31 de julio de 1915 en la estación Sosa, Caazapá, Paraguay. Fue hijo de Marcelo Scappini Bernuzzi y Teresa Sarubbi Spaltra. Veterano de la Guerra del Chaco, donde se desempeñó como Radio Operador de 1ra. clase. Se casó con Ana Matilde Baez Villagra, y juntos tuvieron 5 hijos: Lidia Antonia, Ovidio Rafael, Daily Teresa Josefina, Ana Bettina y Rubén Eugenio. Falleció el 6 de noviembre de 2000 en Asunción a causa de un Infarto Agudo de Miocardio, Cardiopatía Isquémica e Hipertensión. Su legado como veterano, telegrafista y padre de familia perdura en sus descendientes.</p>
                     <div class="child-grid">
                         <div class="child-btn" onclick="showGrandChild(1)">Lidia Antonia</div>
                         <div class="child-btn" onclick="showGrandChild(2)">Ovidio Rafael</div>
@@ -713,13 +736,26 @@
                     </div>
                     <div class="back-btn" onclick="showChild(0)">← Volver</div>
                 </div>
-                <div id="ovidio-child-1-view" style="display:none;"><img src="images/lidia-scappini.png" onerror="this.style.display='none'"><h3>Lidia Antonia Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 09/01/1955 - 11/05/1975</p><p><strong>Cónyuge:</strong> Gustavo Vernazza</p><p><strong>Hijos:</strong> Sin descendencia.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-2-view" style="display:none;"><img src="images/rafael-scappini.png" onerror="this.style.display='none'"><h3>Ovidio Rafael Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 10/09/1957 - 11/08/1995</p><p><strong>Cónyuge:</strong> Nancy Perla Elli Jiménez</p><p><strong>Hijos:</strong> Sandra Patricia y Marcos Alejandro.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-3-view" style="display:none;"><img src="images/daily-scappini.png" onerror="this.style.display='none'"><h3>Daily Teresa Josefina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 01/08/1940 - 04/09/2012</p><p><strong>Cónyuge:</strong> Jaime Cristóful Solé (13/07/1936 - 03/11/2020)</p><p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo.</p><p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació en Escobar, en la estación del tren, ya que su padre era agente ferroviario. Vivió en el barrio inglés de Sapucaí. Maestra Normal. Amaba las orquídeas, escuchar a "Los Cumbreños" y era excelente en gramática.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-4-view" style="display:none;"><img src="images/bettina-scappini.png" onerror="this.style.display='none'"><h3>Ana Bettina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 30/10/1942</p><p><strong>Cónyuge:</strong> Victor Vallejos Perez Garay (07/12/1942 - 12/01/2022)</p><p><strong>Hijos:</strong> Victor Ruben, Mirtha Beatriz, Luis Carlos y Karen Bettina.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-5-view" style="display:none;"><img src="images/ruben-scappini.png" onerror="this.style.display='none'"><h3>Rubén Eugenio Scappini Baez</h3><p><strong>Nacimiento:</strong> 31/12/1944</p><p><strong>Cónyuge:</strong> María Elena Cáceres</p><p><strong>Hijos:</strong> Hector Ruben, Horacio Rafael, Rodrigo , Liliana Mariel y Fernando.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-1-view" style="display:none;"><img src="images/lidia-scappini.png" onerror="this.style.display='none'"><h3>Lidia Antonia Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 09/01/1955, Sapucaí - <strong>Fallecimiento:</strong> 11/05/1975, Asunción</p><p><strong>Cónyuge:</strong> Gustavo Vernazza</p><p><strong>Hijos:</strong> Sin descendencia.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-2-view" style="display:none;"><img src="images/rafael-scappini.png" onerror="this.style.display='none'"><h3>Ovidio Rafael Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 10/09/1957, Sapucaí - <strong>Fallecimiento:</strong> 11/08/1995, Asunción</p><p><strong>Cónyuge:</strong> Nancy Perla Elli Jiménez</p><p><strong>Hijos:</strong> Sandra Patricia y Marcos Alejandro.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-3-view" style="display:none;"><img src="images/daily-scappini.png" onerror="this.style.display='none'"><h3>Daily Teresa Josefina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 01/08/1940, Escobar - <strong>Fallecimiento:</strong> 04/09/2012</p><p><strong>Título:</strong> Maestra Normal Superior, recibido el 6 de noviembre de 1958.</p><p><strong>Cónyuge:</strong> Jaime Cristóful Solé (13/07/1936 - 03/11/2020)</p><p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo.</p><p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació en Escobar, en la estación del tren, ya que su padre era agente ferroviario. Vivió en el barrio inglés de Sapucaí. Se destacó académicamente en la Escuela Normal de Profesores N°2, donde obtuvo excelentes calificaciones. Amaba las orquídeas, escuchar a "Los Cumbreños" y era excelente en gramática.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-4-view" style="display:none;"><img src="images/bettina-scappini.png" onerror="this.style.display='none'"><h3>Ana Bettina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 30/10/1942, Escobar</p><p><strong>Cónyuge:</strong> Victor Vallejos Perez Garay (07/12/1942 - 12/01/2022)</p><p><strong>Hijos:</strong> Victor Ruben, Mirtha Beatriz, Luis Carlos y Karen Bettina.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
+                <div id="ovidio-child-5-view" style="display:none;"><img src="images/ruben-scappini.png" onerror="this.style.display='none'"><h3>Rubén Eugenio Scappini Baez</h3><p><strong>Nacimiento:</strong> 01/01/1946, Asunción</p><p><strong>Cónyuge:</strong> María Elena Cáceres</p><p><strong>Hijos:</strong> Hector Ruben, Horacio Rafael, Rodrigo , Liliana Mariel y Fernando.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
             </div>
-            <div id="marcelo-child-6-view" style="display:none;"><img src="images/marcelo-hijo6.jpeg" onerror="this.style.display='none'"><h3>Lidia Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+
+            <!-- HIJO 6: LIDIA (ACTUALIZADA CON RAMA DÁVALOS) -->
+            <div id="marcelo-child-6-view" style="display:none;">
+                <h3>Lidia Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> Astolfo Dávalos.</p>
+                <p><strong>Hijas (3):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Daily Dávalos Scappini</strong> - Hija: Erika Caffiero Dávalos.</li>
+                    <li><strong>Monona Dávalos Scappini</strong> - Soltera, sin hijos.</li>
+                    <li><strong>Asunción (Chuncho) Dávalos Scappini</strong> - Nacida el 15 de agosto de 1956. Hijo: Marcelo Ferrer Dávalos (nacido el 24 de marzo). Casado con Valentina Canese Caballero, y tienen un hijo: Martín.</li>
+                </ul>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
+
             <div id="marcelo-child-7-view" style="display:none;"><img src="images/marcelo-hijo7.jpg" onerror="this.style.display='none'"><h3>Selva Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
         </div>
     </div>
@@ -906,7 +942,6 @@
                 if(!window.mapScappini) {
                     initMap('family-map-scappini', 'mapScappini', 'scappini');
                 } else {
-                    // Dar tiempo al navegador para que renderice el bloque antes de invalidar
                     setTimeout(() => window.mapScappini.invalidateSize(), 500);
                 }
             } else if(family === 'sole') {
@@ -964,14 +999,12 @@
         }
 
         // --- SUB-NAVEGACIÓN SOLÉ OPCIÓN B ---
-        // Teresa
         function showTeresaChild(num) {
             document.getElementById('teresa-parent-view').style.display = 'none';
             for(let i=1; i<=5; i++) document.getElementById('teresa-child-' + i + '-view').style.display = 'none';
             if(num === 0) document.getElementById('teresa-parent-view').style.display = 'block';
             else document.getElementById('teresa-child-' + num + '-view').style.display = 'block';
         }
-        // Francisco
         function showFranciscoChild(num) {
             document.getElementById('francisco-parent-view').style.display = 'none';
             document.getElementById('francisco-child-1-view').style.display = 'none';
@@ -979,7 +1012,6 @@
             if(num === 0) document.getElementById('francisco-parent-view').style.display = 'block';
             else document.getElementById('francisco-child-' + num + '-view').style.display = 'block';
         }
-        // Ramona
         function showRamonaChild(num) {
             document.getElementById('ramona-parent-view').style.display = 'none';
             document.getElementById('ramona-child-1-view').style.display = 'none';
@@ -1024,11 +1056,9 @@
             map.fitBounds(bounds, {padding: [50, 50]});
             window[varName] = map;
             
-            // Asegurarse de que el mapa se dibuje con el tamaño correcto
             setTimeout(() => map.invalidateSize(), 500);
         }
 
-        // Evento para ajustar el mapa al cambiar el tamaño de la ventana o rotar el móvil
         window.addEventListener('resize', function() {
             if (window.mapScappini) {
                 setTimeout(() => window.mapScappini.invalidateSize(), 300);
