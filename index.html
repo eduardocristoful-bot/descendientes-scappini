@@ -449,7 +449,7 @@
             <div class="cards">
                 <div class="card" onclick="openModal('modal-pablo')"><h3>Pablo (1879 - 1962)</h3><p><strong>Scappini González</strong></p><ul><li>Casado con Escolástica González.</li><li>Tuvieron <strong>12 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con Giuseppe Giovanni Cortesi Giondini.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
-                <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Casado con Anselma Valdez.</li><li>Se radicaron en Foz de Iguazú.</li></ul></div>
+                <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Nació en el barco rumbo a América, registrado en Garibaldi, Brasil.</li><li>Se estableció en Yegros, Paraguay, con su esposa Anselma.</li></ul></div>
                 <div class="card" onclick="openModal('modal-genoveva')"><h3>Genoveva</h3><p><strong>Rienzzi Scappini</strong></p><ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
                 <div class="card" onclick="openModal('modal-marcelo')"><h3>Marcelo (1889 - 1938)</h3><p><strong>Scappini Sarubbi</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>7 hijos</strong>.</li></ul></div>
@@ -580,15 +580,43 @@
         </div>
     </div>
     
+    <!-- MODAL DE JUAN COMPLETAMENTE ACTUALIZADO CON LA NUEVA INFORMACIÓN -->
     <div id="modal-juan" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-juan')">&times;</span>
-            <img src="images/juan-scappini.png" onerror="this.style.display='none'">
-            <h3>Juan Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Anselma Valdez</p>
-            <p><strong>Lugar:</strong> Foz de Iguazú (Brasil)</p>
-            <p><strong>Descendencia:</strong> Todos sus descendientes llevan el apellido Scappini.</p>
-            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Juan]</p>
+            
+            <!-- VISTA DE JUAN Y ANSELMA (ABUELOS) -->
+            <div id="juan-parent-view">
+                <img src="images/juan-scappini.png" onerror="this.style.display='none'">
+                <h3>Juan Scappini Bernuzzi</h3>
+                <p><strong>Nacimiento:</strong> Nació en el barco durante la travesía desde Italia. Fue registrado en Garibaldi, Río Grande do Sul, Brasil.</p>
+                <p><strong>Cónyuge:</strong> Anselma Valdez</p>
+                <p><strong>Historia:</strong> Su familia continuó el viaje hasta establecerse en Yegros, Paraguay. Su esposa, Anselma Valdez, falleció cuando su hijo Eligio tenía 15 años.</p>
+                
+                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a su hijo:</h4>
+                <div class="child-grid">
+                    <div class="child-btn" onclick="showJuanChild(1)">Eligio Sabás Scappini</div>
+                </div>
+                <div class="back-btn" onclick="closeModal('modal-juan')">Cerrar</div>
+            </div>
+
+            <!-- VISTA DE ELIGIO E INEZ (HIJO DE JUAN) -->
+            <div id="juan-child-1-view" style="display:none;">
+                <h3>Eligio Sabás Scappini</h3>
+                <p><strong>Lugar de nacimiento:</strong> Yegros, Paraguay.</p>
+                <p><strong>Cónyuge:</strong> Inez Ortega Scappini</p>
+                <p><strong>Historia:</strong> Eligio viajó a Argentina para trabajar, donde conoció a Inez. Se casaron y tuvieron 5 hijos.</p>
+                
+                <h4 style="margin-top: 20px; font-size: 1.2rem;">Sus 5 hijos (Nietos de Juan y Anselma):</h4>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Plinio Ricardo Scappini</strong> (1945 - 2024) - Casado con Débora Esculapio. Hijos: Plinio Ricardo, Claudio, Rafael.</li>
+                    <li><strong>Aníbal Roberto Scappini</strong> (1947 - 2020) - Casado con Miriam Oliveira. Hijos: Vanessa, Alexandre, Carolina.</li>
+                    <li><strong>Anselma Beatriz Scappini Fagundes</strong> (77 años) - Casada con Edvar Fagundes. Hijos: Ticiana, Isabela, Marco Antônio.</li>
+                    <li><strong>Heitor Raul Scappini</strong> (75 años) - Hijos: Kellen, Daniela, Raul.</li>
+                    <li><strong>Elena Isabel Scappini Nicoletti</strong> (74 años) - Casada con Helton Nicoletti. Hijos: Alessandra, Daelton.</li>
+                </ul>
+                <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
+            </div>
         </div>
     </div>
     
@@ -884,6 +912,14 @@
             document.getElementById('ovidio-parent-view').style.display = 'none';
             if(num === 0) document.getElementById('ovidio-parent-view').style.display = 'block';
             else document.getElementById('ovidio-child-' + num + '-view').style.display = 'block';
+        }
+
+        // --- SUB-NAVEGACIÓN JUAN (NUEVO) ---
+        function showJuanChild(num) {
+            document.getElementById('juan-parent-view').style.display = 'none';
+            document.getElementById('juan-child-1-view').style.display = 'none';
+            if(num === 0) document.getElementById('juan-parent-view').style.display = 'block';
+            else document.getElementById('juan-child-' + num + '-view').style.display = 'block';
         }
 
         // --- MAPAS ---
