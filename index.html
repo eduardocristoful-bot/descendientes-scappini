@@ -618,8 +618,13 @@
             
             <!-- VISTA DE ELIGIO E INEZ (HIJO DE JUAN) -->
             <div id="juan-child-1-view" style="display:none;">
-                <img src="images/eligo-scappini.jpeg" onerror="this.style.display='none'">
-                <img src="images/ines-ortega-scappini.jpeg" onerror="this.style.display='none'" style="max-height:200px; display:inline-block; width:auto; margin-top:10px; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                <!-- Nuevo contenedor para poner las fotos una al lado de la otra -->
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; margin-bottom: 15px;">
+                    <img src="images/eligo-scappini.jpeg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="images/eligio-scappini.jpeg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="images/ines-ortega-scappini.jpeg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                </div>
+                
                 <h3>Eligio Sabás Scappini</h3>
                 <p><strong>Lugar de nacimiento:</strong> Yegros, Paraguay.</p>
                 <p><strong>Cónyuge:</strong> Inez Ortega Scappini (fallecida a los 93 años).</p>
