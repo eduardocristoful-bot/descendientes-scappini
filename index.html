@@ -369,6 +369,96 @@
             content: "📍 ";
         }
 
+        /* ESTILOS PARA LA GALERÍA DE DOCUMENTOS HISTÓRICOS */
+        .documents-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0px 40px 40px 40px;
+        }
+        .documents-section h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #26382d;
+            text-align: center;
+        }
+        .documents-section p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .document-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .document-item {
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .document-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .document-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+        .document-item .doc-caption {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* ESTILOS DEL LIGHTBOX (ZOOM) */
+        #lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            text-align: center;
+            padding: 20px;
+        }
+        #lightbox-modal img {
+            max-width: 95%;
+            max-height: 85vh;
+            margin-top: 20px;
+            cursor: zoom-out;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        #lightbox-modal .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #lightbox-modal .lightbox-close:hover {
+            color: #bbb;
+        }
+        #lightbox-modal .lightbox-caption {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
         @media (max-width: 600px) {
             #main-screen h1 { font-size: 3rem; }
             .main-buttons { flex-direction: column; gap: 15px; width: 100%; }
@@ -378,6 +468,7 @@
             .modal-content { width: 95%; padding: 20px; margin: 10% auto; }
             #family-map-scappini, #family-map-sole { height: 300px; min-height: 250px; }
             .map-legend span { font-size: 0.8rem; padding: 6px 12px; }
+            .document-item { width: 100%; }
         }
         @media (max-width: 768px) {
             header h1 { font-size: 3rem; }
@@ -411,6 +502,26 @@
                 <button class="btn-back" onclick="goHome()">← Volver al inicio</button>
             </div>
         </header>
+
+        <!-- SECCIÓN DE DOCUMENTOS HISTÓRICOS -->
+        <div class="documents-section">
+            <h2>Documentos Históricos</h2>
+            <p>Registro de Matrimonio de Vincenzo Giuseppe Scappini y Elizabetta Bernuzzi en Scandolara Ravara, Italia (1875).</p>
+            <div class="document-gallery">
+                <div class="document-item" onclick="openLightbox(this)">
+                    <img src="images/59862748_2159531444100747_1192078571120623616_n.jpg" alt="Portada del Registro">
+                    <div class="doc-caption">Portada del Registro de Matrimonios de Scandolara Ravara (1875)</div>
+                </div>
+                <div class="document-item" onclick="openLightbox(this)">
+                    <img src="images/59914656_2159531360767422_1145621095290765312_n.jpg" alt="Acta de Matrimonio">
+                    <div class="doc-caption">Acta de Matrimonio de Vincenzo Giuseppe Scappini y Elizabetta Bernuzzi (25 de enero de 1875)</div>
+                </div>
+                <div class="document-item" onclick="openLightbox(this)">
+                    <img src="images/60187756_2159531287434096_3631836392880865280_n.jpg" alt="Índice Anual">
+                    <div class="doc-caption">Índice Anual del Registro de Matrimonios de Scandolara Ravara (1875)</div>
+                </div>
+            </div>
+        </div>
         
         <section id="inicio-scappini">
             <div class="map-section">
@@ -740,7 +851,7 @@
                 <p><strong>Hijos (4):</strong></p>
                 <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
                     <li><strong>Otilia Maidana Scappini</strong> - Casada con Riquelme. Hija: Erika Riquelme Maidana.</li>
-                    <li><strong>Marcelino (Chelo) Maidana Scappini</strong> - Hijos: Javier (23/09/1971), Kelia y una hermana más.</li>
+                    <li><strong>Marcelino (Chelo) Maidana Scappini</strong> - Hijos: Javier, Kelia y Paola.</li>
                     <li><strong>Saúl Maidana Scappini</strong> - [Sin información adicional].</li>
                     <li><strong>Saturnino Maidana Scappini</strong> - [Sin información adicional].</li>
                 </ul>
@@ -771,16 +882,19 @@
                 </div>
             </div>
             
-            <!-- HIJO 4: AGUSTÍN -->
+            <!-- HIJO 4: AGUSTÍN (ACTUALIZADO CON DOMINGO, ELBA, DANIEL Y ANGÉLICA) -->
             <div id="marcelo-child-4-view" style="display:none;">
                 <h3>Agustín Scappini Sarubbi</h3>
                 <p><strong>Ocupación:</strong> Empleado público.</p>
                 <p><strong>Contrajo matrimonio el 1 de octubre de 1954 en Sosa (F. Yegros) con Dora Juana Flores.</strong></p>
-                <p><strong>Hijos:</strong> [Sin información adicional de descendencia].</p>
+                <p><strong>Hijo:</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Domingo Scappini</strong> (86 años) - Reside en Coronel Bogado. Casado con Elba (cumpleaños: 19 de mayo). Contrajo matrimonio el 5 de diciembre de 1964 (celebraron sus Bodas de Oro en 2014). Hijos: Daniel Scappini (viudo, reside en Encarnación) y Angélica Scappini (reside en Encarnación). Daniel es padre de Enzo y Malu.</li>
+                </ul>
                 <div class="back-btn" onclick="showChild(0)">← Volver</div>
             </div>
 
-            <!-- HIJO 5: OVIDIO IGNACIO (TEXTO CORREGIDO, SE ELIMINÓ LA CAUSA MÉDICA) -->
+            <!-- HIJO 5: OVIDIO IGNACIO -->
             <div id="marcelo-child-5-view" style="display:none;">
                 <div id="ovidio-parent-view">
                     <img src="images/marcelo-hijo5.jpeg" onerror="this.style.display='none'">
@@ -810,7 +924,7 @@
                 <div id="ovidio-child-2-view" style="display:none;"><img src="images/rafael-scappini.png" onerror="this.style.display='none'"><h3>Ovidio Rafael Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 10/09/1957, Sapucaí - <strong>Fallecimiento:</strong> 11/08/1995, Asunción</p><p><strong>Cónyuge:</strong> Nancy Perla Elli Jiménez</p><p><strong>Hijos:</strong> Sandra Patricia y Marcos Alejandro.</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
                 <div id="ovidio-child-3-view" style="display:none;"><img src="images/daily-scappini.png" onerror="this.style.display='none'"><h3>Daily Teresa Josefina Scappini Sarubbi</h3><p><strong>Nacimiento:</strong> 01/08/1940, Escobar - <strong>Fallecimiento:</strong> 04/09/2012</p><p><strong>Título:</strong> Maestra Normal Superior, recibido el 6 de noviembre de 1958.</p><p><strong>Cónyuge:</strong> Jaime Cristóful Solé (13/07/1936 - 04/11/2020)</p><p><strong>Hijos:</strong> Ana Teresa, Juan Jaime y Christian Eduardo.</p><p style="text-align:justify; margin-top:15px;"><strong>Su historia:</strong> Nació en Escobar, en la estación del tren, ya que su padre era agente ferroviario. Vivió en el barrio inglés de Sapucaí. Se destacó académicamente en la Escuela Normal de Profesores N°2, donde obtuvo excelentes calificaciones. Amaba las orquídeas, escuchar a "Los Cumbreños" y era excelente en gramática.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
                 
-                <!-- VISTA DE BETTINA CORREGIDA (EXTENSIÓN JPG) -->
+                <!-- VISTA DE BETTINA -->
                 <div id="ovidio-child-4-view" style="display:none;">
                     <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; margin-bottom: 15px;">
                         <img src="images/bettina-scappini.png" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
@@ -824,7 +938,7 @@
                     <div class="back-btn" onclick="showGrandChild(0)">← Volver</div>
                 </div>
 
-                <!-- VISTA DE RUBÉN CON NUEVAS FOTOS DE LOS CÁCERES -->
+                <!-- VISTA DE RUBÉN -->
                 <div id="ovidio-child-5-view" style="display:none;">
                     <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; margin-bottom: 15px;">
                         <img src="images/ruben-scappini.png" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
@@ -840,7 +954,7 @@
                 </div>
             </div>
 
-            <!-- HIJO 6: LIDIA (TEXTO CORREGIDO, SE ELIMINÓ EL AÑO DE NACIMIENTO DE ASUNCIÓN CHUNCHO) -->
+            <!-- HIJO 6: LIDIA -->
             <div id="marcelo-child-6-view" style="display:none;">
                 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; margin-bottom: 15px;">
                     <img src="images/lidia-scappini-sarubbi.png" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
@@ -1071,7 +1185,7 @@
             document.getElementById('main-screen').style.display = 'flex';
         }
 
-        // --- MODALES ---
+        // --- MODALES DE FAMILIA ---
         function openModal(id) {
             document.getElementById(id).style.display = "block";
             document.body.style.overflow = "hidden";
@@ -1193,7 +1307,43 @@
                 setTimeout(() => window.mapSole.invalidateSize(), 300);
             }
         });
+
+        // --- LIGHTBOX (ZOOM DE DOCUMENTOS) ---
+        function openLightbox(element) {
+            var imgSrc = element.querySelector('img').src;
+            var captionText = element.querySelector('.doc-caption').innerText;
+            
+            var modal = document.getElementById('lightbox-modal');
+            var modalImg = document.getElementById('lightbox-img');
+            var modalCaption = document.getElementById('lightbox-caption');
+            
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            modalCaption.innerText = captionText;
+            document.body.style.overflow = "hidden"; // Bloquear scroll del fondo
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Cerrar el lightbox haciendo clic fuera de la imagen
+        document.getElementById('lightbox-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeLightbox();
+            }
+        });
     </script>
+
+    <!-- ================================================ -->
+    <!-- MODAL DEL LIGHTBOX (DOCUMENTOS HISTÓRICOS)        -->
+    <!-- ================================================ -->
+    <div id="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Documento Histórico">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
 
 </body>
 </html>
