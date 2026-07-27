@@ -860,29 +860,60 @@
 
             <div id="marcelo-child-2-view" style="display:none;"><img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'"><h3>Eladio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
             
-            <!-- HIJO 3: SILVIO -->
+            <!-- HIJO 3: SILVIO (ACTUALIZADO CON NUEVOS HIJOS Y OTROS SCAPPINI) -->
             <div id="marcelo-child-3-view" style="display:none;">
                 <div id="silvio-parent-view">
                     <img src="images/marcelo-hijo3.jpeg" onerror="this.style.display='none'">
                     <h3>Silvio Scappini Sarubbi</h3>
-                    <p><strong>Tuvo un hijo con Sabina Bordón.</strong></p>
-                    <p>Su hijo <strong>Aníbal Scappini Bordón</strong> fue llevado muy pequeño a Morón, Argentina, donde residen sus descendientes.</p>
+                    <p><strong>Tuvo una numerosa descendencia.</strong> Con Sabina Bordón tuvo a su hijo <strong>Aníbal Scappini Bordón</strong>. Además, se registran como hijos de Silvio a Osvaldo, Wilfrido y Eladio Scappini Rolon.</p>
+                    
+                    <p style="text-align:justify; margin-top:15px;">La extensa familia Scappini incluye también a destacados profesionales como <strong>Pietro Scappini</strong> (director de cine, fundador de Renovatio Films), <strong>Guillermo Scappini</strong> (agente inmobiliario RE/MAX), <strong>Oscar Scappini</strong> (consultor contable), <strong>Paloma Scappini</strong> (asociada a la pastelería 'La Paste') y <strong>Federico Scappini</strong> (repostero de ABC Color).</p>
+
                     <div class="child-grid">
-                        <div class="child-btn" onclick="showSilvioChild(1)">Conoce a sus nietos</div>
+                        <div class="child-btn" onclick="showSilvioChild(1)">Aníbal Bordón</div>
+                        <div class="child-btn" onclick="showSilvioChild(2)">Osvaldo Rolón</div>
+                        <div class="child-btn" onclick="showSilvioChild(3)">Wilfrido</div>
+                        <div class="child-btn" onclick="showSilvioChild(4)">Eladio Rolón</div>
                     </div>
                     <div class="back-btn" onclick="showChild(0)">← Volver</div>
                 </div>
+                
+                <!-- SILVIO-CHILD-1: ANÍBAL (YA EXISTE) -->
                 <div id="silvio-child-1-view" style="display:none;">
-                    <h3>Nietos de Silvio (Hijos de Aníbal y María Magdalena Amarilla Duarte)</h3>
-                    <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
-                        <li><strong>Florencia Carolina Bordón</strong> - Nació el 14 de agosto. Vive en Parque Patricios, Distrito Federal, Argentina. Tiene mellizos. Su abuelo materno es Zenón Benítez.</li>
-                        <li><strong>Patricia Bordón</strong> - Hermana de Florencia.</li>
-                    </ul>
+                    <h3>Aníbal Scappini Bordón</h3>
+                    <p><strong>Hijo de Silvio con Sabina Bordón.</strong> Reside en Morón, Argentina.</p>
+                    <p><strong>Hijas:</strong> Florencia Carolina Bordón y Patricia Bordón.</p>
+                    <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
+                </div>
+
+                <!-- SILVIO-CHILD-2: OSVALDO -->
+                <div id="silvio-child-2-view" style="display:none;">
+                    <h3>Osvaldo Scappini Rolón</h3>
+                    <p><strong>Nacimiento:</strong> 26 de junio de 1946, Fulgencio Yegros, departamento de Caazapá, Paraguay.</p>
+                    <p><strong>Descendencia:</strong> Con Gladys Galeano tuvo a Stephano (24) y Julieta (22); con Luisa Carla González tuvo a Giovanna Antonella (2).</p>
+                    <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
+                </div>
+
+                <!-- SILVIO-CHILD-3: WILFRIDO -->
+                <div id="silvio-child-3-view" style="display:none;">
+                    <h3>Wilfrido Scappini</h3>
+                    <p><strong>Nacimiento:</strong> 14 de septiembre de 1944, Yegros, Paraguay.</p>
+                    <p><strong>Residencia actual:</strong> Hernandarias, Paraguay.</p>
+                    <p><strong>Estado civil:</strong> Casado.</p>
+                    <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
+                </div>
+
+                <!-- SILVIO-CHILD-4: ELADIO -->
+                <div id="silvio-child-4-view" style="display:none;">
+                    <h3>Eladio Scappini Rolon</h3>
+                    <p><strong>Cédula de Identidad:</strong> 423XXX.</p>
+                    <p><strong>Partido político:</strong> ANR.</p>
+                    <p><strong>Estado:</strong> Habilitado para votar (2024).</p>
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
             </div>
             
-            <!-- HIJO 4: AGUSTÍN (CORREGIDO: TEXTO NEUTRAL, SIN VINCULAR A DORA JUANA) -->
+            <!-- HIJO 4: AGUSTÍN -->
             <div id="marcelo-child-4-view" style="display:none;">
                 <h3>Agustín Scappini Sarubbi</h3>
                 <p><strong>Ocupación:</strong> Empleado público.</p>
@@ -1098,11 +1129,10 @@
             <div id="francisco-child-1-view" style="display:none;">
                 <h4>Hijos del primer matrimonio (con su primera esposa)</h4>
                 <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
-                    <li><strong>Josefa (Pepa) Solé Mencía</strong> - [Sin información].</li>
-                    <li><strong>Antonio Solé</strong> - [Sin información].</li>
-                    <li><strong>Manuel Francisco (Manolo) Solé</strong> - [Sin información].</li>
-                    <li><strong>Teresa Manuela Solé</strong> - [Sin información].</li>
-                    <li><strong>Pabla Lucía Solé</strong> - [Sin información].</li>
+                    <li><strong>Josefa (Pepa) Solé Mencía</strong> - Casada con Cabrera. Hijos: María Teresa, Ricardo, Luis Francisco y José.</li>
+                    <li><strong>Pabla Lucía Solé</strong> - [Sin información adicional].</li>
+                    <li><strong>Manuel Francisco (Manolo) Solé</strong> - Hijos: Antonio y Francisco.</li>
+                    <li><strong>Francisco Solé</strong> - Tuvo descendencia, pero se desconocen los nombres.</li>
                 </ul>
                 <div class="back-btn" onclick="showFranciscoChild(0)">← Volver a Francisco</div>
             </div>
@@ -1111,9 +1141,9 @@
                 <h4>Hijos del segundo matrimonio (con Josefa Falcón)</h4>
                 <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
                     <li><strong>Agustina Mercedes Solé Falcón</strong> - Casada con Manuel Aveiro Chamorro. Hijos: Graciela (casada con Jorge Pineda), Victor Manuel, y Ada Azucena.</li>
-                    <li><strong>Josefa (Tula) Solé Falcón</strong> - [Sin información].</li>
-                    <li><strong>Francisco Ramón (Paco) Solé Falcón</strong> - [Sin información].</li>
-                    <li><strong>Blanca Rosa Solé Falcón</strong> - [Sin información].</li>
+                    <li><strong>Josefa (Tula) Solé Falcón</strong> - Casada con Gómez. Hijos: Stella Marys, Myriam Beatriz y Roberto.</li>
+                    <li><strong>Francisco Ramón (Paco) Solé Falcón</strong> - Casado con Britos. Hijos: Esmilce Diana y Jorge Francisco.</li>
+                    <li><strong>Blanca Rosa Solé Falcón</strong> - Casada con Villar. Hijos: Rosa Azucena y Gustavo David.</li>
                 </ul>
                 <div class="back-btn" onclick="showFranciscoChild(0)">← Volver a Francisco</div>
             </div>
@@ -1211,7 +1241,7 @@
 
         function showSilvioChild(num) {
             document.getElementById('silvio-parent-view').style.display = 'none';
-            document.getElementById('silvio-child-1-view').style.display = 'none';
+            for(let i=1; i<=4; i++) document.getElementById('silvio-child-' + i + '-view').style.display = 'none';
             if(num === 0) document.getElementById('silvio-parent-view').style.display = 'block';
             else document.getElementById('silvio-child-' + num + '-view').style.display = 'block';
         }
