@@ -741,11 +741,16 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-juan')">&times;</span>
             <div id="juan-parent-view">
-                <img src="images/juan-scappini.png" onerror="this.style.display='none'">
+                <!-- Foto de Juan y foto grupal (Márcial, Juan y Eligio) -->
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; margin-bottom: 15px;">
+                    <img src="images/juan-scappini.png" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="images/juan-scappini-bernuzzi.jpg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="images/marcial-juan-eligio.jpg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                </div>
                 <h3>Juan Scappini Bernuzzi</h3>
                 <p><strong>Nacimiento:</strong> Nació en el barco durante la travesía desde Italia. Fue registrado en Garibaldi, Río Grande do Sul, Brasil.</p>
                 <p><strong>Cónyuge:</strong> Anselma Valdez</p>
-                <p><strong>Historia:</strong> Su familia continuó el viaje hasta establecerse en Yegros, Paraguay. Su esposa, Anselma Valdez, falleció cuando su hijo Eligio tenía 15 años.</p>
+                <p><strong>Historia:</strong> Su familia continuó el viaje hasta establecerse en Yegros, Paraguay. Su esposa, Anselma Valdez, falleció cuando su hijo Eligio tenía 15 años. Falleció en 1970 a los 89 años.</p>
                 <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a su hijo:</h4>
                 <div class="child-grid">
                     <div class="child-btn" onclick="showJuanChild(1)">Eligio Sabás Scappini</div>
@@ -764,7 +769,7 @@
                 <h3>Eligio Sabás Scappini</h3>
                 <p><strong>Lugar de nacimiento:</strong> Yegros, Paraguay.</p>
                 <p><strong>Cónyuge:</strong> Inez Ortega Scappini (fallecida a los 93 años).</p>
-                <p><strong>Historia:</strong> Eligio viajó a Argentina para trabajar, donde conoció a Inez. Se casaron y tuvieron 5 hijos.</p>
+                <p><strong>Historia:</strong> Eligio viajó a Argentina para trabajar, donde conoció a Inez. Se casaron y tuvieron 5 hijos. Falleció en 1977 a los 57 años y 10 meses.</p>
                 <p><strong>Hermanos de Eligio (Tíos de Anselma):</strong> Marcial Scappini (soltero, sin hijos) y Adolfo Scappini Valdez (casado con Evangélica Riveros. Hijos: Ancelma, Gladis, Adela, Juan Carlos y Adolfina).</p>
                 <h4 style="margin-top: 20px; font-size: 1.2rem;">Sus 5 hijos (Nietos de Juan y Anselma):</h4>
                 <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
@@ -860,7 +865,7 @@
 
             <div id="marcelo-child-2-view" style="display:none;"><img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'"><h3>Eladio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
             
-            <!-- HIJO 3: SILVIO (ACTUALIZADO CON NUEVOS HIJOS Y OTROS SCAPPINI) -->
+            <!-- HIJO 3: SILVIO -->
             <div id="marcelo-child-3-view" style="display:none;">
                 <div id="silvio-parent-view">
                     <img src="images/marcelo-hijo3.jpeg" onerror="this.style.display='none'">
@@ -878,7 +883,7 @@
                     <div class="back-btn" onclick="showChild(0)">← Volver</div>
                 </div>
                 
-                <!-- SILVIO-CHILD-1: ANÍBAL (YA EXISTE) -->
+                <!-- SILVIO-CHILD-1: ANÍBAL -->
                 <div id="silvio-child-1-view" style="display:none;">
                     <h3>Aníbal Scappini Bordón</h3>
                     <p><strong>Hijo de Silvio con Sabina Bordón.</strong> Reside en Morón, Argentina.</p>
@@ -894,33 +899,33 @@
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
 
-                <!-- SILVIO-CHILD-3: WILFRIDO -->
+                <!-- SILVIO-CHILD-3: WILFRIDO (CON NUEVA FOTO Y FALLECIMIENTO) -->
                 <div id="silvio-child-3-view" style="display:none;">
+                    <img src="images/wilfrido-scappini.jpg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
                     <h3>Wilfrido Scappini</h3>
                     <p><strong>Nacimiento:</strong> 14 de septiembre de 1944, Yegros, Paraguay.</p>
+                    <p><strong>Fallecimiento:</strong> 13 de julio de 2025.</p>
                     <p><strong>Residencia actual:</strong> Hernandarias, Paraguay.</p>
                     <p><strong>Estado civil:</strong> Casado.</p>
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
 
-                <!-- SILVIO-CHILD-4: ELADIO -->
+                <!-- SILVIO-CHILD-4: ELADIO (SIN CÉDULA NI ESTADO DE VOTANTE) -->
                 <div id="silvio-child-4-view" style="display:none;">
                     <h3>Eladio Scappini Rolon</h3>
-                    <p><strong>Cédula de Identidad:</strong> 423XXX.</p>
                     <p><strong>Partido político:</strong> ANR.</p>
-                    <p><strong>Estado:</strong> Habilitado para votar (2024).</p>
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
             </div>
             
-            <!-- HIJO 4: AGUSTÍN -->
+            <!-- HIJO 4: AGUSTÍN (ACTUALIZADO CON CARGO DE COMISARIO) -->
             <div id="marcelo-child-4-view" style="display:none;">
                 <h3>Agustín Scappini Sarubbi</h3>
-                <p><strong>Ocupación:</strong> Empleado público.</p>
+                <p><strong>Ocupación:</strong> Empleado público. Además, fue Comisario de Fram, Misiones, Ñeembucú, abarcando toda la zona sur del país.</p>
                 <p><strong>Contrajo matrimonio el 1 de octubre de 1954 en Sosa (F. Yegros) con Dora Juana Flores.</strong></p>
                 <p><strong>Descendencia:</strong></p>
                 <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
-                    <li><strong>Domingo Scappini</strong> (86 años) - Reside en Coronel Bogado. Casado con Elba (cumpleaños: 19 de mayo). Contrajo matrimonio el 5 de diciembre de 1964 (celebraron sus Bodas de Oro en 2014). Hijos: Daniel Scappini (viudo, reside en Encarnación) y Angélica Scappini (reside en Encarnación). Daniel es padre de Enzo y Malu.</li>
+                    <li><strong>Ovidio Domingo Scappini Morel</strong> (86 años) - Reside en Coronel Bogado. Casado con Elba (cumpleaños: 19 de mayo). Contrajo matrimonio el 5 de diciembre de 1964 (celebraron sus Bodas de Oro en 2014). Hijos: Daniel Scappini (viudo, reside en Encarnación) y Angélica Scappini (reside en Encarnación). Daniel es padre de Enzo y Malu.</li>
                 </ul>
                 <div class="back-btn" onclick="showChild(0)">← Volver</div>
             </div>
@@ -1060,6 +1065,7 @@
                 <p><strong>Fallecimiento:</strong> 04 de diciembre de 2004</p>
                 <p><strong>Esposo:</strong> Antonio Cano</p>
                 <p><strong>Hijos (4):</strong> Antonio (casado con Lourdes Cameroni), Julio (casado con Nancy Duarte), Nury (casada con José Miracca) y José (casado con Mami Santacruz).</p>
+                <p><strong>Mueblería de la familia Cano:</strong> Mueblería Cano, Cano S.R.L. Muebles. Dirección: José Berges 126, Asunción (San Roque). Teléfonos: 021 211 247 y 021 444 628.</p>
                 <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
             </div>
 
