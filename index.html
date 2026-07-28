@@ -751,9 +751,10 @@
                 <p><strong>Nacimiento:</strong> Nació en el barco durante la travesía desde Italia. Fue registrado en Garibaldi, Río Grande do Sul, Brasil.</p>
                 <p><strong>Cónyuge:</strong> Anselma Valdez</p>
                 <p><strong>Historia:</strong> Su familia continuó el viaje hasta establecerse en Yegros, Paraguay. Su esposa, Anselma Valdez, falleció cuando su hijo Eligio tenía 15 años. Falleció en 1970 a los 89 años.</p>
-                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a su hijo:</h4>
+                <h4 style="margin-top: 30px; font-size: 1.2rem;">Conoce a sus hijos:</h4>
                 <div class="child-grid">
                     <div class="child-btn" onclick="showJuanChild(1)">Eligio Sabás Scappini</div>
+                    <div class="child-btn" onclick="showJuanChild(2)">Juan Ramón (Chin) Scappini</div>
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-juan')">Cerrar</div>
             </div>
@@ -798,6 +799,22 @@
                             </div>
                         </div>
                     </li>
+                </ul>
+                <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
+            </div>
+
+            <!-- VISTA DE JUAN RAMÓN (CHIN) SCAPPINI -->
+            <div id="juan-child-2-view" style="display:none;">
+                <h3>Juan Ramón "Chin" Scappini</h3>
+                <p><strong>Cónyuge:</strong> Blanca Alonso Robelli</p>
+                <p><strong>Hijos (7):</strong></p>
+                <ul style="text-align: left; padding-left: 20px; list-style-type: disc; margin-top:10px;">
+                    <li><strong>Mirko Scappini</strong> (Falleció el 6 de enero de 2024) - Casado con Lourdes Medina. Hijos: Marcelo, Sebastián y Mauricio. Fue operador histórico de Nanduti 1020 y antiguo funcionario de la OSCA_PY, recordado como un gran ser humano.</li>
+                    <li><strong>Manuel Scappini</strong> - Casado con Chamorro Abadie.</li>
+                    <li><strong>Kike Scappini</strong> - Casado con Martha Pereira Godoy de Scappini. Hijos: Renato, Ana, Paloma y Gianluca.</li>
+                    <li><strong>Rosa Angélica Scappini Chus</strong></li>
+                    <li><strong>Myriam Graciela Scappini Chus</strong></li>
+                    <li>Dos hijos más, cuyos nombres aún no se conocen.</li>
                 </ul>
                 <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
             </div>
@@ -1268,7 +1285,7 @@
         // --- SUB-NAVEGACIÓN JUAN ---
         function showJuanChild(num) {
             document.getElementById('juan-parent-view').style.display = 'none';
-            document.getElementById('juan-child-1-view').style.display = 'none';
+            for(let i=1; i<=2; i++) document.getElementById('juan-child-' + i + '-view').style.display = 'none';
             if(num === 0) document.getElementById('juan-parent-view').style.display = 'block';
             else document.getElementById('juan-child-' + num + '-view').style.display = 'block';
         }
