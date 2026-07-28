@@ -561,7 +561,7 @@
             <p>Vincenzo y Elizabetta tuvieron 8 hijos vivos. El único que nació en Italia fue el mayor, <strong>Pablo</strong>.</p>
             <div class="cards">
                 <div class="card" onclick="openModal('modal-pablo')"><h3>Pablo (1879 - 1962)</h3><p><strong>Scappini González</strong></p><ul><li>Casado con Escolástica González.</li><li>Tuvieron <strong>12 hijos</strong>.</li></ul></div>
-                <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con Giuseppe Giovanni Cortesi Giondini.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880 - 1944)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con José Cortessi.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Nació en el barco rumbo a América, registrado en Garibaldi, Brasil.</li><li>Se estableció en Yegros, Paraguay, con su esposa Anselma.</li></ul></div>
                 <div class="card" onclick="openModal('modal-genoveva')"><h3>Genoveva</h3><p><strong>Rienzzi Scappini</strong></p><ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
@@ -711,13 +711,15 @@
         </div>
     </div>
     
+    <!-- MODAL DE ROSA ACTUALIZADO CON NUEVOS DATOS Y FOTO -->
     <div id="modal-rosa" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
-            <img src="images/rosa-scappini.png" onerror="this.style.display='none'">
+            <img src="images/rosa-scappini-bernuzzi.png" onerror="this.style.display='none'">
             <h3>Rosa Scappini Bernuzzi</h3>
             <p><strong>Nacimiento:</strong> 1880, Garibaldi, Río Grande do Sul, Brasil</p>
-            <p><strong>Cónyuge:</strong> "José" Giuseppe Giovanni Cortesi Giondini</p>
+            <p><strong>Fallecimiento:</strong> 1944 (a los 64 años)</p>
+            <p><strong>Cónyuge:</strong> José Cortessi (fallecido en 1962 a los 80 años)</p>
             <p><strong>Hijos (11):</strong></p>
             <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
                 <li>Teresa Cortesi Scappini</li>
@@ -732,7 +734,8 @@
                 <li>Matilde Clara Cortesi Scappini</li>
                 <li>Agustin Cortesi Scappini</li>
             </ul>
-            <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Rosa]</p>
+            <p><strong>Notas contextuales:</strong> Su foto antigua fue tomada en el año 1934. Un apunte manuscrito en un calendario de 1999 indica que la foto fue tomada en Iturbe (Departamento del Guairá) el 06/10/00, en la casa de Raimunda López (de 93 años de edad).</p>
+            <p><strong>Bisnietos conocidos:</strong> Elsie Bárbara Cortessi Sosa (hija de Eliser Cortessi Pintossi y Felipa Sosa), Juan Falla Fontana (ex Presidente del Deportivo Sajonia en el año 2003), y Margarita Falla Fontana.</p>
         </div>
     </div>
     
@@ -880,7 +883,15 @@
                 <div class="back-btn" onclick="showChild(0)">← Volver</div>
             </div>
 
-            <div id="marcelo-child-2-view" style="display:none;"><img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'"><h3>Eladio Scappini Sarubbi</h3><p><strong>Cónyuge:</strong> [Nombre]</p><p style="text-align:justify; margin-top:15px;">[Historia]</p><div class="back-btn" onclick="showChild(0)">← Volver</div></div>
+            <!-- HIJO 2: ELADIO (ACTUALIZADO CON NUEVO TEXTO DE FALLECIMIENTO) -->
+            <div id="marcelo-child-2-view" style="display:none;">
+                <img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'">
+                <h3>Eladio Scappini Sarubbi</h3>
+                <p><strong>Cónyuge:</strong> [Nombre]</p>
+                <p><strong>Fallecimiento:</strong> Falleció en el cuartel.</p>
+                <p style="text-align:justify; margin-top:15px;">[Historia]</p>
+                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+            </div>
             
             <!-- HIJO 3: SILVIO -->
             <div id="marcelo-child-3-view" style="display:none;">
