@@ -157,7 +157,7 @@
             color: #355b43;
         }
 
-        /* TARJETAS PRINCIPALES (sección) */
+        /* TARJETAS PRINCIPALES */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -362,16 +362,21 @@
             text-align: left;
         }
         .generation-row {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         .generation-title {
             font-family: "Cormorant Garamond", serif;
-            font-size: 1.6rem;
-            color: #26382d;
-            border-bottom: 2px solid #d0d6cf;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a2d22;
+            border-bottom: 3px solid #355b43;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
             text-align: center;
+            letter-spacing: 1px;
+            background: rgba(53, 91, 67, 0.08);
+            border-radius: 8px 8px 0 0;
+            padding-top: 8px;
         }
         .gen-cards {
             display: grid;
@@ -382,9 +387,17 @@
             padding: 20px;
             text-align: center;
             cursor: pointer;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: 0.2s;
+        }
+        .gen-cards .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         .gen-cards .card img {
-            max-height: 150px;
+            max-height: 140px;
             width: auto;
             object-fit: contain;
             border-radius: 8px;
@@ -630,6 +643,9 @@
             }
             .gen-cards {
                 grid-template-columns: 1fr 1fr;
+            }
+            .generation-title {
+                font-size: 1.5rem;
             }
         }
         @media (max-width: 768px) {
@@ -913,7 +929,6 @@
             <div id="pablo-child-1-view" style="display:none;">
                 <h3>Descendientes de Pablo Scappini Bernuzzi</h3>
                 <div class="family-tree">
-                    <!-- 1° GENERACIÓN: Pablo y su esposa -->
                     <div class="generation-row">
                         <div class="generation-title">1° Generación</div>
                         <div class="gen-cards">
@@ -928,7 +943,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 2° GENERACIÓN: hijos -->
                     <div class="generation-row">
                         <div class="generation-title">2° Generación</div>
                         <div class="gen-cards">
@@ -939,7 +953,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 3° GENERACIÓN: nietos -->
                     <div class="generation-row">
                         <div class="generation-title">3° Generación</div>
                         <div class="gen-cards">
