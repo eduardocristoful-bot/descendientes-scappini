@@ -420,6 +420,70 @@
             font-weight: 600;
         }
 
+        /* TARJETA DE VINCENZO Y ELISABETTA */
+        .parents-card {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 40px;
+        }
+        .parents-card-inner {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .parents-card-inner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .parents-photo {
+            flex: 1 1 300px;
+            min-height: 280px;
+            background: #e8e4dc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .parents-photo img {
+            max-width: 100%;
+            max-height: 350px;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .parents-info {
+            flex: 2 1 400px;
+            padding: 30px 35px;
+            text-align: left;
+        }
+        .parents-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem;
+            color: #26382d;
+            margin: 0 0 8px 0;
+            border: none;
+            padding: 0;
+        }
+        .parents-info p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        .parents-info hr {
+            margin: 18px 0;
+            border: 0;
+            border-top: 2px solid #d0d6cf;
+        }
+        @media (max-width: 700px) {
+            .parents-card { padding: 0 20px; }
+            .parents-info { padding: 20px; }
+        }
+
         /* ESTILOS DEL LIGHTBOX (ZOOM) */
         #lightbox-modal {
             display: none;
@@ -522,6 +586,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- TARJETA DE VINCENZO Y ELISABETTA -->
+        <div class="parents-card">
+            <div class="parents-card-inner">
+                <div class="parents-photo">
+                    <img src="images/vincenzo-elisabetta.jpg" 
+                         alt="Vincenzo Giuseppe Scappini y Elizabetta Bernuzzi"
+                         onerror="this.style.display='none'">
+                </div>
+                <div class="parents-info">
+                    <h3>Vincenzo Giuseppe Scappini Ferrari</h3>
+                    <p><strong>Nacimiento:</strong> 25 de enero de 1842 · San Martino del Lago, Italia</p>
+                    <p><strong>Fallecimiento:</strong> 19 de abril de 1915 · Caazapá, Paraguay</p>
+                    <p><strong>Padres:</strong> Giovanni Scappini y Teresa Ferrari</p>
+                    <hr>
+                    <h3>Elizabetta Bernuzzi Bottini</h3>
+                    <p><strong>Nacimiento:</strong> 5 de marzo de 1853 · Scandolara Ravara, Italia</p>
+                    <p><strong>Fallecimiento:</strong> 1923 · Paraguay</p>
+                    <p><strong>Padres:</strong> (información en recopilación)</p>
+                </div>
+            </div>
+        </div>
         
         <section id="inicio-scappini">
             <div class="map-section">
@@ -538,9 +624,13 @@
 
             <h2>Nuestras Raíces: El Viaje</h2>
             <div class="story-text">
-                <p>Nuestra historia comienza con <strong>Vincenzo Giuseppe Scappini Ferrari</strong> (nacido el 25 de enero de 1842) y <strong>Elizabetta Bernuzzi Bottini</strong> (nacida el 5 de marzo de 1853). Se casaron el 25 de enero de 1875. Vincenzo era oriundo de <strong>San Martino Del Lago</strong> (era uno de 7 hermanos) y Elizabetta de <strong>Scandolara Rabara</strong> (una de 5 hermanos).</p>
+                <p>Nuestra historia comienza con <strong>Vincenzo Giuseppe Scappini Ferrari</strong>, hijo de <strong>Giovanni Scappini</strong> y <strong>Teresa Ferrari</strong>. Nació el 25 de enero de 1842 en San Martino del Lago, Cremona, Lombardía, Italia. Se casó el 25 de enero de 1875 (el día de su cumpleaños número 33) con <strong>Elizabetta Bernuzzi Bottini</strong> (nacida el 5 de marzo de 1853), en la localidad de <strong>Castelponzone</strong> (actualmente en el municipio de Scandolara Ravara).</p>
                 <br>
                 <p>Huyendo de la gran hambruna que azotaba Europa, el matrimonio, junto a parientes y vecinos, abordó las grandes barcazas enviadas por el Imperio Brasileño. Desembarcaron en <strong>Río Grande do Sul (Brasil)</strong>. Fue allí donde sus apellidos fueron registrados tal como los oía el oficial. Por descontento con las condiciones, muchos italianos se desplazaron hacia distintos territorios. Siguiendo las vías del tren, se establecieron finalmente en <strong>Yegros, Paraguay</strong>.</p>
+                <br>
+                <p>Vincenzo falleció el <strong>19 de abril de 1915</strong> en Caazapá, Paraguay, a la edad de 73 años. De su matrimonio con Elizabetta nacieron al menos 5 hijos varones y 3 hijas mujeres, dando origen a la rama del apellido Scappini en el país.</p>
+                <br>
+                <p><em>Nota para trámites oficiales: Para solicitar el acta de nacimiento (bautismo) de Vincenzo, se debe contactar a la Diócesis de Cremona o a la parroquia de San Martino del Lago. Para el acta de matrimonio, solicitarla al Comune de Scandolara Ravara.</em></p>
             </div>
             
             <div class="timeline">
@@ -552,7 +642,8 @@
                 <div class="timeline-item"><div class="date">1889</div><div class="event">Nacimiento de <strong>Marcelo</strong> en Garibaldi, Río Grande do Sul, Brasil.</div></div>
                 <div class="timeline-item"><div class="date">Fines del Siglo XIX</div><div class="event">La familia emigra completamente a Sudamérica.</div></div>
                 <div class="timeline-item"><div class="date">Inicios del Siglo XX</div><div class="event">Se establecen definitivamente en <strong>Yegros, Paraguay</strong>.</div></div>
-                <div class="timeline-item"><div class="date">1923 &amp; 1926</div><div class="event">Fallecimiento de Elizabetta y Vincenzo.</div></div>
+                <div class="timeline-item"><div class="date">19 de abril de 1915</div><div class="event">Fallecimiento de <strong>Vincenzo Giuseppe Scappini Ferrari</strong> en Caazapá, Paraguay.</div></div>
+                <div class="timeline-item"><div class="date">1923</div><div class="event">Fallecimiento de <strong>Elizabetta Bernuzzi Bottini</strong>.</div></div>
                 <div class="timeline-item"><div class="date">1938</div><div class="event">Fallecimiento de <strong>Marcelo</strong> en Caazapá, Paraguay.</div></div>
                 <div class="timeline-item"><div class="date">1962</div><div class="event">Fallecimiento del hijo mayor, <strong>Pablo</strong>.</div></div>
             </div>
@@ -564,9 +655,9 @@
                 <div class="card" onclick="openModal('modal-rosa')"><h3>Rosa (1880 - 1944)</h3><p><strong>Cortessi Scappini</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casada con José Cortessi.</li><li>Tuvieron <strong>11 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-juan')"><h3>Juan</h3><p><strong>Scappini Valdez</strong></p><ul><li>Nació en el barco rumbo a América, registrado en Garibaldi, Brasil.</li><li>Se estableció en Yegros, Paraguay, con su esposa Anselma.</li></ul></div>
                 <div class="card" onclick="openModal('modal-genoveva')"><h3>Genoveva</h3><p><strong>Rienzzi Scappini</strong></p><ul><li>Casada con Alfonso Rienzzi Grande.</li><li>Tuvieron <strong>5 hijos</strong>.</li></ul></div>
-                <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
+                <div class="card" onclick="openModal('modal-jose-yelindo')"><h3>José Yelindo (1887)</h3><p><strong>Scappini Scurra &amp; Larrosa</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>6 hijos con Justina Scurra.</li><li>10 hijos con Albertina Larrosa.</li></ul></div>
                 <div class="card" onclick="openModal('modal-marcelo')"><h3>Marcelo (1889 - 1938)</h3><p><strong>Scappini Sarubbi</strong></p><ul><li>Nació en Garibaldi, Brasil.</li><li>Casado con Teresa Sarubbi Spaltra.</li><li>Tuvieron <strong>7 hijos</strong>.</li></ul></div>
-                <div class="card" onclick="openModal('modal-alberto')"><h3>Alberto</h3><p><strong>Scappini Rodríguez</strong></p><ul><li>Casado con Ernesta Rodríguez Sosa.</li><li>Tuvieron <strong>9 hijos</strong>.</li></ul></div>
+                <div class="card" onclick="openModal('modal-alberto')"><h3>Alberto (Humberto)</h3><p><strong>Scappini Rodríguez</strong></p><ul><li>Casado con Ernesta Rodríguez Sosa.</li><li>Tuvieron <strong>9 hijos</strong>.</li></ul></div>
                 <div class="card" onclick="openModal('modal-francisca')"><h3>Francisca (Tía Checa)</h3><p><strong>Núñez Scappini</strong></p><ul><li>Casada con Basilicio Núñez.</li><li>Tuvo <strong>1 hijo</strong>.</li></ul></div>
             </div>
         </section>
@@ -840,6 +931,7 @@
             <span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span>
             <img src="images/jose-yelindo-scappini.png" onerror="this.style.display='none'">
             <h3>José Yelindo Scappini Bernuzzi</h3>
+            <p><strong>Nacimiento:</strong> 1887, Garibaldi, Río Grande do Sul, Brasil</p>
             <p><strong>1er Cónyuge:</strong> Justina Scurra (6 hijos)</p>
             <p><strong>2do Cónyuge:</strong> Albertina Larrosa (10 hijos)</p>
             <p style="text-align: justify; margin-top:15px;">[Escribe la historia de José Yelindo]</p>
@@ -883,7 +975,7 @@
                 <div class="back-btn" onclick="showChild(0)">← Volver</div>
             </div>
 
-            <!-- HIJO 2: ELADIO (ACTUALIZADO CON NUEVO TEXTO DE FALLECIMIENTO) -->
+            <!-- HIJO 2: ELADIO -->
             <div id="marcelo-child-2-view" style="display:none;">
                 <img src="images/marcelo-hijo2.jpg" onerror="this.style.display='none'">
                 <h3>Eladio Scappini Sarubbi</h3>
@@ -927,7 +1019,7 @@
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
 
-                <!-- SILVIO-CHILD-3: WILFRIDO (CON NUEVA FOTO Y FALLECIMIENTO) -->
+                <!-- SILVIO-CHILD-3: WILFRIDO -->
                 <div id="silvio-child-3-view" style="display:none;">
                     <img src="images/wilfrido-scappini.jpg" onerror="this.style.display='none'" style="max-height:250px; width:auto; object-fit:contain; border:3px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
                     <h3>Wilfrido Scappini</h3>
@@ -938,7 +1030,7 @@
                     <div class="back-btn" onclick="showSilvioChild(0)">← Volver a Silvio</div>
                 </div>
 
-                <!-- SILVIO-CHILD-4: ELADIO (SIN CÉDULA NI ESTADO DE VOTANTE) -->
+                <!-- SILVIO-CHILD-4: ELADIO -->
                 <div id="silvio-child-4-view" style="display:none;">
                     <h3>Eladio Scappini Rolon</h3>
                     <p><strong>Partido político:</strong> ANR.</p>
@@ -946,7 +1038,7 @@
                 </div>
             </div>
             
-            <!-- HIJO 4: AGUSTÍN (ACTUALIZADO CON CARGO DE COMISARIO) -->
+            <!-- HIJO 4: AGUSTÍN -->
             <div id="marcelo-child-4-view" style="display:none;">
                 <h3>Agustín Scappini Sarubbi</h3>
                 <p><strong>Ocupación:</strong> Empleado público. Además, fue Comisario de Fram, Misiones, Ñeembucú, abarcando toda la zona sur del país.</p>
@@ -1043,7 +1135,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span>
             <img src="images/alberto-scappini.png" onerror="this.style.display='none'">
-            <h3>Alberto Scappini Bernuzzi</h3>
+            <h3>Alberto "Humberto" Scappini Bernuzzi</h3>
             <p><strong>Cónyuge:</strong> Ernesta Rodríguez Sosa</p>
             <p><strong>Hijos:</strong> 9 hijos vivos.</p>
             <p style="text-align: justify; margin-top:15px;">[Escribe la historia de Alberto]</p>
@@ -1087,11 +1179,13 @@
                 <div class="back-btn" onclick="closeModal('modal-teresa-sole')">Cerrar</div>
             </div>
 
+            <!-- ACTUALIZADO: JOSEFA (JOSEFINA) CRISTÓFUL SOLÉ DE CANO -->
             <div id="teresa-child-1-view" style="display:none;">
                 <img src="images/josefina-antonio-cano.png" onerror="this.style.display='none'">
                 <h3>Josefa (Josefina) Cristóful Solé</h3>
-                <p><strong>Fallecimiento:</strong> 04 de diciembre de 2004</p>
-                <p><strong>Esposo:</strong> Antonio Cano</p>
+                <p><strong>Nacimiento:</strong> 11 de junio de 1926</p>
+                <p><strong>Fallecimiento:</strong> 04 de diciembre de 2004, Asunción</p>
+                <p><strong>Esposo:</strong> Ignacio Antonio Cano</p>
                 <p><strong>Hijos (4):</strong> Antonio (casado con Lourdes Cameroni), Julio (casado con Nancy Duarte), Nury (casada con José Miracca) y José (casado con Mami Santacruz).</p>
                 <p><strong>Mueblería de la familia Cano:</strong> Mueblería Cano, Cano S.R.L. Muebles. Dirección: José Berges 126, Asunción (San Roque). Teléfonos: 021 211 247 y 021 444 628.</p>
                 <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
@@ -1383,7 +1477,7 @@
             modal.style.display = "block";
             modalImg.src = imgSrc;
             modalCaption.innerText = captionText;
-            document.body.style.overflow = "hidden"; // Bloquear scroll del fondo
+            document.body.style.overflow = "hidden";
         }
 
         function closeLightbox() {
@@ -1391,7 +1485,6 @@
             document.body.style.overflow = "auto";
         }
 
-        // Cerrar el lightbox haciendo clic fuera de la imagen
         document.getElementById('lightbox-modal').addEventListener('click', function(event) {
             if (event.target === this) {
                 closeLightbox();
