@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- Leaflet CSS para el mapa interactivo -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
@@ -157,7 +157,7 @@
             color: #355b43;
         }
 
-        /* TARJETAS PRINCIPALES (las que están en las secciones) */
+        /* TARJETAS PRINCIPALES (sección) */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -190,6 +190,7 @@
         .card ul li {
             margin-bottom: 8px;
         }
+
         .genealogy-img {
             width: 100%;
             max-height: 600px;
@@ -279,7 +280,7 @@
             padding: 40px;
             border-radius: 20px;
             width: 90%;
-            max-width: 700px;
+            max-width: 800px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: center;
@@ -355,6 +356,52 @@
             background: #355b43;
         }
 
+        /* ===== TARJETAS DENTRO DE SUBMODALES (orden jerárquico) ===== */
+        .family-tree {
+            margin-top: 25px;
+            text-align: left;
+        }
+        .generation-row {
+            margin-bottom: 30px;
+        }
+        .generation-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.6rem;
+            color: #26382d;
+            border-bottom: 2px solid #d0d6cf;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .gen-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gen-cards .card {
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .gen-cards .card img {
+            max-height: 150px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #eee;
+        }
+        .gen-cards .card h4 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.2rem;
+            color: #26382d;
+            margin-bottom: 5px;
+        }
+        .gen-cards .card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
         /* MAPAS */
         .map-section {
             margin-top: 40px;
@@ -389,7 +436,7 @@
             content: "📍 ";
         }
 
-        /* DOCUMENTOS HISTÓRICOS */
+        /* DOCUMENTOS */
         .documents-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -440,7 +487,7 @@
             font-weight: 600;
         }
 
-        /* TARJETA DE VINCENZO Y ELISABETTA */
+        /* TARJETA VINCENZO Y ELISABETTA */
         .parents-card {
             max-width: 1200px;
             margin: 0 auto 40px auto;
@@ -580,6 +627,9 @@
             }
             .parents-info {
                 padding: 20px;
+            }
+            .gen-cards {
+                grid-template-columns: 1fr 1fr;
             }
         }
         @media (max-width: 768px) {
@@ -840,7 +890,7 @@
     </footer>
 
     <!-- ================================================ -->
-    <!-- MODALES SCAPPINI (con submodales estilo tarjetas)  -->
+    <!-- MODALES SCAPPINI (con submodales jerárquicos)     -->
     <!-- ================================================ -->
 
     <!-- ===== MODAL PABLO ===== -->
@@ -850,7 +900,6 @@
             <div id="pablo-parent-view">
                 <div class="foto-doble">
                     <img src="images/pablo-scappini.png" onerror="this.style.display='none'">
-                    <!-- Si hay foto joven, poner aquí -->
                 </div>
                 <h3>Pablo Scappini Bernuzzi</h3>
                 <p><strong>Nacimiento:</strong> 1879 (Italia) | <strong>Fallecimiento:</strong> 1962</p>
@@ -862,15 +911,44 @@
                 <div class="back-btn" onclick="closeModal('modal-pablo')">Cerrar</div>
             </div>
             <div id="pablo-child-1-view" style="display:none;">
-                <h3>Descendientes de Pablo</h3>
-                <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="card" onclick="openSubModal('submodal-irvina')">
-                        <h4>Irvina Scappini González</h4>
-                        <p>Hija menor de Pablo</p>
+                <h3>Descendientes de Pablo Scappini Bernuzzi</h3>
+                <div class="family-tree">
+                    <!-- 1° GENERACIÓN: Pablo y su esposa -->
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-pablo')">
+                                <img src="images/pablo-scappini.png" onerror="this.style.display='none'">
+                                <h4>Pablo Scappini Bernuzzi</h4>
+                                <p>1879 - 1962</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-escolastica')">
+                                <h4>Escolástica González</h4>
+                                <p>Esposa de Pablo</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card" onclick="openSubModal('submodal-coco')">
-                        <h4>Ramón Aníbal "Coco" Scappini Villalba</h4>
-                        <p>Nieto (1939 - 2019)</p>
+                    <!-- 2° GENERACIÓN: hijos -->
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-irvina')">
+                                <img src="images/irvina-scappini-gonzalez.jpg" onerror="this.style.display='none'">
+                                <h4>Irvina Scappini González</h4>
+                                <p>Hija menor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3° GENERACIÓN: nietos -->
+                    <div class="generation-row">
+                        <div class="generation-title">3° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-coco')">
+                                <img src="images/ramon-anibal-coco-scappini-villalba.jpg" onerror="this.style.display='none'">
+                                <h4>Ramón Aníbal "Coco" Scappini Villalba</h4>
+                                <p>1939 - 2019</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="back-btn" onclick="showPabloChild(0)">← Volver a Pablo</div>
@@ -878,27 +956,17 @@
         </div>
     </div>
     <!-- Submodales Pablo -->
+    <div id="submodal-pablo" class="modal" style="z-index:1100;">
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-pablo')">&times;</span><img src="images/pablo-scappini.png"><h3>Pablo Scappini Bernuzzi</h3><p>1879 - 1962 · Casado con Escolástica González</p><div class="back-btn" onclick="closeModal('submodal-pablo')">Cerrar</div></div>
+    </div>
+    <div id="submodal-escolastica" class="modal" style="z-index:1100;">
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-escolastica')">&times;</span><h3>Escolástica González</h3><p>Esposa de Pablo Scappini Bernuzzi</p><div class="back-btn" onclick="closeModal('submodal-escolastica')">Cerrar</div></div>
+    </div>
     <div id="submodal-irvina" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-irvina')">&times;</span>
-            <img src="images/irvina-scappini-gonzalez.jpg" onerror="this.style.display='none'">
-            <h3>Irvina Scappini González</h3>
-            <p>Hija menor de Pablo y Escolástica.</p>
-            <div class="back-btn" onclick="closeModal('submodal-irvina')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-irvina')">&times;</span><img src="images/irvina-scappini-gonzalez.jpg"><h3>Irvina Scappini González</h3><p>Hija menor de Pablo y Escolástica</p><div class="back-btn" onclick="closeModal('submodal-irvina')">Cerrar</div></div>
     </div>
     <div id="submodal-coco" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-coco')">&times;</span>
-            <img src="images/ramon-anibal-coco-scappini-villalba.jpg" onerror="this.style.display='none'">
-            <h3>Ramón Aníbal "Coco" Scappini Villalba</h3>
-            <p><strong>Nacimiento:</strong> 2 de mayo de 1939</p>
-            <p><strong>Fallecimiento:</strong> 26 de noviembre de 2019</p>
-            <p><strong>Esposa:</strong> Amalia Vateone (casados el 16 de junio de 1966)</p>
-            <p><strong>Hijos (3):</strong> Aldo Ramón, Oscar Aníbal y Ciro Augusto Scappini Vatteone.</p>
-            <p><strong>Nietos:</strong> Valeria, Vanina, Jazmín, M. Jerutí, M. Fernanda, M. Paula, Juan Daniel (Jota) y José Ignacio.</p>
-            <div class="back-btn" onclick="closeModal('submodal-coco')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-coco')">&times;</span><img src="images/ramon-anibal-coco-scappini-villalba.jpg"><h3>Ramón Aníbal "Coco" Scappini Villalba</h3><p>1939 - 2019 · Casado con Amalia Vateone</p><div class="back-btn" onclick="closeModal('submodal-coco')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL ROSA ===== -->
@@ -907,15 +975,20 @@
             <span class="close-btn" onclick="closeModal('modal-rosa')">&times;</span>
             <div class="foto-doble">
                 <img src="images/rosa-scappini-bernuzzi.png" onerror="this.style.display='none'">
-                <!-- foto joven si existe -->
             </div>
             <h3>Rosa Scappini Bernuzzi</h3>
             <p><strong>Nacimiento:</strong> 1880, Garibaldi, Brasil</p>
             <p><strong>Fallecimiento:</strong> 1944</p>
             <p><strong>Cónyuge:</strong> José Cortessi</p>
             <p><strong>Hijos (11):</strong> Teresa, Angel, Benito, Carlos, Juan Antonio, Ricardo, Juan, Luis, Vicente, Matilde Clara, Agustin.</p>
+            <div class="child-grid">
+                <div class="child-btn" onclick="openSubModal('submodal-rosa-hijos')">Ver hijos</div>
+            </div>
             <div class="back-btn" onclick="closeModal('modal-rosa')">Cerrar</div>
         </div>
+    </div>
+    <div id="submodal-rosa-hijos" class="modal" style="z-index:1100;">
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-rosa-hijos')">&times;</span><h3>Hijos de Rosa Scappini Bernuzzi</h3><ul style="text-align:left;"><li>Teresa Cortessi Scappini</li><li>Angel Cortessi Scappini</li><li>Benito Cortessi Scappini</li><li>Carlos Cortessi Scappini</li><li>Juan Antonio Cortessi Scappini</li><li>Ricardo Cortessi Scappini</li><li>Juan Cortessi Scappini</li><li>Luis Cortessi Scappini</li><li>Vicente Cortessi Scappini</li><li>Matilde Clara Cortessi Scappini</li><li>Agustin Cortessi Scappini</li></ul><div class="back-btn" onclick="closeModal('submodal-rosa-hijos')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL JUAN ===== -->
@@ -932,54 +1005,53 @@
                 <p><strong>Cónyuge:</strong> Anselma Valdez</p>
                 <p><strong>Historia:</strong> Se estableció en Yegros, Paraguay. Falleció en 1970 a los 89 años.</p>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showJuanChild(1)">Eligio Sabás Scappini</div>
-                    <div class="child-btn" onclick="showJuanChild(2)">Juan Ramón (Chin) Scappini</div>
+                    <div class="child-btn" onclick="showJuanChild(1)">Ver descendientes</div>
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-juan')">Cerrar</div>
             </div>
             <div id="juan-child-1-view" style="display:none;">
-                <h3>Eligio Sabás Scappini</h3>
-                <div class="foto-doble">
-                    <img src="images/eligo-scappini.jpeg" onerror="this.style.display='none'">
-                    <img src="images/eligio-scappini.jpeg" onerror="this.style.display='none'">
-                    <img src="images/ines-ortega-scappini.jpeg" onerror="this.style.display='none'">
+                <h3>Descendientes de Juan Scappini Bernuzzi</h3>
+                <div class="family-tree">
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Juan Scappini Bernuzzi</h4><p>Esposo: Anselma Valdez</p></div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-eligio')">
+                                <img src="images/eligio-scappini.jpeg" onerror="this.style.display='none'">
+                                <h4>Eligio Sabás Scappini</h4>
+                                <p>Hijo</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-juanramon')">
+                                <h4>Juan Ramón "Chin" Scappini</h4>
+                                <p>Hijo</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p><strong>Cónyuge:</strong> Inez Ortega Scappini</p>
-                <p><strong>Hijos (5):</strong> Plinio Ricardo, Aníbal Roberto, Heitor Raul, Elena Isabel, Anselma Beatriz.</p>
-                <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
-            </div>
-            <div id="juan-child-2-view" style="display:none;">
-                <h3>Juan Ramón "Chin" Scappini</h3>
-                <p><strong>Cónyuge:</strong> Blanca Alonso Robelli</p>
-                <p><strong>Hijos (7):</strong> Mirko, Manuel, Kike, Rosa Angélica, Myriam Graciela, y dos más.</p>
                 <div class="back-btn" onclick="showJuanChild(0)">← Volver a Juan</div>
             </div>
         </div>
+    </div>
+    <div id="submodal-eligio" class="modal" style="z-index:1100;">
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-eligio')">&times;</span><div class="foto-doble"><img src="images/eligo-scappini.jpeg"><img src="images/eligio-scappini.jpeg"><img src="images/ines-ortega-scappini.jpeg"></div><h3>Eligio Sabás Scappini</h3><p>Casado con Inez Ortega. 5 hijos.</p><div class="back-btn" onclick="closeModal('submodal-eligio')">Cerrar</div></div>
+    </div>
+    <div id="submodal-juanramon" class="modal" style="z-index:1100;">
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-juanramon')">&times;</span><h3>Juan Ramón "Chin" Scappini</h3><p>Casado con Blanca Alonso Robelli. 7 hijos.</p><div class="back-btn" onclick="closeModal('submodal-juanramon')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL GENOVEVA ===== -->
     <div id="modal-genoveva" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-genoveva')">&times;</span>
-            <img src="images/genoveva-scappini.png" onerror="this.style.display='none'">
-            <h3>Genoveva Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Alfonso Rienzzi Grande (Ypacaraí, Paraguay)</p>
-            <p><strong>Hijos:</strong> 5 hijos. Falleció muy joven.</p>
-            <div class="back-btn" onclick="closeModal('modal-genoveva')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('modal-genoveva')">&times;</span><img src="images/genoveva-scappini.png"><h3>Genoveva Scappini Bernuzzi</h3><p>Cónyuge: Alfonso Rienzzi Grande · 5 hijos</p><div class="back-btn" onclick="closeModal('modal-genoveva')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL JOSÉ YELINDO ===== -->
     <div id="modal-jose-yelindo" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span>
-            <img src="images/jose-yelindo-scappini.png" onerror="this.style.display='none'">
-            <h3>José Yelindo Scappini Bernuzzi</h3>
-            <p><strong>Nacimiento:</strong> 1887, Garibaldi, Brasil</p>
-            <p><strong>1er Cónyuge:</strong> Justina Scurra (6 hijos)</p>
-            <p><strong>2do Cónyuge:</strong> Albertina Larrosa (10 hijos)</p>
-            <div class="back-btn" onclick="closeModal('modal-jose-yelindo')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('modal-jose-yelindo')">&times;</span><img src="images/jose-yelindo-scappini.png"><h3>José Yelindo Scappini Bernuzzi</h3><p>1887 · 1er cónyuge: Justina Scurra (6 hijos) · 2do: Albertina Larrosa (10 hijos)</p><div class="back-btn" onclick="closeModal('modal-jose-yelindo')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL MARCELO ===== -->
@@ -987,118 +1059,62 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-marcelo')">&times;</span>
             <div id="marcelo-parent-view">
-                <div class="foto-doble">
-                    <img src="images/marcelo-scappini.jpeg" onerror="this.style.display='none'">
-                </div>
+                <div class="foto-doble"><img src="images/marcelo-scappini.jpeg"></div>
                 <h3>Marcelo Scappini Bernuzzi</h3>
-                <p><strong>Nacimiento:</strong> 1889, Garibaldi, Brasil</p>
-                <p><strong>Fallecimiento:</strong> 1938, Caazapá, Paraguay</p>
-                <p><strong>Cónyuge:</strong> Teresa Sarubbi Spaltra</p>
-                <p><strong>Hijos (7):</strong> Asunción, Eladio, Silvio, Agustín, Ovidio Ignacio, Lidia, Selva.</p>
+                <p>1889 - 1938 · Cónyuge: Teresa Sarubbi Spaltra · 7 hijos</p>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showChild(1)">Asunción</div>
-                    <div class="child-btn" onclick="showChild(2)">Eladio</div>
-                    <div class="child-btn" onclick="showChild(3)">Silvio</div>
-                    <div class="child-btn" onclick="showChild(4)">Agustín</div>
-                    <div class="child-btn" onclick="showChild(5)">Ovidio Ignacio</div>
-                    <div class="child-btn" onclick="showChild(6)">Lidia</div>
-                    <div class="child-btn" onclick="showChild(7)">Selva</div>
+                    <div class="child-btn" onclick="showChild(1)">Ver descendientes</div>
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-marcelo')">Cerrar</div>
             </div>
-            <!-- Subvistas de los hijos de Marcelo -->
             <div id="marcelo-child-1-view" style="display:none;">
-                <h3>Asunción (Chona) Scappini Sarubbi</h3>
-                <p><strong>Cónyuge:</strong> Sr. Maidana</p>
-                <p><strong>Hijos (4):</strong> Otilia, Marcelino, Saúl, Saturnino.</p>
-                <div class="back-btn" onclick="showChild(0)">← Volver</div>
-            </div>
-            <div id="marcelo-child-2-view" style="display:none;">
-                <h3>Eladio Scappini Sarubbi</h3>
-                <p>Falleció en el cuartel.</p>
-                <div class="back-btn" onclick="showChild(0)">← Volver</div>
-            </div>
-            <div id="marcelo-child-3-view" style="display:none;">
-                <div id="silvio-parent-view">
-                    <h3>Silvio Scappini Sarubbi</h3>
-                    <p><strong>Hijos:</strong> Aníbal (con Sabina Bordón), Osvaldo, Wilfrido, Eladio (con Rolon).</p>
-                    <div class="child-grid">
-                        <div class="child-btn" onclick="showSilvioChild(1)">Aníbal Bordón</div>
-                        <div class="child-btn" onclick="showSilvioChild(2)">Osvaldo Rolón</div>
-                        <div class="child-btn" onclick="showSilvioChild(3)">Wilfrido</div>
-                        <div class="child-btn" onclick="showSilvioChild(4)">Eladio Rolón</div>
+                <h3>Descendientes de Marcelo Scappini Bernuzzi</h3>
+                <div class="family-tree">
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Marcelo Scappini Bernuzzi</h4><p>1889 - 1938</p></div>
+                            <div class="card"><h4>Teresa Sarubbi Spaltra</h4><p>Esposa</p></div>
+                        </div>
                     </div>
-                    <div class="back-btn" onclick="showChild(0)">← Volver</div>
-                </div>
-                <div id="silvio-child-1-view" style="display:none;"><h4>Aníbal Scappini Bordón</h4><p>Reside en Morón, Argentina. Hijas: Florencia Carolina y Patricia.</p><div class="back-btn" onclick="showSilvioChild(0)">← Volver</div></div>
-                <div id="silvio-child-2-view" style="display:none;"><h4>Osvaldo Scappini Rolón</h4><p>Nacido 26/06/1946. Descendencia con Gladys Galeano y Luisa Carla González.</p><div class="back-btn" onclick="showSilvioChild(0)">← Volver</div></div>
-                <div id="silvio-child-3-view" style="display:none;"><h4>Wilfrido Scappini</h4><p>Nacido 14/09/1944, fallecido 13/07/2025. Casado, reside en Hernandarias.</p><div class="back-btn" onclick="showSilvioChild(0)">← Volver</div></div>
-                <div id="silvio-child-4-view" style="display:none;"><h4>Eladio Scappini Rolon</h4><p>Partido político: ANR.</p><div class="back-btn" onclick="showSilvioChild(0)">← Volver</div></div>
-            </div>
-            <div id="marcelo-child-4-view" style="display:none;">
-                <h3>Agustín Scappini Sarubbi</h3>
-                <p>Comisario de Fram, Misiones. Casado con Dora Juana Flores. Hijo: Ovidio Domingo.</p>
-                <div class="back-btn" onclick="showChild(0)">← Volver</div>
-            </div>
-            <div id="marcelo-child-5-view" style="display:none;">
-                <div id="ovidio-parent-view">
-                    <h3>Ovidio Ignacio Scappini Sarubbi</h3>
-                    <p>Telegrafista, Veterano de la Guerra del Chaco. Casado con Ana Matilde Baez Villagra.</p>
-                    <p><strong>Hijos (5):</strong> Lidia Antonia, Ovidio Rafael, Daily Teresa, Ana Bettina, Rubén Eugenio.</p>
-                    <div class="child-grid">
-                        <div class="child-btn" onclick="showGrandChild(1)">Lidia Antonia</div>
-                        <div class="child-btn" onclick="showGrandChild(2)">Ovidio Rafael</div>
-                        <div class="child-btn" onclick="showGrandChild(3)">Daily Teresa</div>
-                        <div class="child-btn" onclick="showGrandChild(4)">Ana Bettina</div>
-                        <div class="child-btn" onclick="showGrandChild(5)">Rubén</div>
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación (Hijos)</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-asuncion')"><h4>Asunción (Chona)</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-eladio')"><h4>Eladio</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-silvio')"><h4>Silvio</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-agustin')"><h4>Agustín</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-ovidio')"><h4>Ovidio Ignacio</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-lidia-marcelo')"><h4>Lidia</h4></div>
+                            <div class="card" onclick="openSubModal('submodal-selva')"><h4>Selva</h4></div>
+                        </div>
                     </div>
-                    <div class="back-btn" onclick="showChild(0)">← Volver</div>
                 </div>
-                <div id="ovidio-child-1-view" style="display:none;"><h4>Lidia Antonia Scappini</h4><p>Nac. 09/01/1955, falleció 11/05/1975. Casada con Gustavo Vernazza, sin hijos.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-2-view" style="display:none;"><h4>Ovidio Rafael Scappini</h4><p>Nac. 10/09/1957, falleció 11/08/1995. Casado con Nancy Perla Elli. Hijos: Sandra y Marcos.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-3-view" style="display:none;"><h4>Daily Teresa Josefina Scappini</h4><p>Nac. 01/08/1940, falleció 04/09/2012. Casada con Jaime Cristóful Solé. Hijos: Ana Teresa, Juan Jaime, Christian.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-4-view" style="display:none;"><h4>Ana Bettina Scappini</h4><p>Nac. 30/10/1942. Casada con Victor Vallejos. Hijos: Victor, Mirtha, Luis, Karen.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-                <div id="ovidio-child-5-view" style="display:none;"><h4>Rubén Eugenio Scappini</h4><p>Nac. 01/01/1946. Casado con María Elena Cáceres. Hijos: Hector, Horacio, Rodrigo, Liliana, Fernando.</p><div class="back-btn" onclick="showGrandChild(0)">← Volver</div></div>
-            </div>
-            <div id="marcelo-child-6-view" style="display:none;">
-                <h3>Lidia Scappini Sarubbi</h3>
-                <p>Casada con Astolfo Dávalos. Hijas: Daily, Monona, Asunción.</p>
-                <div class="back-btn" onclick="showChild(0)">← Volver</div>
-            </div>
-            <div id="marcelo-child-7-view" style="display:none;">
-                <h3>Selva Scappini Sarubbi</h3>
-                <p>(Información en recopilación)</p>
-                <div class="back-btn" onclick="showChild(0)">← Volver</div>
+                <div class="back-btn" onclick="showChild(0)">← Volver a Marcelo</div>
             </div>
         </div>
     </div>
+    <!-- Submodales hijos de Marcelo -->
+    <div id="submodal-asuncion" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-asuncion')">&times;</span><h3>Asunción (Chona) Scappini Sarubbi</h3><p>Casada con Sr. Maidana · 4 hijos</p><div class="back-btn" onclick="closeModal('submodal-asuncion')">Cerrar</div></div></div>
+    <div id="submodal-eladio" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-eladio')">&times;</span><h3>Eladio Scappini Sarubbi</h3><p>Falleció en el cuartel</p><div class="back-btn" onclick="closeModal('submodal-eladio')">Cerrar</div></div></div>
+    <div id="submodal-silvio" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-silvio')">&times;</span><h3>Silvio Scappini Sarubbi</h3><p>Hijos: Aníbal (con Sabina Bordón), Osvaldo, Wilfrido, Eladio (con Rolon)</p><div class="back-btn" onclick="closeModal('submodal-silvio')">Cerrar</div></div></div>
+    <div id="submodal-agustin" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-agustin')">&times;</span><h3>Agustín Scappini Sarubbi</h3><p>Comisario · Casado con Dora Juana Flores</p><div class="back-btn" onclick="closeModal('submodal-agustin')">Cerrar</div></div></div>
+    <div id="submodal-ovidio" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-ovidio')">&times;</span><img src="images/marcelo-hijo5.jpeg"><h3>Ovidio Ignacio Scappini Sarubbi</h3><p>Telegrafista, Veterano del Chaco · Casado con Ana Matilde Baez · 5 hijos</p><div class="back-btn" onclick="closeModal('submodal-ovidio')">Cerrar</div></div></div>
+    <div id="submodal-lidia-marcelo" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-lidia-marcelo')">&times;</span><img src="images/lidia-scappini-sarubbi.png"><h3>Lidia Scappini Sarubbi</h3><p>Casada con Astolfo Dávalos · 3 hijas</p><div class="back-btn" onclick="closeModal('submodal-lidia-marcelo')">Cerrar</div></div></div>
+    <div id="submodal-selva" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-selva')">&times;</span><h3>Selva Scappini Sarubbi</h3><p>Información en recopilación</p><div class="back-btn" onclick="closeModal('submodal-selva')">Cerrar</div></div></div>
 
     <!-- ===== MODAL ALBERTO ===== -->
     <div id="modal-alberto" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span>
-            <img src="images/alberto-scappini.png" onerror="this.style.display='none'">
-            <h3>Alberto "Humberto" Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Ernesta Rodríguez Sosa</p>
-            <p><strong>Hijos:</strong> 9 hijos vivos.</p>
-            <div class="back-btn" onclick="closeModal('modal-alberto')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('modal-alberto')">&times;</span><img src="images/alberto-scappini.png"><h3>Alberto "Humberto" Scappini Bernuzzi</h3><p>Cónyuge: Ernesta Rodríguez Sosa · 9 hijos</p><div class="back-btn" onclick="closeModal('modal-alberto')">Cerrar</div></div>
     </div>
 
     <!-- ===== MODAL FRANCISCA ===== -->
     <div id="modal-francisca" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-francisca')">&times;</span>
-            <img src="images/francisca-scappini.png" onerror="this.style.display='none'">
-            <h3>Francisca "Tía Checa" Scappini Bernuzzi</h3>
-            <p><strong>Cónyuge:</strong> Basilicio Núñez</p>
-            <p><strong>Hijos:</strong> 1 hijo (Alicio Núñez, falleció joven).</p>
-            <div class="back-btn" onclick="closeModal('modal-francisca')">Cerrar</div>
-        </div>
+        <div class="modal-content"><span class="close-btn" onclick="closeModal('modal-francisca')">&times;</span><img src="images/francisca-scappini.png"><h3>Francisca "Tía Checa" Scappini Bernuzzi</h3><p>Cónyuge: Basilicio Núñez · 1 hijo (Alicio)</p><div class="back-btn" onclick="closeModal('modal-francisca')">Cerrar</div></div>
     </div>
 
     <!-- ================================================ -->
-    <!-- MODALES SOLÉ ALMENARA (con submodales)           -->
+    <!-- MODALES SOLÉ ALMENARA                            -->
     <!-- ================================================ -->
 
     <!-- ===== MODAL TERESA SOLÉ ===== -->
@@ -1106,105 +1122,121 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-teresa-sole')">&times;</span>
             <div id="teresa-parent-view">
-                <div class="foto-doble">
-                    <img src="images/teresa-sole.jpg" onerror="this.style.display='none'">
-                    <!-- foto joven si existe -->
-                </div>
+                <div class="foto-doble"><img src="images/teresa-sole.jpg"></div>
                 <h3>Teresa Solé y Almenara</h3>
-                <p><strong>Nacimiento:</strong> 18 de julio de 1902 · Bellvís, Lérida, España</p>
-                <p><strong>Madre:</strong> Josefa Almenara Molló</p>
-                <p><strong>Esposo:</strong> Juan Cristóful Ricart (nacido en Gironella el 25 de abril de 1891)</p>
-                <p><strong>Matrimonio:</strong> 14 de marzo de 1925 en Asunción</p>
-                <p><strong>Hijos (5):</strong> Josefa, Mercedes, María, Juanita, Jaime.</p>
+                <p>Nacida el 18/07/1902 en Bellvís · Hija de Josefa Almenara Molló</p>
+                <p>Casada con Juan Cristóful Ricart (25/04/1891, Gironella) el 14/03/1925 en Asunción</p>
+                <p><strong>5 hijos:</strong> Josefa, Mercedes, María, Juanita, Jaime.</p>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showTeresaChild(1)">Josefa</div>
-                    <div class="child-btn" onclick="showTeresaChild(2)">Mercedes</div>
-                    <div class="child-btn" onclick="showTeresaChild(3)">María</div>
-                    <div class="child-btn" onclick="showTeresaChild(4)">Juanita</div>
-                    <div class="child-btn" onclick="showTeresaChild(5)">Jaime</div>
+                    <div class="child-btn" onclick="showTeresaChild(1)">Ver descendientes</div>
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-teresa-sole')">Cerrar</div>
             </div>
-            <!-- Subvistas Teresa -->
             <div id="teresa-child-1-view" style="display:none;">
-                <h3>Josefa Cristóful Solé de Cano</h3>
-                <p><strong>Nacimiento:</strong> 11 de junio de 1926</p>
-                <p><strong>Fallecimiento:</strong> 04 de diciembre de 2004, Asunción</p>
-                <p><strong>Esposo:</strong> Ignacio Antonio Cano</p>
-                <p><strong>Hijos:</strong> Antonio Juan Saturnino, Julio, Nury, José.</p>
-                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
-            </div>
-            <div id="teresa-child-2-view" style="display:none;">
-                <h3>Mercedes Cristóful Solé</h3>
-                <p><strong>Nacimiento:</strong> 25/02/1928 · Fallecimiento: 15/10/2017</p>
-                <p><strong>Esposo:</strong> Sebastián Galeano (sin hijos)</p>
-                <p>Costurera, dueña de la Farmacia Las Mercedes.</p>
-                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
-            </div>
-            <div id="teresa-child-3-view" style="display:none;">
-                <h3>María Cristóful Solé</h3>
-                <p><strong>Nacimiento:</strong> 24/09/1931 · Fallecimiento: 13/03/2012</p>
-                <p>Soltera sin hijos. Atendió la Librería El Colono.</p>
-                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
-            </div>
-            <div id="teresa-child-4-view" style="display:none;">
-                <h3>Juanita Cristóful Solé</h3>
-                <p><strong>Nacimiento:</strong> 16/02/1934 · Fallecimiento: 19/08/2015</p>
-                <p>Soltera sin hijos. Atendió la Librería El Colono.</p>
-                <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
-            </div>
-            <div id="teresa-child-5-view" style="display:none;">
-                <h3>Jaime Cristóful Solé</h3>
-                <p><strong>Nacimiento:</strong> 13/07/1936 · Fallecimiento: 04/11/2020</p>
-                <p><strong>Esposa:</strong> Daily Teresa Josefina Scappini Baez (matrimonio 17/12/1965)</p>
-                <p><strong>Hijos:</strong> Ana Teresa, Juan Jaime, Christian Eduardo.</p>
+                <h3>Descendientes de Teresa Solé y Almenara</h3>
+                <div class="family-tree">
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Teresa Solé y Almenara</h4><p>1902 - ?</p></div>
+                            <div class="card"><h4>Juan Cristóful Ricart</h4><p>1891 - ?</p></div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación (Hijos)</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-josefa-cano')">
+                                <img src="images/josefina-antonio-cano.png" onerror="this.style.display='none'">
+                                <h4>Josefa Cristóful Solé</h4>
+                                <p>1926 - 2004 · Casada con Ignacio Antonio Cano</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-mercedes')">
+                                <img src="images/mercedes-cristoful-sole.jpg" onerror="this.style.display='none'">
+                                <h4>Mercedes Cristóful Solé</h4>
+                                <p>1928 - 2017</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-maria')">
+                                <img src="images/maria-cristoful-sole.jpg" onerror="this.style.display='none'">
+                                <h4>María Cristóful Solé</h4>
+                                <p>1931 - 2012</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-juanita')">
+                                <img src="images/juanita-cristoful-sole.jpg" onerror="this.style.display='none'">
+                                <h4>Juanita Cristóful Solé</h4>
+                                <p>1934 - 2015</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-jaime-cristoful')">
+                                <img src="images/jaime-cristoful.png" onerror="this.style.display='none'">
+                                <h4>Jaime Cristóful Solé</h4>
+                                <p>1936 - 2020 · Casado con Daily Scappini Baez</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">3° Generación (Nietos)</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Antonio Juan Saturnino Cano Cristóful</h4><p>Hijo mayor de Josefa</p></div>
+                            <div class="card"><h4>Julio Cano Cristóful</h4></div>
+                            <div class="card"><h4>Nury Cano Cristóful</h4></div>
+                            <div class="card"><h4>José Cano Cristóful</h4></div>
+                            <div class="card"><h4>Ana Teresa Cristóful</h4><p>Hija de Jaime</p></div>
+                            <div class="card"><h4>Juan Jaime Cristóful</h4></div>
+                            <div class="card"><h4>Christian Eduardo Cristóful</h4></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="back-btn" onclick="showTeresaChild(0)">← Volver a Teresa</div>
             </div>
         </div>
     </div>
+    <!-- Submodales Teresa -->
+    <div id="submodal-josefa-cano" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-josefa-cano')">&times;</span><img src="images/josefina-antonio-cano.png"><h3>Josefa Cristóful Solé de Cano</h3><p>1926 - 2004 · Casada con Ignacio Antonio Cano</p><div class="back-btn" onclick="closeModal('submodal-josefa-cano')">Cerrar</div></div></div>
+    <div id="submodal-mercedes" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-mercedes')">&times;</span><img src="images/mercedes-cristoful-sole.jpg"><h3>Mercedes Cristóful Solé</h3><p>1928 - 2017 · Casada con Sebastián Galeano, sin hijos</p><div class="back-btn" onclick="closeModal('submodal-mercedes')">Cerrar</div></div></div>
+    <div id="submodal-maria" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-maria')">&times;</span><img src="images/maria-cristoful-sole.jpg"><h3>María Cristóful Solé</h3><p>1931 - 2012 · Soltera sin hijos</p><div class="back-btn" onclick="closeModal('submodal-maria')">Cerrar</div></div></div>
+    <div id="submodal-juanita" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-juanita')">&times;</span><img src="images/juanita-cristoful-sole.jpg"><h3>Juanita Cristóful Solé</h3><p>1934 - 2015 · Soltera sin hijos</p><div class="back-btn" onclick="closeModal('submodal-juanita')">Cerrar</div></div></div>
+    <div id="submodal-jaime-cristoful" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-jaime-cristoful')">&times;</span><img src="images/jaime-cristoful.png"><h3>Jaime Cristóful Solé</h3><p>1936 - 2020 · Casado con Daily Scappini Baez (1965) · 3 hijos</p><div class="back-btn" onclick="closeModal('submodal-jaime-cristoful')">Cerrar</div></div></div>
 
     <!-- ===== MODAL FRANCISCO SOLÉ ===== -->
     <div id="modal-francisco-sole" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-francisco-sole')">&times;</span>
             <div id="francisco-parent-view">
-                <div class="foto-doble">
-                    <img src="images/francisco-sole.png" onerror="this.style.display='none'">
-                </div>
+                <div class="foto-doble"><img src="images/francisco-sole.png"></div>
                 <h3>Francisco Solé y Almenara</h3>
-                <p>Segundo hijo de Vicente Solé Cases y Josefa Almenara Molló.</p>
-                <p><strong>Oficio:</strong> Apicultor, dueño de "El Colmenar" en Lambaré.</p>
-                <p><strong>Primer matrimonio:</strong> (viudo) · <strong>Segundo:</strong> Josefa Falcón</p>
+                <p>Segundo hijo de Vicente Solé y Josefa Almenara</p>
+                <p>Apicultor, dueño de "El Colmenar" en Lambaré</p>
+                <p><strong>1er matrimonio:</strong> (viudo) · <strong>2do:</strong> Josefa Falcón</p>
                 <div class="child-grid">
-                    <div class="child-btn" onclick="showFranciscoChild(1)">Hijos 1er matrimonio</div>
-                    <div class="child-btn" onclick="showFranciscoChild(2)">Hijos 2do matrimonio</div>
+                    <div class="child-btn" onclick="showFranciscoChild(1)">Ver descendientes</div>
                 </div>
                 <div class="back-btn" onclick="closeModal('modal-francisco-sole')">Cerrar</div>
             </div>
             <div id="francisco-child-1-view" style="display:none;">
-                <h4>Hijos del primer matrimonio</h4>
-                <ul style="text-align:left; padding-left:20px; list-style-type:disc;">
-                    <li><strong>Josefa (Pepa) Solé Mencía</strong> - casada con Cabrera.</li>
-                    <li><strong>Pabla Lucía Solé</strong></li>
-                    <li><strong>Manuel Francisco (Manolo) Solé</strong></li>
-                    <li><strong>Francisco Solé</strong></li>
-                </ul>
-                <div class="back-btn" onclick="showFranciscoChild(0)">← Volver</div>
-            </div>
-            <div id="francisco-child-2-view" style="display:none;">
-                <h4>Hijos del segundo matrimonio (con Josefa Falcón)</h4>
-                <ul style="text-align:left; padding-left:20px; list-style-type:disc;">
-                    <li><strong>Agustina Mercedes Solé Falcón</strong></li>
-                    <li><strong>Josefa (Tula) Solé Falcón</strong></li>
-                    <li><strong>Francisco Ramón (Paco) Solé Falcón</strong></li>
-                    <li><strong>Blanca Rosa Solé Falcón</strong></li>
-                </ul>
-                <div class="back-btn" onclick="showFranciscoChild(0)">← Volver</div>
+                <h3>Descendientes de Francisco Solé y Almenara</h3>
+                <div class="family-tree">
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Francisco Solé y Almenara</h4></div>
+                            <div class="card"><h4>Josefa Falcón</h4><p>2da esposa</p></div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación (Hijos)</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-francisco-hijos1')"><h4>Hijos 1er matrimonio</h4><p>Josefa, Pabla, Manuel, Francisco</p></div>
+                            <div class="card" onclick="openSubModal('submodal-francisco-hijos2')"><h4>Hijos 2do matrimonio</h4><p>Agustina, Josefa, Francisco, Blanca</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back-btn" onclick="showFranciscoChild(0)">← Volver a Francisco</div>
             </div>
         </div>
     </div>
+    <div id="submodal-francisco-hijos1" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-francisco-hijos1')">&times;</span><h3>Hijos del primer matrimonio</h3><ul><li>Josefa (Pepa) Solé Mencía</li><li>Pabla Lucía Solé</li><li>Manuel Francisco (Manolo) Solé</li><li>Francisco Solé</li></ul><div class="back-btn" onclick="closeModal('submodal-francisco-hijos1')">Cerrar</div></div></div>
+    <div id="submodal-francisco-hijos2" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-francisco-hijos2')">&times;</span><h3>Hijos del segundo matrimonio (con Josefa Falcón)</h3><ul><li>Agustina Mercedes Solé Falcón</li><li>Josefa (Tula) Solé Falcón</li><li>Francisco Ramón (Paco) Solé Falcón</li><li>Blanca Rosa Solé Falcón</li></ul><div class="back-btn" onclick="closeModal('submodal-francisco-hijos2')">Cerrar</div></div></div>
 
-    <!-- ===== MODAL RAMONA SOLÉ (ya tenía estructura de tarjetas, se mantiene) ===== -->
+    <!-- ===== MODAL RAMONA SOLÉ ===== -->
     <div id="modal-ramona-sole" class="modal">
         <div class="modal-content" style="max-width: 800px;">
             <span class="close-btn" onclick="closeModal('modal-ramona-sole')">&times;</span>
@@ -1214,11 +1246,9 @@
                     <img src="images/ramona-sole.png" onerror="this.style.display='none'">
                 </div>
                 <h3>Ramona Solé y Almenara</h3>
-                <p><strong>Padre:</strong> Vicente Solé Cases</p>
-                <p><strong>Madre:</strong> Josefa Almenara Molló</p>
-                <p><strong>Esposo:</strong> Baldomero Camarasa</p>
-                <p><strong>Hija:</strong> Paquita Solé Camarasa</p>
-                <p><strong>Mamá adoptiva:</strong> Francisca</p>
+                <p>Hija de <strong>Vicente Solé Cases</strong> y Josefa Almenara Molló</p>
+                <p>Casada con <strong>Baldomero Camarasa</strong></p>
+                <p>Hija: <strong>Paquita Solé Camarasa</strong> · Mamá adoptiva: <strong>Francisca</strong></p>
                 <div class="child-grid">
                     <div class="child-btn" onclick="showRamonaFamily()">Ver toda la familia</div>
                 </div>
@@ -1226,105 +1256,72 @@
             </div>
             <div id="ramona-family-view" style="display:none;">
                 <h3>Familia de Ramona Solé Almenara</h3>
-                <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="card" onclick="openSubModal('submodal-baldomero')">
-                        <img src="images/baldomero-camarasa.png" onerror="this.style.display='none'" style="width:100%; max-height:150px; object-fit:contain; border-radius:8px; margin-bottom:10px;">
-                        <h4>Baldomero Camarasa</h4>
-                        <p>Esposo de Ramona</p>
-                    </div>
-                    <div class="card" onclick="openSubModal('submodal-francisca')">
-                        <img src="images/francisca.png" onerror="this.style.display='none'" style="width:100%; max-height:150px; object-fit:contain; border-radius:8px; margin-bottom:10px;">
-                        <h4>Francisca</h4>
-                        <p>Mamá adoptiva de Ramona</p>
-                    </div>
-                    <div class="card" onclick="openSubModal('submodal-paquita')">
-                        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
-                            <img src="images/tia-paquita-niña.png" onerror="this.style.display='none'" style="max-height:100px; width:auto; border-radius:8px;">
-                            <img src="images/paquita.png" onerror="this.style.display='none'" style="max-height:100px; width:auto; border-radius:8px;">
+                <div class="family-tree">
+                    <div class="generation-row">
+                        <div class="generation-title">1° Generación</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-ramona')">
+                                <div class="foto-doble"><img src="images/ramona-sole-almenara-joven.png"><img src="images/ramona-sole.png"></div>
+                                <h4>Ramona Solé Almenara</h4>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-baldomero')">
+                                <img src="images/baldomero-camarasa.png">
+                                <h4>Baldomero Camarasa</h4>
+                                <p>Esposo</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-francisca-adoptiva')">
+                                <img src="images/francisca.png">
+                                <h4>Francisca</h4>
+                                <p>Mamá adoptiva</p>
+                            </div>
                         </div>
-                        <h4>Paquita Solé Camarasa</h4>
-                        <p>Hija de Ramona</p>
                     </div>
-                    <div class="card" onclick="openSubModal('submodal-pepe')">
-                        <h4>Pepe Callizo Ibárz</h4>
-                        <p>Esposo de Paquita</p>
+                    <div class="generation-row">
+                        <div class="generation-title">2° Generación (Hijos)</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-paquita')">
+                                <div class="foto-doble"><img src="images/tia-paquita-niña.png"><img src="images/paquita.png"></div>
+                                <h4>Paquita Solé Camarasa</h4>
+                                <p>Nac. 29/11/1945</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card" onclick="openSubModal('submodal-lidia')">
-                        <h4>Lidia Callizo Camarasa</h4>
-                        <p>Nieta</p>
+                    <div class="generation-row">
+                        <div class="generation-title">3° Generación (Nietos)</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-lidia')">
+                                <h4>Lidia Callizo Camarasa</h4>
+                                <p>Casada con Miguel Cervera</p>
+                            </div>
+                            <div class="card" onclick="openSubModal('submodal-angels')">
+                                <h4>Ma Angels Callizo Camarasa</h4>
+                                <p>Casada con Bernat Mur</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card" onclick="openSubModal('submodal-angels')">
-                        <h4>Ma Angels Callizo Camarasa</h4>
-                        <p>Nieta</p>
+                    <div class="generation-row">
+                        <div class="generation-title">4° Generación (Bisnietos)</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Marc Cervera Callizo</h4><p>Hijo de Lidia</p></div>
+                            <div class="card"><h4>David Mur Callizo</h4><p>Hijo de Ma Angels</p></div>
+                            <div class="card"><h4>Alba Mur Callizo</h4><p>Hija de Ma Angels</p></div>
+                        </div>
                     </div>
                 </div>
                 <div class="back-btn" onclick="showRamonaParent()">← Volver a Ramona</div>
             </div>
         </div>
     </div>
-
     <!-- Submodales Ramona -->
-    <div id="submodal-baldomero" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-baldomero')">&times;</span>
-            <img src="images/baldomero-camarasa.png" onerror="this.style.display='none'">
-            <h3>Baldomero Camarasa</h3>
-            <p>Esposo de Ramona Solé Almenara.</p>
-            <div class="back-btn" onclick="closeModal('submodal-baldomero')">Cerrar</div>
-        </div>
-    </div>
-    <div id="submodal-francisca" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-francisca')">&times;</span>
-            <img src="images/francisca.png" onerror="this.style.display='none'">
-            <h3>Francisca</h3>
-            <p>Mamá adoptiva de Ramona Solé Almenara.</p>
-            <div class="back-btn" onclick="closeModal('submodal-francisca')">Cerrar</div>
-        </div>
-    </div>
-    <div id="submodal-paquita" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-paquita')">&times;</span>
-            <div class="foto-doble">
-                <img src="images/tia-paquita-niña.png" onerror="this.style.display='none'">
-                <img src="images/paquita.png" onerror="this.style.display='none'">
-            </div>
-            <h3>Paquita Solé Camarasa</h3>
-            <p><strong>Nacimiento:</strong> 29 de noviembre de 1945</p>
-            <p><strong>Esposo:</strong> Pepe Callizo Ibárz</p>
-            <p><strong>Hijos:</strong> Lidia y Ma Angels.</p>
-            <div class="back-btn" onclick="closeModal('submodal-paquita')">Cerrar</div>
-        </div>
-    </div>
-    <div id="submodal-pepe" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-pepe')">&times;</span>
-            <h3>Pepe Callizo Ibárz</h3>
-            <p>Esposo de Paquita Solé Camarasa.</p>
-            <div class="back-btn" onclick="closeModal('submodal-pepe')">Cerrar</div>
-        </div>
-    </div>
-    <div id="submodal-lidia" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-lidia')">&times;</span>
-            <h3>Lidia Callizo Camarasa</h3>
-            <p><strong>Esposo:</strong> Miguel Cervera Moral</p>
-            <p><strong>Hijo:</strong> Marc Cervera Callizo</p>
-            <div class="back-btn" onclick="closeModal('submodal-lidia')">Cerrar</div>
-        </div>
-    </div>
-    <div id="submodal-angels" class="modal" style="z-index:1100;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('submodal-angels')">&times;</span>
-            <h3>Ma Angels Callizo Camarasa</h3>
-            <p><strong>Esposo:</strong> Bernat Mur Quibus</p>
-            <p><strong>Hijos:</strong> David Mur Callizo y Alba Mur Callizo</p>
-            <div class="back-btn" onclick="closeModal('submodal-angels')">Cerrar</div>
-        </div>
-    </div>
+    <div id="submodal-ramona" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-ramona')">&times;</span><div class="foto-doble"><img src="images/ramona-sole-almenara-joven.png"><img src="images/ramona-sole.png"></div><h3>Ramona Solé Almenara</h3><p>Hija de Vicente Solé Cases</p><div class="back-btn" onclick="closeModal('submodal-ramona')">Cerrar</div></div></div>
+    <div id="submodal-baldomero" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-baldomero')">&times;</span><img src="images/baldomero-camarasa.png"><h3>Baldomero Camarasa</h3><p>Esposo de Ramona</p><div class="back-btn" onclick="closeModal('submodal-baldomero')">Cerrar</div></div></div>
+    <div id="submodal-francisca-adoptiva" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-francisca-adoptiva')">&times;</span><img src="images/francisca.png"><h3>Francisca</h3><p>Mamá adoptiva de Ramona</p><div class="back-btn" onclick="closeModal('submodal-francisca-adoptiva')">Cerrar</div></div></div>
+    <div id="submodal-paquita" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-paquita')">&times;</span><div class="foto-doble"><img src="images/tia-paquita-niña.png"><img src="images/paquita.png"></div><h3>Paquita Solé Camarasa</h3><p>Nac. 29/11/1945 · Casada con Pepe Callizo</p><div class="back-btn" onclick="closeModal('submodal-paquita')">Cerrar</div></div></div>
+    <div id="submodal-lidia" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-lidia')">&times;</span><h3>Lidia Callizo Camarasa</h3><p>Casada con Miguel Cervera · Hijo: Marc</p><div class="back-btn" onclick="closeModal('submodal-lidia')">Cerrar</div></div></div>
+    <div id="submodal-angels" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-angels')">&times;</span><h3>Ma Angels Callizo Camarasa</h3><p>Casada con Bernat Mur · Hijos: David, Alba</p><div class="back-btn" onclick="closeModal('submodal-angels')">Cerrar</div></div></div>
 
     <!-- ================================================ -->
-    <!-- LIGHTBOX (DOCUMENTOS)                            -->
+    <!-- LIGHTBOX                                        -->
     <!-- ================================================ -->
     <div id="lightbox-modal">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
@@ -1342,21 +1339,12 @@
             document.getElementById('main-screen').style.display = 'none';
             document.getElementById('wrapper-scappini').classList.remove('active-family');
             document.getElementById('wrapper-sole').classList.remove('active-family');
-
             if (family === 'scappini') {
                 document.getElementById('wrapper-scappini').classList.add('active-family');
-                if (!window.mapScappini) {
-                    initMap('family-map-scappini', 'mapScappini', 'scappini');
-                } else {
-                    setTimeout(() => window.mapScappini.invalidateSize(), 500);
-                }
+                if (!window.mapScappini) { initMap('family-map-scappini', 'mapScappini', 'scappini'); } else { setTimeout(() => window.mapScappini.invalidateSize(), 500); }
             } else if (family === 'sole') {
                 document.getElementById('wrapper-sole').classList.add('active-family');
-                if (!window.mapSole) {
-                    initMap('family-map-sole', 'mapSole', 'sole');
-                } else {
-                    setTimeout(() => window.mapSole.invalidateSize(), 500);
-                }
+                if (!window.mapSole) { initMap('family-map-sole', 'mapSole', 'sole'); } else { setTimeout(() => window.mapSole.invalidateSize(), 500); }
             }
         }
 
@@ -1367,33 +1355,19 @@
         }
 
         // ===== MODALES PRINCIPALES =====
-        function openModal(id) {
-            document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
+        function openModal(id) { document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; }
 
-        function closeModal(id) {
-            document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto";
-        }
+        function closeModal(id) { document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto"; }
 
-        // ===== SUBMODALES =====
-        function openSubModal(id) {
-            document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
+        function openSubModal(id) { document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; }
 
-        // Cerrar modales al hacer clic fuera
-        window.onclick = function(event) {
-            if (event.target.className === "modal") {
-                event.target.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        }
+        window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none";
+                document.body.style.overflow = "auto"; } }
 
         // ===== NAVEGACIÓN INTERNA =====
-
-        // Pablo
         function showPabloChild(num) {
             document.getElementById('pablo-parent-view').style.display = 'none';
             document.getElementById('pablo-child-1-view').style.display = 'none';
@@ -1401,7 +1375,6 @@
             else document.getElementById('pablo-child-' + num + '-view').style.display = 'block';
         }
 
-        // Juan
         function showJuanChild(num) {
             document.getElementById('juan-parent-view').style.display = 'none';
             for (let i = 1; i <= 2; i++) document.getElementById('juan-child-' + i + '-view').style.display = 'none';
@@ -1409,7 +1382,6 @@
             else document.getElementById('juan-child-' + num + '-view').style.display = 'block';
         }
 
-        // Marcelo
         function showChild(num) {
             document.getElementById('marcelo-parent-view').style.display = 'none';
             for (let i = 1; i <= 7; i++) document.getElementById('marcelo-child-' + i + '-view').style.display = 'none';
@@ -1417,21 +1389,6 @@
             else document.getElementById('marcelo-child-' + num + '-view').style.display = 'block';
         }
 
-        function showSilvioChild(num) {
-            document.getElementById('silvio-parent-view').style.display = 'none';
-            for (let i = 1; i <= 4; i++) document.getElementById('silvio-child-' + i + '-view').style.display = 'none';
-            if (num === 0) document.getElementById('silvio-parent-view').style.display = 'block';
-            else document.getElementById('silvio-child-' + num + '-view').style.display = 'block';
-        }
-
-        function showGrandChild(num) {
-            document.getElementById('ovidio-parent-view').style.display = 'none';
-            for (let i = 1; i <= 5; i++) document.getElementById('ovidio-child-' + i + '-view').style.display = 'none';
-            if (num === 0) document.getElementById('ovidio-parent-view').style.display = 'block';
-            else document.getElementById('ovidio-child-' + num + '-view').style.display = 'block';
-        }
-
-        // Teresa Solé
         function showTeresaChild(num) {
             document.getElementById('teresa-parent-view').style.display = 'none';
             for (let i = 1; i <= 5; i++) document.getElementById('teresa-child-' + i + '-view').style.display = 'none';
@@ -1439,7 +1396,6 @@
             else document.getElementById('teresa-child-' + num + '-view').style.display = 'block';
         }
 
-        // Francisco Solé
         function showFranciscoChild(num) {
             document.getElementById('francisco-parent-view').style.display = 'none';
             document.getElementById('francisco-child-1-view').style.display = 'none';
@@ -1448,7 +1404,6 @@
             else document.getElementById('francisco-child-' + num + '-view').style.display = 'block';
         }
 
-        // Ramona Solé
         function showRamonaFamily() {
             document.getElementById('ramona-parent-view').style.display = 'none';
             document.getElementById('ramona-family-view').style.display = 'block';
@@ -1466,10 +1421,7 @@
                     [90, 180]
                 ] });
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
-
-            var markers;
-            var bounds = L.latLngBounds();
-
+            var markers, bounds = L.latLngBounds();
             if (familyType === 'scappini') {
                 markers = [
                     { lat: 45.0458, lng: 10.3100, name: 'San Martino Del Lago, Italia' },
@@ -1490,36 +1442,25 @@
                     { lat: -25.3464, lng: -57.6096, name: 'Lambaré, Paraguay' }
                 ];
             }
-
-            markers.forEach(function(marker) {
-                L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(marker.name);
-                bounds.extend([marker.lat, marker.lng]);
-            });
-
+            markers.forEach(function(marker) { L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(marker.name);
+                bounds.extend([marker.lat, marker.lng]); });
             map.fitBounds(bounds, { padding: [50, 50] });
             window[varName] = map;
-
             setTimeout(() => map.invalidateSize(), 500);
         }
 
         window.addEventListener('resize', function() {
-            if (window.mapScappini) {
-                setTimeout(() => window.mapScappini.invalidateSize(), 300);
-            }
-            if (window.mapSole) {
-                setTimeout(() => window.mapSole.invalidateSize(), 300);
-            }
+            if (window.mapScappini) setTimeout(() => window.mapScappini.invalidateSize(), 300);
+            if (window.mapSole) setTimeout(() => window.mapSole.invalidateSize(), 300);
         });
 
         // ===== LIGHTBOX =====
         function openLightbox(element) {
             var imgSrc = element.querySelector('img').src;
             var captionText = element.querySelector('.doc-caption').innerText;
-
             var modal = document.getElementById('lightbox-modal');
             var modalImg = document.getElementById('lightbox-img');
             var modalCaption = document.getElementById('lightbox-caption');
-
             modal.style.display = "block";
             modalImg.src = imgSrc;
             modalCaption.innerText = captionText;
@@ -1530,12 +1471,7 @@
             document.getElementById('lightbox-modal').style.display = "none";
             document.body.style.overflow = "auto";
         }
-
-        document.getElementById('lightbox-modal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeLightbox();
-            }
-        });
+        document.getElementById('lightbox-modal').addEventListener('click', function(event) { if (event.target === this) { closeLightbox(); } });
     </script>
 
 </body>
