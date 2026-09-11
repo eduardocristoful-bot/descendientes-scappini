@@ -1514,43 +1514,44 @@
                 document.body.style.overflow = "auto"; } }
 
         // ===== NAVEGACIÓN INTERNA =====
+        function showFamilyChild(prefix, num) {
+            const parentView = document.getElementById(prefix + '-parent-view');
+            if (!parentView) return;
+
+            document.querySelectorAll('[id^="' + prefix + '-child-"][id$="-view"]').forEach(function(view) {
+                view.style.display = 'none';
+            });
+
+            if (num === 0) {
+                parentView.style.display = 'block';
+                return;
+            }
+
+            const targetView = document.getElementById(prefix + '-child-' + num + '-view');
+            if (!targetView) return;
+
+            parentView.style.display = 'none';
+            targetView.style.display = 'block';
+        }
+
         function showPabloChild(num) {
-            document.getElementById('pablo-parent-view').style.display = 'none';
-            document.getElementById('pablo-child-1-view').style.display = 'none';
-            if (num === 0) document.getElementById('pablo-parent-view').style.display = 'block';
-            else document.getElementById('pablo-child-' + num + '-view').style.display = 'block';
+            showFamilyChild('pablo', num);
         }
 
         function showJuanChild(num) {
-            document.getElementById('juan-parent-view').style.display = 'none';
-            for (let i = 1; i <= 2; i++) document.getElementById('juan-child-' + i + '-view').style.display = 'none';
-            if (num === 0) document.getElementById('juan-parent-view').style.display = 'block';
-            else document.getElementById('juan-child-' + num + '-view').style.display = 'block';
+            showFamilyChild('juan', num);
         }
 
         function showChild(num) {
-            document.getElementById('marcelo-parent-view').style.display = 'none';
-            for (let i = 1; i <= 7; i++) document.getElementById('marcelo-child-' + i + '-view').style.display = 'none';
-            if (num === 0) document.getElementById('marcelo-parent-view').style.display = 'block';
-            else document.getElementById('marcelo-child-' + num + '-view').style.display = 'block';
+            showFamilyChild('marcelo', num);
         }
 
         function showTeresaChild(num) {
-            const parentView = document.getElementById('teresa-parent-view');
-            const childView = document.getElementById('teresa-child-1-view');
-            if (!parentView || !childView) return;
-
-            parentView.style.display = (num === 0) ? 'block' : 'none';
-            childView.style.display = (num === 1) ? 'block' : 'none';
+            showFamilyChild('teresa', num);
         }
 
         function showFranciscoChild(num) {
-            const parentView = document.getElementById('francisco-parent-view');
-            const childView = document.getElementById('francisco-child-1-view');
-            if (!parentView || !childView) return;
-
-            parentView.style.display = (num === 0) ? 'block' : 'none';
-            childView.style.display = (num === 1) ? 'block' : 'none';
+            showFamilyChild('francisco', num);
         }
 
         function showRamonaFamily() {
