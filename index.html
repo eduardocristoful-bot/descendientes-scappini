@@ -1536,18 +1536,21 @@
         }
 
         function showTeresaChild(num) {
-            document.getElementById('teresa-parent-view').style.display = 'none';
-            for (let i = 1; i <= 5; i++) document.getElementById('teresa-child-' + i + '-view').style.display = 'none';
-            if (num === 0) document.getElementById('teresa-parent-view').style.display = 'block';
-            else document.getElementById('teresa-child-' + num + '-view').style.display = 'block';
+            const parentView = document.getElementById('teresa-parent-view');
+            const childView = document.getElementById('teresa-child-1-view');
+            if (!parentView || !childView) return;
+
+            parentView.style.display = (num === 0) ? 'block' : 'none';
+            childView.style.display = (num === 1) ? 'block' : 'none';
         }
 
         function showFranciscoChild(num) {
-            document.getElementById('francisco-parent-view').style.display = 'none';
-            document.getElementById('francisco-child-1-view').style.display = 'none';
-            document.getElementById('francisco-child-2-view').style.display = 'none';
-            if (num === 0) document.getElementById('francisco-parent-view').style.display = 'block';
-            else document.getElementById('francisco-child-' + num + '-view').style.display = 'block';
+            const parentView = document.getElementById('francisco-parent-view');
+            const childView = document.getElementById('francisco-child-1-view');
+            if (!parentView || !childView) return;
+
+            parentView.style.display = (num === 0) ? 'block' : 'none';
+            childView.style.display = (num === 1) ? 'block' : 'none';
         }
 
         function showRamonaFamily() {
