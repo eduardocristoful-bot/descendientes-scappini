@@ -928,6 +928,7 @@
                 <div class="timeline-item"><div class="date">14 de marzo de 1925</div><div class="event">Matrimonio de <strong>Teresa Solé y Almenara</strong> y <strong>Juan Cristóful Ricart</strong> en Asunción, Paraguay.</div></div>
                 <div class="timeline-item"><div class="date">29 de noviembre de 1945</div><div class="event">Nacimiento de <strong>Paquita Solé Camarasa</strong>, hija de Ramona Solé y Almenara y Baldomero Camarasa.</div></div>
                 <div class="timeline-item"><div class="date">17 de diciembre de 1965</div><div class="event">Matrimonio de <strong>Jaime Cristóful Solé</strong> y <strong>Daily Teresa Josefina Scappini Baez</strong>.</div></div>
+                <div class="timeline-item"><div class="date">28 de diciembre de 1967</div><div class="event">Fallecimiento de <strong>Francisco Solé y Almenara</strong> en Paraguay, a consecuencia de un infarto.</div></div>
                 <div class="timeline-item"><div class="date">2024</div><div class="event">Reencuentro de las ramas española y paraguaya: <strong>Christian Eduardo Cristóful Scappini</strong> viaja con su familia a Huesca y conoce personalmente a <strong>Paquita</strong>, con quien mantenía contacto diario desde 2020.</div></div>
                 <div class="timeline-item"><div class="date">10 de septiembre de 2026</div><div class="event">Fallecimiento de <strong>Paquita Solé Camarasa</strong>, a los 80 años.</div></div>
             </div>
@@ -950,6 +951,7 @@
                     <ul>
                         <li>Apicultor en Lambaré (Paraguay).</li>
                         <li>Dueño de la marca "El Colmenar".</li>
+                        <li>Falleció el <strong>28 de diciembre de 1967</strong>.</li>
                     </ul>
                 </div>
                 <div class="card" onclick="openModal('modal-ramona-sole')">
@@ -1288,18 +1290,51 @@
     <div id="submodal-mercedes" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-mercedes')">&times;</span><img src="images/mercedes-cristoful-sole.jpg"><h3>Mercedes Cristóful Solé</h3><p>1928 - 2017 · Casada con Sebastián Galeano, sin hijos</p><div class="back-btn" onclick="closeModal('submodal-mercedes')">Cerrar</div></div></div>
     <div id="submodal-maria" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-maria')">&times;</span><img src="images/maria-cristoful-sole.jpg"><h3>María Cristóful Solé</h3><p>1931 - 2012 · Soltera sin hijos</p><div class="back-btn" onclick="closeModal('submodal-maria')">Cerrar</div></div></div>
     <div id="submodal-juanita" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-juanita')">&times;</span><img src="images/juanita-cristoful-sole.jpg"><h3>Juanita Cristóful Solé</h3><p>1934 - 2015 · Soltera sin hijos</p><div class="back-btn" onclick="closeModal('submodal-juanita')">Cerrar</div></div></div>
-    <div id="submodal-jaime-cristoful" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-jaime-cristoful')">&times;</span><img src="images/jaime-cristoful.png"><h3>Jaime Cristóful Solé</h3><p>1936 - 2020 · Casado con Daily Scappini Baez (1965) · 3 hijos</p><div class="back-btn" onclick="closeModal('submodal-jaime-cristoful')">Cerrar</div></div></div>
+    <div id="submodal-jaime-cristoful" class="modal" style="z-index:1100;">
+        <div class="modal-content" style="max-width:950px;">
+            <span class="close-btn" onclick="closeModal('submodal-jaime-cristoful')">&times;</span>
+            <div class="foto-doble"><img src="images/jaime-cristoful.png" onerror="this.style.display='none'"></div>
+            <h3>Jaime Cristóful Solé</h3>
+            <p>1936 - 2020 · Casado con <strong>Daily Teresa Scappini Baez</strong> en 1965 · 3 hijos</p>
+            <div class="family-tree">
+                <div class="generation-row">
+                    <div class="generation-title">Hijos</div>
+                    <div class="gen-cards">
+                        <div class="card" onclick="openSubModal('submodal-christian-cristoful')"><h4>Christian Eduardo Cristóful Scappini</h4><p>Casado con Blanca Cantero Silgueira</p></div>
+                        <div class="card" onclick="openSubModal('submodal-juan-jaime-cristoful')"><h4>Juan Jaime Cristóful Scappini</h4><p>Casado con Estela Sosa</p></div>
+                        <div class="card" onclick="openSubModal('submodal-ana-cristoful')"><h4>Ana Cristóful</h4><p>Hija de Jaime y Daily</p></div>
+                    </div>
+                </div>
+                <div class="generation-row">
+                    <div class="generation-title">Nietos</div>
+                    <div class="gen-cards">
+                        <div class="card"><h4>Clara Sofía Cristóful Cantero</h4><p>Hija de Christian y Blanca</p></div>
+                        <div class="card"><h4>Max Alexander Cristóful Cantero</h4><p>Hijo de Christian y Blanca</p></div>
+                        <div class="card"><h4>Jaime Rubén Cristóful Sosa</h4><p>Hijo de Juan Jaime y Estela</p></div>
+                        <div class="card"><h4>Paula Stefi Cristóful Sosa</h4><p>Hija de Juan Jaime y Estela</p></div>
+                        <div class="card"><h4>Jazmín Cristóful Sosa</h4><p>Hija de Juan Jaime y Estela</p></div>
+                        <div class="card"><h4>Carlos Ignacio Cristóful Scappini</h4><p>Hijo de Ana</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="back-btn" onclick="closeModal('submodal-jaime-cristoful')">Cerrar</div>
+        </div>
+    </div>
+    <div id="submodal-christian-cristoful" class="modal" style="z-index:1200;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-christian-cristoful')">&times;</span><h3>Christian Eduardo Cristóful Scappini</h3><p>Casado con <strong>Blanca Cantero Silgueira</strong>.</p><p><strong>Hijos:</strong> Clara Sofía Cristóful Cantero y Max Alexander Cristóful Cantero.</p><div class="back-btn" onclick="closeModal('submodal-christian-cristoful')">Cerrar</div></div></div>
+    <div id="submodal-juan-jaime-cristoful" class="modal" style="z-index:1200;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-juan-jaime-cristoful')">&times;</span><h3>Juan Jaime Cristóful Scappini</h3><p>Casado con <strong>Estela Sosa</strong>.</p><p><strong>Hijos:</strong> Jaime Rubén, Paula Stefi y Jazmín Cristóful Sosa.</p><div class="back-btn" onclick="closeModal('submodal-juan-jaime-cristoful')">Cerrar</div></div></div>
+    <div id="submodal-ana-cristoful" class="modal" style="z-index:1200;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-ana-cristoful')">&times;</span><h3>Ana Cristóful</h3><p>Hija de Jaime Cristóful Solé y Daily Teresa Scappini Baez.</p><p><strong>Hijo:</strong> Carlos Ignacio Cristóful Scappini.</p><div class="back-btn" onclick="closeModal('submodal-ana-cristoful')">Cerrar</div></div></div>
 
     <!-- ===== MODAL FRANCISCO SOLÉ ===== -->
     <div id="modal-francisco-sole" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width:950px;">
             <span class="close-btn" onclick="closeModal('modal-francisco-sole')">&times;</span>
             <div id="francisco-parent-view">
-                <div class="foto-doble"><img src="images/francisco-sole.png"></div>
+                <div class="foto-doble"><img src="images/francisco-sole.png" onerror="this.style.display='none'"></div>
                 <h3>Francisco Solé y Almenara</h3>
-                <p>Segundo hijo de Vicente Solé y Josefa Almenara</p>
-                <p>Apicultor, dueño de "El Colmenar" en Lambaré</p>
-                <p><strong>1er matrimonio:</strong> (viudo) · <strong>2do:</strong> Josefa Falcón</p>
+                <p>Segundo hijo de Vicente Solé Cases y Josefa Almenara Molló</p>
+                <p>Apicultor y dueño de <strong>“El Colmenar”</strong> en Lambaré, Paraguay.</p>
+                <p><strong>Fallecimiento:</strong> 28 de diciembre de 1967 · infarto.</p>
+                <p><strong>1er matrimonio:</strong> quedó viudo · <strong>2do matrimonio:</strong> Josefa Falcón.</p>
                 <div class="child-grid">
                     <div class="child-btn" onclick="showFranciscoChild(1)">Ver descendientes</div>
                 </div>
@@ -1309,17 +1344,40 @@
                 <h3>Descendientes de Francisco Solé y Almenara</h3>
                 <div class="family-tree">
                     <div class="generation-row">
-                        <div class="generation-title">1° Generación</div>
+                        <div class="generation-title">Hijos del primer matrimonio</div>
                         <div class="gen-cards">
-                            <div class="card"><h4>Francisco Solé y Almenara</h4></div>
-                            <div class="card"><h4>Josefa Falcón</h4><p>2da esposa</p></div>
+                            <div class="card"><h4>Josefa “Pepa” Solé Mencía</h4></div>
+                            <div class="card"><h4>Antonio Solé</h4></div>
+                            <div class="card"><h4>Manuel Francisco “Manolo” Solé</h4></div>
+                            <div class="card"><h4>Teresa Manuela Solé</h4></div>
+                            <div class="card"><h4>Pabla Lucía Solé</h4></div>
                         </div>
                     </div>
                     <div class="generation-row">
-                        <div class="generation-title">2° Generación (Hijos)</div>
+                        <div class="generation-title">Hijos con Josefa Falcón</div>
                         <div class="gen-cards">
-                            <div class="card" onclick="openSubModal('submodal-francisco-hijos1')"><h4>Hijos 1er matrimonio</h4><p>Josefa, Pabla, Manuel, Francisco</p></div>
-                            <div class="card" onclick="openSubModal('submodal-francisco-hijos2')"><h4>Hijos 2do matrimonio</h4><p>Agustina, Josefa, Francisco, Blanca</p></div>
+                            <div class="card" onclick="openSubModal('submodal-agustina-aveiro')"><h4>Agustina Mercedes Solé Falcón</h4><p>Casada con Manuel Aveiro Chamorro</p></div>
+                            <div class="card"><h4>Josefa “Tula” Solé Falcón</h4></div>
+                            <div class="card"><h4>Francisco Ramón “Paco” Solé Falcón</h4></div>
+                            <div class="card"><h4>Blanca Rosa Solé Falcón</h4></div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">Nietos por Agustina Mercedes</div>
+                        <div class="gen-cards">
+                            <div class="card" onclick="openSubModal('submodal-ada-aveiro')"><h4>Ada Azucena Aveiro Solé</h4><p>Casada con Francisco Javier Talavera Toñanez</p></div>
+                            <div class="card" onclick="openSubModal('submodal-graciela-aveiro')"><h4>Graciela Aveiro Solé</h4><p>Casada con Jorge Pineda</p></div>
+                            <div class="card" onclick="openSubModal('submodal-victor-aveiro')"><h4>Víctor Manuel Aveiro Solé</h4><p>Casado con Lilia González</p></div>
+                        </div>
+                    </div>
+                    <div class="generation-row">
+                        <div class="generation-title">Bisnietos por la rama Aveiro Solé</div>
+                        <div class="gen-cards">
+                            <div class="card"><h4>Francisco Israel Talavera Aveiro</h4><p>Hijo de Ada</p></div>
+                            <div class="card"><h4>Ada Belén Talavera Aveiro</h4><p>Hija de Ada</p></div>
+                            <div class="card"><h4>Azucena Abigail Talavera Aveiro</h4><p>Hija de Ada</p></div>
+                            <div class="card"><h4>Tania Mariela Aveiro González</h4><p>Hija de Víctor Manuel</p></div>
+                            <div class="card"><h4>Rodrigo Manuel Aveiro González</h4><p>Hijo de Víctor Manuel</p></div>
                         </div>
                     </div>
                 </div>
@@ -1327,8 +1385,43 @@
             </div>
         </div>
     </div>
-    <div id="submodal-francisco-hijos1" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-francisco-hijos1')">&times;</span><h3>Hijos del primer matrimonio</h3><ul><li>Josefa (Pepa) Solé Mencía</li><li>Pabla Lucía Solé</li><li>Manuel Francisco (Manolo) Solé</li><li>Francisco Solé</li></ul><div class="back-btn" onclick="closeModal('submodal-francisco-hijos1')">Cerrar</div></div></div>
-    <div id="submodal-francisco-hijos2" class="modal" style="z-index:1100;"><div class="modal-content"><span class="close-btn" onclick="closeModal('submodal-francisco-hijos2')">&times;</span><h3>Hijos del segundo matrimonio (con Josefa Falcón)</h3><ul><li>Agustina Mercedes Solé Falcón</li><li>Josefa (Tula) Solé Falcón</li><li>Francisco Ramón (Paco) Solé Falcón</li><li>Blanca Rosa Solé Falcón</li></ul><div class="back-btn" onclick="closeModal('submodal-francisco-hijos2')">Cerrar</div></div></div>
+
+    <div id="submodal-agustina-aveiro" class="modal" style="z-index:1100;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('submodal-agustina-aveiro')">&times;</span>
+            <h3>Agustina Mercedes Solé Falcón</h3>
+            <p>Casada con <strong>Manuel Aveiro Chamorro</strong>.</p>
+            <p><strong>Hijos:</strong> Ada Azucena, Graciela y Víctor Manuel Aveiro Solé.</p>
+            <div class="back-btn" onclick="closeModal('submodal-agustina-aveiro')">Cerrar</div>
+        </div>
+    </div>
+    <div id="submodal-ada-aveiro" class="modal" style="z-index:1100;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('submodal-ada-aveiro')">&times;</span>
+            <h3>Ada Azucena Aveiro Solé</h3>
+            <p>Casada con <strong>Francisco Javier Talavera Toñanez</strong>.</p>
+            <p><strong>Hijos:</strong> Francisco Israel, Ada Belén y Azucena Abigail Talavera Aveiro.</p>
+            <div class="back-btn" onclick="closeModal('submodal-ada-aveiro')">Cerrar</div>
+        </div>
+    </div>
+    <div id="submodal-graciela-aveiro" class="modal" style="z-index:1100;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('submodal-graciela-aveiro')">&times;</span>
+            <h3>Graciela Aveiro Solé</h3>
+            <p>Casada con <strong>Jorge Pineda</strong>.</p>
+            <p>Según información familiar pendiente de confirmación, tuvieron <strong>dos hijas</strong>. Sus nombres aún no han sido incorporados.</p>
+            <div class="back-btn" onclick="closeModal('submodal-graciela-aveiro')">Cerrar</div>
+        </div>
+    </div>
+    <div id="submodal-victor-aveiro" class="modal" style="z-index:1100;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('submodal-victor-aveiro')">&times;</span>
+            <h3>Víctor Manuel Aveiro Solé</h3>
+            <p>Casado con <strong>Lilia González</strong>.</p>
+            <p><strong>Hijos:</strong> Tania Mariela y Rodrigo Manuel Aveiro González.</p>
+            <div class="back-btn" onclick="closeModal('submodal-victor-aveiro')">Cerrar</div>
+        </div>
+    </div>
 
     <!-- ===== MODAL RAMONA SOLÉ ===== -->
     <div id="modal-ramona-sole" class="modal">
@@ -1501,14 +1594,29 @@
         }
 
         // ===== MODALES PRINCIPALES =====
-        function openModal(id) { document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden"; }
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
 
-        function closeModal(id) { document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto"; }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = "none";
+            const anyOpenModal = Array.from(document.querySelectorAll('.modal')).some(function(item) {
+                return item.style.display === 'block';
+            });
+            document.body.style.overflow = anyOpenModal ? "hidden" : "auto";
+        }
 
-        function openSubModal(id) { document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden"; }
+        function openSubModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
 
         window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none";
                 document.body.style.overflow = "auto"; } }
